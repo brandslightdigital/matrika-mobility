@@ -118,11 +118,10 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:border-[#ffb900] focus:ring-2 focus:ring-[#ffb900]/50 transition-all"
                   >
                     <option value="">Select a service</option>
-                    <option value="car-rental">Luxury Car Rental</option>
-                    <option value="corporate">Corporate Transportation</option>
-                    <option value="airport">Airport Transfer</option>
-                    <option value="wedding">Wedding Services</option>
-                    <option value="events">Special Events</option>
+                    <option value="car-rental">Corporate Services 200+ Cities</option>
+                    <option value="corporate">Airport Transportation</option>
+                    <option value="airport">Outstation Services</option>
+                    <option value="wedding">Citites Drive</option>
                   </select>
                 </div>
                 
@@ -171,7 +170,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-1">Phone Support</h3>
-                    <p className="text-lg text-amber-400 font-medium mb-2">+1 (555) 123-4567</p>
+                    <p className="text-lg text-amber-400 font-medium mb-2">+91 7011438890</p>
                     <p className="text-gray-400">24/7 emergency support available</p>
                   </div>
                 </div>
@@ -183,9 +182,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-1">Email Us</h3>
-                    <p className="text-lg text-amber-400 font-medium mb-1">info@matrikamobility.com</p>
-                    <p className="text-lg text-amber-400 font-medium mb-2">bookings@matrikamobility.com</p>
-                    <p className="text-gray-400">Typically respond within 1 business day</p>
+                    <p className="text-lg text-amber-400 font-medium mb-2"> Bookings@matrikamobilities.com</p>
                   </div>
                 </div>
 
@@ -196,45 +193,22 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-1">Corporate Office</h3>
-                    <p className="text-lg text-amber-400 font-medium mb-1">123 Mobility Avenue</p>
-                    <p className="text-gray-400 mb-1">Delhi, India 10001</p>
-                    <p className="text-gray-400">United States</p>
+                    <p className="text-lg text-amber-400 font-medium mb-1">F 61, Jwahar Park, Khanpur Deoli Road</p>
+                    <p className="text-gray-400 mb-1">New Delhi, India 110062.</p>
                   </div>
                 </div>
 
-                {/* Hours */}
-                <div className="flex items-start">
-                  <div className="bg-[#ffb900] p-3 rounded-lg mr-4 flex-shrink-0">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Business Hours</h3>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 flex justify-between">
-                        <span>Monday - Friday</span>
-                        <span className="text-white font-medium">6:00 AM - 10:00 PM</span>
-                      </p>
-                      <p className="text-gray-400 flex justify-between">
-                        <span>Saturday - Sunday</span>
-                        <span className="text-white font-medium">8:00 AM - 8:00 PM</span>
-                      </p>
-                      <p className="text-amber-400 font-medium">
-                        Emergency services available 24/7
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
-                <div className="text-3xl font-bold text-[#ffb900] mb-1">10K+</div>
+                <div className="text-3xl font-bold text-[#ffb900] mb-1">200+</div>
                 <div className="text-gray-400 text-sm">Satisfied Clients</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
-                <div className="text-3xl font-bold text-[#ffb900] mb-1">50+</div>
+                <div className="text-3xl font-bold text-[#ffb900] mb-1">20+</div>
                 <div className="text-gray-400 text-sm">Premium Vehicles</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
@@ -242,7 +216,7 @@ export default function ContactPage() {
                 <div className="text-gray-400 text-sm">Support</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
-                <div className="text-3xl font-bold text-[#ffb900] mb-1">15+</div>
+                <div className="text-3xl font-bold text-[#ffb900] mb-1">20+</div>
                 <div className="text-gray-400 text-sm">Years Experience</div>
               </div>
             </div>

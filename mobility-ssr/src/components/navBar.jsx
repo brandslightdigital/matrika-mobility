@@ -94,12 +94,12 @@ const Navbar = () => {
             <div className="hidden xl:flex items-center space-x-4 text-sm text-gray-400">
               <div className="flex items-center space-x-1">
                 <FaPhone className="text-amber-400" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 7011438890</span>
               </div>
-              <div className="flex items-center space-x-1">
+              {/* <div className="flex items-center space-x-1">
                 <FaMapMarkerAlt className="text-amber-400" />
-                <span>Delhi, India</span>
-              </div>
+                <span> F 61, Jwahar Park, Khanpu,r Deoli Road, New Delhi 110062.</span>
+              </div> */}
             </div>
 
       <button
