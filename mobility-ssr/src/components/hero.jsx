@@ -5,26 +5,26 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-     const { setShowPopup } = usePopup();
-  
+  const { setShowPopup } = usePopup();
+
   const slides = [
     {
       title: "Corporate & Personal",
       subtitle: "Car Rentals",
       description: "Premium fleet for business meetings, airport transfers, and family adventures",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+      image: "/banner/banner1.jpeg"
     },
     {
       title: "Luxury Fleet",
       subtitle: "Premium Experience",
       description: "Drive in style with our collection of luxury sedans, SUVs, and sports cars",
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      image: "/banner/banner2.jpeg"
     },
     {
       title: "24/7 Service",
       subtitle: "Always Available",
       description: "Round-the-clock support with instant booking and emergency assistance",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      image: "/banner/banner3.jpeg"
     }
   ];
 
@@ -41,7 +41,7 @@ export default function Hero() {
     { icon: FaStar, number: "4.9", label: "Rating" },
     { icon: FaCalendarAlt, number: "24/7", label: "Support" }
   ];
-     const handleBookNowClick = () => {
+  const handleBookNowClick = () => {
     setShowPopup(true);
     setOpen(false); // Close mobile menu if open
   };
@@ -53,9 +53,8 @@ export default function Hero() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-40' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-40' : 'opacity-0'
+              }`}
           >
             <img
               src={slide.image}
@@ -117,14 +116,14 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <button 
-              onClick={handleBookNowClick}
-              className="group bg-gradient-to-r from-amber-400 to-amber-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-amber-500 hover:to-amber-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 flex items-center justify-center space-x-2">
+              <button
+                onClick={handleBookNowClick}
+                className="group bg-gradient-to-r from-amber-400 to-amber-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-amber-500 hover:to-amber-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 flex items-center justify-center space-x-2">
                 <FaCar className="group-hover:animate-bounce" />
                 <span>Book a Ride</span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
-              
+
               <Link to="/our-fleet" className="group border-2 border-white/30 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 backdrop-blur-sm flex items-center justify-center space-x-2">
                 <FaPlay className="group-hover:animate-pulse" />
                 <span>View Fleet</span>
@@ -142,11 +141,10 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-amber-400 w-8' 
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-amber-400 w-8'
                 : 'bg-white/30 hover:bg-white/50'
-            }`}
+              }`}
           />
         ))}
       </div>

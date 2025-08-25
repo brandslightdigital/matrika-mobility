@@ -17,21 +17,21 @@ import TermsConditionsPage from './pages/Terms&Condition';
 export default function App() {
   return (
     <>
-    <PopupProvider>
-      <ScrollToTop/>
-    <Navbar/>
-    <PopupForm/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about-us" element={<AboutPage/>}/>
-      <Route path="/contact-us" element={<ContactPage/>}/>
-      <Route path="/our-fleet" element={<FleetPage/>}/>
-      <Route path= "/corporate" element={<CorporatePage/>}/>
-      <Route path="/privacy-policies" element={<PrivacyTermsPage/>}/>
-      <Route path="/term-condition" element={<TermsConditionsPage/>}/>
-    </Routes>
-    <Footer/>
-    </PopupProvider>
+      <PopupProvider>
+        <ScrollToTop />
+        <Navbar />
+        {/* <PopupForm /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutPage />} />
+          <Route path="/contact-us" element={<ContactPage />} />
+          <Route path="/our-fleet" element={<FleetPage />} />
+          <Route path="/corporate" element={<CorporatePage />} />
+          <Route path="/privacy-policies" element={<PrivacyTermsPage />} />
+          <Route path="/term-condition" element={<TermsConditionsPage />} />
+        </Routes>
+        <Footer />
+      </PopupProvider>
     </>
   );
 }

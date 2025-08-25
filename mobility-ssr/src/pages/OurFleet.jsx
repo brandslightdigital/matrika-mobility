@@ -1,334 +1,257 @@
-import React, { useState } from 'react';
-import { Car, Fuel, Gauge, Users, Settings, Calendar, Star, ShieldCheck } from 'lucide-react';
+import React, { useMemo, useState, useEffect } from "react";
+import { Car, Search, Sparkles } from "lucide-react";
+import BookingDialog from "../components/BookingCar";
 
-const fleetData = [
+// -----------------------------------------------------------------------------
+// FLEET PAGE — POLISHED, ATTRACTIVE, AND CLEAR (JS ONLY, NO PRICES)
+// - Clean hero with subtle gradient and icon accents
+// - Sticky search + quick filters
+// - Robust search (tokenized, matches title/variant/specs/description)
+// - Nicer cards with better hierarchy and hover motion
+// - Reusable BookingDialog (external component you already have)
+// - Image safety: spaces encoded, onError fallback
+// -----------------------------------------------------------------------------
+
+const safeSrc = (src) => (typeof src === "string" ? src.split(" ").join("%20") : src);
+const FALLBACK = "/cars/placeholder.jpg"; // add a simple placeholder image in your public/cars
+
+const categoriesData = [
   {
-    id: 1,
-    category: 'Executive Sedans',
-    model: 'Mercedes-Benz S-Class',
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8',
-    price: '$199/day',
-    specs: {
-      seats: 4,
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      mileage: 'Unlimited',
-      year: 2023
-    },
-    features: [
-      'Leather seats',
-      'Premium sound system',
-      'Climate control',
-      'WiFi hotspot',
-      'Chauffeur available'
+    key: "e-class",
+    title: "Mercedes-Benz E-Class",
+    brand: "Mercedes",
+    image: "/cars/Eclass.jpg",
+    description: "Executive sedan. All E-Class variants available.",
+    variants: [
+      { id: "e200", name: "E-Class E 200", tag: "Base", specs: "1999 cc • AT • Petrol • 15 kmpl", image: "/cars/E-200.avif" },
+      { id: "e220d", name: "E-Class E 220d", specs: "1993 cc • AT • Diesel • 15 kmpl", image: "/cars/E-220d.jpg" },
+      { id: "e450", name: "E-Class E 450", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/E-450.jpg" },
     ],
-    rating: 4.9
   },
   {
-    id: 2,
-    category: 'Luxury SUVs',
-    model: 'Range Rover Autobiography',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70',
-    price: '$249/day',
-    specs: {
-      seats: 5,
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      mileage: 'Unlimited',
-      year: 2023
-    },
-    features: [
-      'Four-zone climate',
-      'Massage seats',
-      'Off-road capability',
-      'Heated steering wheel',
-      'Privacy package'
+    key: "s-class",
+    title: "Mercedes-Benz S-Class",
+    brand: "Mercedes",
+    image: "/cars/mercedes.avif",
+    description: "Flagship luxury. All S-Class variants available.",
+    variants: [
+      { id: "s350d", name: "S-Class S 350d", tag: "Base", specs: "2925 cc • AT • Diesel • 18 kmpl", image: "/cars/S-350.jpg" },
+      { id: "s450", name: "S-Class S450 4Matic", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/S450.jpg" },
     ],
-    rating: 4.8
   },
   {
-    id: 3,
-    category: 'Sports Cars',
-    model: 'Porsche 911 Carrera',
-    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e',
-    price: '$399/day',
-    specs: {
-      seats: 2,
-      transmission: 'PDK Automatic',
-      fuel: 'Premium',
-      mileage: '200 mi/day',
-      year: 2023
-    },
-    features: [
-      'Sports exhaust',
-      'Active suspension',
-      'Carbon fiber trim',
-      'Track mode',
-      'Premium package'
+    key: "bmw-7",
+    title: "BMW 7 Series",
+    brand: "BMW",
+    image: "/cars/7i.webp",
+    description: "Full-size luxury with lounge-like rear seats.",
+    variants: [
+      { id: "740i-msport", name: "BMW 740i M Sport", specs: "2998 cc • AT • Petrol • 8 kmpl", image: "/cars/740i Sport.webp" },
+      { id: "740d-msport", name: "BMW 740d M Sport", specs: "2993 cc • AT • Diesel • 12.1 kmpl", image: "/cars/740d.cms" },
     ],
-    rating: 4.9
   },
   {
-    id: 4,
-    category: 'Luxury Vans',
-    model: 'Mercedes-Benz V-Class',
-    image: 'https://images.unsplash.com/photo-1622411542984-5b6b6b0a0f1d',
-    price: '$229/day',
-    specs: {
-      seats: 7,
-      transmission: 'Automatic',
-      fuel: 'Diesel',
-      mileage: 'Unlimited',
-      year: 2023
-    },
-    features: [
-      'Executive lounge seats',
-      'Dual sliding doors',
-      'Ambient lighting',
-      'Entertainment system',
-      'Privacy curtains'
+    key: "bmw-5",
+    title: "BMW 5 Series",
+    brand: "BMW",
+    image: "/cars/5s.avif",
+    description: "Business-class sedan with driver-focused ergonomics.",
+    variants: [
+      { id: "530li", name: "BMW 530Li", specs: "1998 cc • AT • Petrol • 10.9 kmpl", image: "/cars/530Li.avif" },
     ],
-    rating: 4.7
   },
-  {
-    id: 5,
-    category: 'Electric Vehicles',
-    model: 'Tesla Model S Plaid',
-    image: 'https://images.unsplash.com/photo-1622411542984-5b6b6b0a0f1d',
-    price: '$279/day',
-    specs: {
-      seats: 5,
-      transmission: 'Automatic',
-      fuel: 'Electric',
-      mileage: '300 mi/day',
-      year: 2023
-    },
-    features: [
-      '1020 hp',
-      '0-60 in 1.99s',
-      '390 mile range',
-      'Premium audio',
-      'Full self-driving'
-    ],
-    rating: 4.9
-  },
-  {
-    id: 6,
-    category: 'Limousines',
-    model: 'Lincoln Navigator L',
-    image: 'https://images.unsplash.com/photo-1592841200221-6534bd9f7976',
-    price: '$349/day',
-    specs: {
-      seats: 10,
-      transmission: 'Automatic',
-      fuel: 'Premium',
-      mileage: 'Unlimited',
-      year: 2023
-    },
-    features: [
-      'Extended wheelbase',
-      'Premium bar setup',
-      'Mood lighting',
-      'Privacy partition',
-      'Entertainment system'
-    ],
-    rating: 4.8
-  }
+  { key: "swift", title: "Maruti Suzuki Swift", brand: "Maruti", image: "/cars/swift.png", description: "All variants available.", note: "All variants available" },
+  { key: "swift-dzire", title: "Maruti Suzuki Swift Dzire", brand: "Maruti", image: "/cars/dezire.jpg", description: "All variants available.", note: "All variants available" },
+  { key: "crysta", title: "Toyota Crysta", brand: "Toyota", image: "/cars/innova.jpg", description: "Spacious MPV. All variants available.", note: "All variants available" },
+  { key: "hycross", title: "Innova Hycross", brand: "Toyota", image: "/cars/hycross.avif", description: "Hybrid comfort. All variants available.", note: "All variants available" },
+  { key: "fortuner", title: "Toyota Fortuner", brand: "Toyota", image: "/cars/Fortuner.avif", description: "High-seating SUV presence. All variants available.", note: "All variants available" },
 ];
 
+const BRANDS = ["All", "Mercedes", "BMW", "Toyota", "Maruti"];
+
 export default function FleetPage() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [sortBy, setSortBy] = useState('recommended');
+  const [brand, setBrand] = useState("All");
+  const [query, setQuery] = useState("");
+  const [debounced, setDebounced] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("");
 
-  const categories = ['All', 'Executive Sedans', 'Luxury SUVs', 'Sports Cars', 'Electric Vehicles', 'Limousines', 'Luxury Vans'];
+  useEffect(() => {
+    const t = setTimeout(() => setDebounced(query.trim().toLowerCase()), 200);
+    return () => clearTimeout(t);
+  }, [query]);
 
-  const filteredFleet = selectedCategory === 'All' 
-    ? fleetData 
-    : fleetData.filter(vehicle => vehicle.category === selectedCategory);
+  const list = useMemo(() => {
+    let base = brand === "All" ? categoriesData : categoriesData.filter((c) => c.brand === brand);
+    if (!debounced) return base;
 
-  const sortedFleet = [...filteredFleet].sort((a, b) => {
-    if (sortBy === 'price-low') return parseInt(a.price.slice(1)) - parseInt(b.price.slice(1));
-    if (sortBy === 'price-high') return parseInt(b.price.slice(1)) - parseInt(a.price.slice(1));
-    if (sortBy === 'rating') return b.rating - a.rating;
-    return 0; // recommended/default
-  });
+    const tokens = debounced.split(/\s+/).filter(Boolean);
+    const matchesTokens = (text) => tokens.every((tk) => text.includes(tk));
+
+    return base.filter((c) => {
+      const hay = [c.title, c.description].filter(Boolean).join(" ").toLowerCase();
+      const vHay = (c.variants || [])
+        .map((v) => [v.name, v.specs].filter(Boolean).join(" "))
+        .join(" ")
+        .toLowerCase();
+      return matchesTokens(hay) || matchesTokens(vHay);
+    });
+  }, [brand, debounced]);
+
+  const openFor = (modelName) => {
+    setSelectedModel(modelName || "Vehicle");
+    setDialogOpen(true);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-amber-500">Our</span> Premium Fleet
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Experience unmatched luxury with our meticulously maintained collection of premium vehicles
-          </p>
+    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_-10%,rgba(245,158,11,0.08),transparent_60%)]" />
+        <div className="max-w-7xl mx-auto px-4 pt-20 pb-10">
+          <div className="flex items-center justify-center gap-2 text-amber-400/90 text-sm mb-2">
+            <Car className="h-4 w-4" />
+            <span>Premium Fleet</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center">Mercedes E & S as categories, variants included</h1>
+          <p className="mt-3 text-center text-zinc-300 max-w-2xl mx-auto">Minimal clutter. Clean visuals. Search and quick filters that actually work.</p>
         </div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1480')] bg-cover bg-center"></div>
-        </div>
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+      {/* Sticky controls */}
+      <div className="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60 border-y border-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+          {/* Brand chips */}
           <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
+            {BRANDS.map((b) => (
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCategory === category
-                  ? 'bg-amber-500 text-black'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
+                key={b}
+                onClick={() => setBrand(b)}
+                className={
+                  "px-3 py-1.5 rounded-full text-sm border transition " +
+                  (brand === b
+                    ? "bg-amber-500 text-black border-amber-500"
+                    : "bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800")
+                }
               >
-                {category}
+                {b}
               </button>
             ))}
           </div>
-          
-          <div className="flex items-center gap-3">
-            <span className="text-gray-400">Sort by:</span>
-            <select 
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-gray-800 border border-gray-700 text-white rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
-            >
-              <option value="recommended">Recommended</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="rating">Customer Rating</option>
-            </select>
+
+          {/* Search */}
+          <div className="flex items-center gap-2 bg-zinc-900/70 border border-zinc-800 rounded-xl px-3 py-2 w-full md:w-96">
+            <Search className="h-4 w-4 text-zinc-500" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search variants, specs, models..."
+              className="flex-1 bg-transparent outline-none placeholder:text-zinc-500"
+            />
           </div>
-        </div>
-
-        {/* Fleet Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedFleet.map(vehicle => (
-            <div key={vehicle.id} className="bg-gray-800 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300">
-              <div className="relative">
-                <img 
-                  src={`${vehicle.image}?auto=format&fit=crop&w=600`} 
-                  alt={vehicle.model} 
-                  className="w-full h-56 object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full text-sm font-bold flex items-center">
-                  <Star className="h-4 w-4 mr-1" />
-                  {vehicle.rating}
-                </div>
-                <div className="absolute bottom-4 left-4 bg-black/70 px-3 py-1 rounded-lg">
-                  <span className="text-amber-500 font-bold">{vehicle.price}</span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold">{vehicle.model}</h3>
-                  <span className="text-amber-500 text-sm bg-amber-500/10 px-2 py-1 rounded">
-                    {vehicle.category}
-                  </span>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4 my-4 text-sm">
-                  <div className="flex items-center text-gray-400">
-                    <Users className="h-4 w-4 mr-2 text-amber-500" />
-                    {vehicle.specs.seats} seats
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <Settings className="h-4 w-4 mr-2 text-amber-500" />
-                    {vehicle.specs.transmission}
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <Fuel className="h-4 w-4 mr-2 text-amber-500" />
-                    {vehicle.specs.fuel}
-                  </div>
-                  <div className="flex items-center text-gray-400">
-                    <Gauge className="h-4 w-4 mr-2 text-amber-500" />
-                    {vehicle.specs.mileage}
-                  </div>
-                </div>
-                
-                <div className="border-t border-gray-700 pt-4 mt-4">
-                  <h4 className="text-sm font-semibold text-amber-500 mb-2">FEATURES</h4>
-                  <ul className="grid grid-cols-2 gap-2 text-sm text-gray-300">
-                    {vehicle.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <span className="text-amber-500 mr-1">•</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="mt-6 flex justify-between items-center">
-                  <button className="text-sm text-amber-500 hover:text-amber-400 font-medium flex items-center">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    Check availability
-                  </button>
-                  <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded-lg transition-all">
-                    Book now
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Why Choose Us */}
-        <div className="mt-20 bg-gray-800 rounded-xl shadow-xl p-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            <span className="text-amber-500">Why</span> Choose Our Fleet
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex items-start">
-              <div className="bg-amber-500/10 p-3 rounded-lg mr-4 flex-shrink-0">
-                <ShieldCheck className="h-6 w-6 text-amber-500" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Impeccable Maintenance</h3>
-                <p className="text-gray-400">
-                  Every vehicle undergoes rigorous 150-point inspections and regular detailing to ensure pristine condition.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-amber-500/10 p-3 rounded-lg mr-4 flex-shrink-0">
-                <Star className="h-6 w-6 text-amber-500" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Latest Models</h3>
-                <p className="text-gray-400">
-                  Our fleet is refreshed annually with the newest luxury models featuring cutting-edge technology.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-amber-500/10 p-3 rounded-lg mr-4 flex-shrink-0">
-                <Users className="h-6 w-6 text-amber-500" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Personalized Service</h3>
-                <p className="text-gray-400">
-                  Dedicated account managers and 24/7 support ensure a seamless rental experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-4">Can't find what you're looking for?</h3>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Our concierge service can source any luxury vehicle to meet your specific requirements.
-          </p>
-          <button className="bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold py-3 px-8 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-amber-500/20">
-            Contact Our Specialists
-          </button>
         </div>
       </div>
+
+      {/* Grid */}
+      <section className="max-w-7xl mx-auto px-4 py-10">
+        {list.length === 0 ? (
+          <div className="text-center py-24 text-zinc-400">
+            <Sparkles className="h-8 w-8 mx-auto mb-3" />
+            No results. Try clearing filters or searching a simpler term.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {list.map((cat) => (
+              <article
+                key={cat.key}
+                className="group bg-gradient-to-b from-zinc-900/80 to-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden shadow-xl shadow-black/20 hover:shadow-amber-500/10 transition-all"
+              >
+                <div className="relative">
+                  <img
+                    src={safeSrc(cat.image)}
+                    onError={(e) => (e.currentTarget.src = FALLBACK)}
+                    alt={cat.title}
+                    className="h-56 w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 text-sm text-zinc-200/80">
+                    <span className="inline-block px-2 py-1 rounded-md bg-zinc-950/60 border border-zinc-800">{cat.brand}</span>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-semibold tracking-tight">{cat.title}</h3>
+                      <p className="mt-1 text-sm text-zinc-300">{cat.description}</p>
+                    </div>
+                    <button
+                      onClick={() => openFor(cat.title)}
+                      className="shrink-0 inline-flex items-center justify-center rounded-xl bg-amber-500 text-black font-semibold px-4 py-2 hover:bg-amber-600 active:translate-y-px transition"
+                    >
+                      Book now
+                    </button>
+                  </div>
+
+                  {/* Variants */}
+                  {Array.isArray(cat.variants) && cat.variants.length > 0 && (
+                    <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {cat.variants.map((v) => (
+                        <li key={v.id} className="border border-zinc-800 rounded-xl p-4 bg-zinc-950/50 hover:border-amber-500/40 transition">
+                          <div className="flex gap-3">
+                            <img
+                              src={safeSrc(v.image)}
+                              onError={(e) => (e.currentTarget.src = FALLBACK)}
+                              alt={v.name}
+                              className="h-16 w-24 object-cover rounded-lg"
+                              loading="lazy"
+                            />
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2">
+                                <h4 className="font-semibold leading-tight">{v.name}</h4>
+                                {/* {v.tag ? (
+                                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                    {v.tag}
+                                  </span>
+                                ) : null} */}
+                              </div>
+                              {v.specs ? <p className="text-xs text-zinc-400 mt-1">{v.specs}</p> : null}
+                              <div className="mt-3">
+                                <button
+                                  onClick={() => openFor(v.name)}
+                                  className="text-sm inline-flex items-center justify-center rounded-lg bg-amber-500 text-black font-medium px-3 py-1.5 hover:bg-amber-600 active:translate-y-px"
+                                >
+                                  Book now
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {!cat.variants && cat.note ? (
+                    <p className="mt-4 text-sm text-zinc-300">{cat.note}</p>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Booking dialog (external) */}
+      <BookingDialog
+        open={dialogOpen}
+        model={selectedModel}
+        onOpenChange={setDialogOpen}
+        onSubmit={(payload) => {
+          console.log("Booking payload", payload);
+          setDialogOpen(false);
+        }}
+      />
     </div>
   );
 }
