@@ -12,6 +12,8 @@ import CorporatePage from './pages/Corporate';
 import ScrollToTop from './components/ScrolltoTop';
 import PrivacyTermsPage from './pages/PrivacyPolicies';
 import TermsConditionsPage from './pages/Terms&Condition';
+import AirportTransferPage from './pages/AirportTransfer';
+import OutstationTransferPage from './pages/OutStation';
 
 
 export default function App() {
@@ -29,6 +31,8 @@ export default function App() {
           <Route path="/corporate" element={<CorporatePage />} />
           <Route path="/privacy-policies" element={<PrivacyTermsPage />} />
           <Route path="/term-condition" element={<TermsConditionsPage />} />
+          <Route path="/airport-transfer" element={<AirportTransferPage/>}/>
+          <Route path="/out-station" element={<OutstationTransferPage/>}/>
         </Routes>
         <Footer />
       </PopupProvider>

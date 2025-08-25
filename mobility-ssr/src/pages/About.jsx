@@ -20,7 +20,7 @@ export default function AboutPage() {
   const stats = [
     { label: 'Years of Excellence', value: '15+', icon: TrendingUp },
     { label: 'Premium Vehicles', value: '50+', icon: Car },
-    { label: 'Satisfied Clients', value: '10K+', icon: Users },
+    // { label: 'Satisfied Clients', value: '10K+', icon: Users },
     { label: 'Cities Served', value: '25+', icon: Globe }
   ];
 
@@ -85,8 +85,6 @@ const fleet = [
   const team = [
     { name: 'Rajiv Sharma', role: 'Founder & CEO', img: 'https://randomuser.me/api/portraits/men/32.jpg', experience: '20+ years in luxury transportation', expertise: 'Strategic Leadership' },
     { name: 'Priya Patel', role: 'Operations Director', img: 'https://randomuser.me/api/portraits/women/44.jpg', experience: '15+ years operations excellence', expertise: 'Fleet Management' },
-    { name: 'Amit Desai', role: 'Head Chauffeur', img: 'https://randomuser.me/api/portraits/men/75.jpg', experience: 'Certified professional driver', expertise: 'Safety & Protocol' },
-    { name: 'Neha Gupta', role: 'Client Experience', img: 'https://randomuser.me/api/portraits/women/68.jpg', experience: 'Premium hospitality background', expertise: 'Customer Relations' }
   ];
 
   const handleBookNowClick = () => {

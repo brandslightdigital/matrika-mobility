@@ -44,15 +44,14 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
             className="p-2 rounded-lg hover:bg-zinc-900 text-zinc-400 hover:text-zinc-200"
             aria-label="Close"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
         </div>
 
-        <div className="p-6">
+        <div className="max-h-[80vh] overflow-y-auto p-6">
           {submitted ? (
             <div className="text-center">
               <p className="text-amber-400 font-medium">Request received.</p>

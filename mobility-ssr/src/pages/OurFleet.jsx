@@ -104,7 +104,7 @@ export default function FleetPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 z-10">
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_-10%,rgba(245,158,11,0.08),transparent_60%)]" />
@@ -119,7 +119,7 @@ export default function FleetPage() {
       </section>
 
       {/* Sticky controls */}
-      <div className="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60 border-y border-zinc-900">
+      <div className="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60 border-y border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
           {/* Brand chips */}
           <div className="flex flex-wrap gap-2">
