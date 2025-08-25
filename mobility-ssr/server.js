@@ -38,23 +38,22 @@ if (!isProduction) {
 app.use('*all', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
-
-    /** @type {string} */
     let template
-    /** @type {import('./src/entry-server.js').render} */
     let render
+
     if (!isProduction) {
-      // Always read fresh template in development
+      // For development: Read template and transform it using Vite
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
+      // For production: Read the cached template from dist/client/index.html
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
     }
 
+    // Handle SSR Render logic
     let didError = false
-
     const { pipe, abort } = render(url, {
       onShellError() {
         res.status(500)
@@ -65,16 +64,18 @@ app.use('*all', async (req, res) => {
         res.status(didError ? 500 : 200)
         res.set({ 'Content-Type': 'text/html' })
 
+        // Inject inline CSS into the HTML
+        const criticalCss = isProduction ? '<link rel="stylesheet" href="/dist/client/style.css" />' : '' // For development, the CSS should already be loaded
+        const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`)
+        
+        res.write(htmlStart.replace('<head>', `<head>${criticalCss}`)) // Inject critical CSS here
+
         const transformStream = new Transform({
           transform(chunk, encoding, callback) {
             res.write(chunk, encoding)
             callback()
           },
         })
-
-        const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`)
-
-        res.write(htmlStart)
 
         transformStream.on('finish', () => {
           res.end(htmlEnd)

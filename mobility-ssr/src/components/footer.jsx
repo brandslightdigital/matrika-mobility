@@ -35,10 +35,10 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-bold text-white mb-4">Services</h3>
           <ul className="space-y-3 text-sm">
-            <li><Link href="/our-fleet" className="hover:text-amber-400">Self Drive Cars</Link></li>
-            <li><Link to="/corporate" className="hover:text-amber-400">Corporate Rentals</Link></li>
-            <li><Link href="/airport-transfer" className="hover:text-amber-400">Airport Pickup</Link></li>
-            <li><Link href="/out-station" className="hover:text-amber-400">Luxury Chauffeur</Link></li>
+            <li><Link to="/our-fleet" className="hover:text-amber-400">City Drive</Link></li>
+            <li><Link to="/corporate" className="hover:text-amber-400">Corporate Service</Link></li>
+            <li><Link to="/airport-transfer" className="hover:text-amber-400"> Airport Transfer</Link></li>
+            <li><Link to="/out-station" className="hover:text-amber-400">Outstation Services</Link></li>
           </ul>
         </div>
 
