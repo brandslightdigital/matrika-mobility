@@ -65,7 +65,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-6">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} MobilityDrive. All rights reserved.</p>
+          <p>© {new Date().getFullYear()}Matrika Mobilities. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policies" className="hover:text-amber-400">Privacy Policy</Link>
             <Link to="/term-condition" className="hover:text-amber-400">Terms of Service</Link>
