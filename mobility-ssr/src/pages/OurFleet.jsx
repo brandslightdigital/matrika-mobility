@@ -1,6 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { Car, Search, Sparkles } from "lucide-react";
 import BookingDialog from "../components/BookingCar";
+import SOPsSection from "./SOPsSection";
+import BestPracticesSection from "../components/BestPractise";
 
 // -----------------------------------------------------------------------------
 // FLEET PAGE — POLISHED, ATTRACTIVE, AND CLEAR (JS ONLY, NO PRICES)
@@ -16,50 +18,51 @@ const safeSrc = (src) => (typeof src === "string" ? src.split(" ").join("%20") :
 const FALLBACK = "/cars/placeholder.jpg"; // add a simple placeholder image in your public/cars
 
 const categoriesData = [
-  {
-    key: "e-class",
-    title: "Mercedes-Benz E-Class",
-    brand: "Mercedes",
-    image: "/cars/Eclass.jpg",
-    description: "Executive sedan. All E-Class variants available.",
-    variants: [
-      { id: "e200", name: "E-Class E 200", tag: "Base", specs: "1999 cc • AT • Petrol • 15 kmpl", image: "/cars/E-200.avif" },
-      { id: "e220d", name: "E-Class E 220d", specs: "1993 cc • AT • Diesel • 15 kmpl", image: "/cars/E-220d.jpg" },
-      { id: "e450", name: "E-Class E 450", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/E-450.jpg" },
-    ],
-  },
-  {
-    key: "s-class",
-    title: "Mercedes-Benz S-Class",
-    brand: "Mercedes",
-    image: "/cars/mercedes.avif",
-    description: "Flagship luxury. All S-Class variants available.",
-    variants: [
-      { id: "s350d", name: "S-Class S 350d", tag: "Base", specs: "2925 cc • AT • Diesel • 18 kmpl", image: "/cars/S-350.jpg" },
-      { id: "s450", name: "S-Class S450 4Matic", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/S450.jpg" },
-    ],
-  },
-  {
-    key: "bmw-7",
-    title: "BMW 7 Series",
-    brand: "BMW",
-    image: "/cars/7i.webp",
-    description: "Full-size luxury with lounge-like rear seats.",
-    variants: [
-      { id: "740i-msport", name: "BMW 740i M Sport", specs: "2998 cc • AT • Petrol • 8 kmpl", image: "/cars/740i Sport.webp" },
-      { id: "740d-msport", name: "BMW 740d M Sport", specs: "2993 cc • AT • Diesel • 12.1 kmpl", image: "/cars/740d.cms" },
-    ],
-  },
-  {
-    key: "bmw-5",
-    title: "BMW 5 Series",
-    brand: "BMW",
-    image: "/cars/5s.avif",
-    description: "Business-class sedan with driver-focused ergonomics.",
-    variants: [
-      { id: "530li", name: "BMW 530Li", specs: "1998 cc • AT • Petrol • 10.9 kmpl", image: "/cars/530Li.avif" },
-    ],
-  },
+
+  // {
+  //   key: "e-class",
+  //   title: "Mercedes-Benz E-Class",
+  //   brand: "Mercedes",
+  //   image: "/cars/Eclass.jpg",
+  //   description: "Executive sedan. All E-Class variants available.",
+  //   variants: [
+  //     { id: "e200", name: "E-Class E 200", tag: "Base", specs: "1999 cc • AT • Petrol • 15 kmpl", image: "/cars/E-200.avif" },
+  //     { id: "e220d", name: "E-Class E 220d", specs: "1993 cc • AT • Diesel • 15 kmpl", image: "/cars/E-220d.jpg" },
+  //     { id: "e450", name: "E-Class E 450", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/E-450.jpg" },
+  //   ],
+  // },
+  // {
+  //   key: "s-class",
+  //   title: "Mercedes-Benz S-Class",
+  //   brand: "Mercedes",
+  //   image: "/cars/mercedes.avif",
+  //   description: "Flagship luxury. All S-Class variants available.",
+  //   variants: [
+  //     { id: "s350d", name: "S-Class S 350d", tag: "Base", specs: "2925 cc • AT • Diesel • 18 kmpl", image: "/cars/S-350.jpg" },
+  //     { id: "s450", name: "S-Class S450 4Matic", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/S450.jpg" },
+  //   ],
+  // },
+  // {
+  //   key: "bmw-7",
+  //   title: "BMW 7 Series",
+  //   brand: "BMW",
+  //   image: "/cars/7i.webp",
+  //   description: "Full-size luxury with lounge-like rear seats.",
+  //   variants: [
+  //     { id: "740i-msport", name: "BMW 740i M Sport", specs: "2998 cc • AT • Petrol • 8 kmpl", image: "/cars/740i Sport.webp" },
+  //     { id: "740d-msport", name: "BMW 740d M Sport", specs: "2993 cc • AT • Diesel • 12.1 kmpl", image: "/cars/740d.cms" },
+  //   ],
+  // },
+  // {
+  //   key: "bmw-5",
+  //   title: "BMW 5 Series",
+  //   brand: "BMW",
+  //   image: "/cars/5s.avif",
+  //   description: "Business-class sedan with driver-focused ergonomics.",
+  //   variants: [
+  //     { id: "530li", name: "BMW 530Li", specs: "1998 cc • AT • Petrol • 10.9 kmpl", image: "/cars/530Li.avif" },
+  //   ],
+  // },
   { key: "swift", title: "Maruti Suzuki Swift", brand: "Maruti", image: "/cars/swift.png", description: "All variants available.", note: "All variants available" },
   { key: "swift-dzire", title: "Maruti Suzuki Swift Dzire", brand: "Maruti", image: "/cars/dezire.jpg", description: "All variants available.", note: "All variants available" },
   { key: "crysta", title: "Toyota Crysta", brand: "Toyota", image: "/cars/innova.jpg", description: "Spacious MPV. All variants available.", note: "All variants available" },
@@ -67,7 +70,7 @@ const categoriesData = [
   { key: "fortuner", title: "Toyota Fortuner", brand: "Toyota", image: "/cars/Fortuner.avif", description: "High-seating SUV presence. All variants available.", note: "All variants available" },
 ];
 
-const BRANDS = ["All", "Mercedes", "BMW", "Toyota", "Maruti"];
+const BRANDS = ["All", "Toyota", "Maruti"];
 
 export default function FleetPage() {
   const [brand, setBrand] = useState("All");
@@ -75,6 +78,7 @@ export default function FleetPage() {
   const [debounced, setDebounced] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("");
+  
 
   useEffect(() => {
     const t = setTimeout(() => setDebounced(query.trim().toLowerCase()), 200);
@@ -241,6 +245,24 @@ export default function FleetPage() {
           </div>
         )}
       </section>
+      <SOPsSection/>
+      <BestPracticesSection/>
+      {/* CTA Section */}
+
+        <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2">
+            <div className="p-12">
+              <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
+              <p className="text-lg mb-8">
+                Our mobility specialists will design a custom solution for your organization.
+              </p>
+              <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
+                Request Corporate Proposal
+              </button>
+            </div>
+            <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>
+          </div>
+        </div>
 
       {/* Booking dialog (external) */}
       <BookingDialog

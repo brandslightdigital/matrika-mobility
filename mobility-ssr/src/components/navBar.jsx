@@ -42,11 +42,10 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full z-50 top-0 transition-all duration-300 ${
-          scrolled
+        className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled
             ? "bg-black/95 backdrop-blur-sm shadow-2xl"
             : "bg-gradient-to-r from-gray-900 to-black"
-        }`}
+          }`}
       >
         <div className="container mx-auto px-2 py-4 flex justify-between items-center">
           {/* Logo */}
@@ -75,13 +74,6 @@ const Navbar = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              to="/our-fleet"
-              className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
-            >
-              Our Fleet
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
               to="/corporate"
               className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
             >
@@ -89,19 +81,34 @@ const Navbar = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
+              to="/our-fleet"
+              className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
+            >
+              Our Fleet
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+            <Link
+              to="/services"
+              className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
+            >
+              Our Services
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+
+            {/* <Link
               to="/airport-transfer"
               className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
             >
               Airport Transfer
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               to="/out-station"
               className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
             >
               Out Station
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+            </Link> */}
             <Link
               to="/about-us"
               className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
@@ -120,7 +127,7 @@ const Navbar = () => {
             {/* Contact Info */}
             <div className="hidden xl:flex items-center space-x-4 text-sm text-gray-400">
               <div className="flex items-center space-x-1">
-                <FaPhone className="text-amber-400" />
+                <FaPhoneAlt className="text-amber-400" />
                 <span>+91 7011438890</span>
               </div>
               {/* <div className="flex items-center space-x-1">
@@ -133,7 +140,7 @@ const Navbar = () => {
               onClick={handleBookNowClick}
               className="bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-3 rounded-lg font-bold hover:from-amber-500 hover:to-amber-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25"
             >
-              Book Now
+              Contact Us
             </button>
           </div>
 
@@ -155,17 +162,15 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-300 lg:hidden ${
-          open
+        className={`fixed inset-0 z-40 transition-all duration-300 lg:hidden ${open
             ? "bg-black/70 backdrop-blur-sm opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        }`}
+          }`}
       >
         {/* Mobile Menu Sidebar */}
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-gray-900 to-black shadow-2xl transform transition-transform duration-300 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-gray-900 to-black shadow-2xl transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full">
             {/* Header */}
@@ -195,13 +200,6 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                to="/our-fleet"
-                className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
-                onClick={() => handleNavClick("/cars")}
-              >
-                Our Fleet
-              </Link>
-              <Link
                 to="/corporate"
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
                 onClick={() => handleNavClick("/corporate")}
@@ -209,18 +207,19 @@ const Navbar = () => {
                 Corporate
               </Link>
               <Link
-                to="/airport-transfer"
+                to="/our-fleet"
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
-                onClick={() => handleNavClick("/airport-transfer")}
+                onClick={() => handleNavClick("/cars")}
               >
-                Airport Transfer
+                Our Fleet
               </Link>
+
               <Link
-                to="/out-station"
+                to="/services"
+                 onClick={() => handleNavClick("/services")}
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
-                onClick={() => handleNavClick("/out-station")}
               >
-                Out-Station
+                Our Services
               </Link>
               <Link
                 to="/about-us"
@@ -254,7 +253,7 @@ const Navbar = () => {
                 onClick={handleBookNowClick}
                 className="block bg-gradient-to-r from-amber-400 to-amber-500 text-black px-6 py-4 rounded-lg font-bold text-center hover:from-amber-500 hover:to-amber-600 transition-all duration-300 mt-8"
               >
-                Book Now
+                Contact Us
               </button>
             </div>
 

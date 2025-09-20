@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { Briefcase, Users, Clock, Shield, Globe, BarChart, ArrowRight } from 'lucide-react';
+import { Briefcase, Users, Clock, Shield, Globe, BarChart, ArrowRight, Train } from 'lucide-react';
 import BookingDialog from '../components/BookingCar'; // Importing the BookingDialog component
+import { FaDisplay, FaPeopleGroup } from 'react-icons/fa6';
+import { FaCar } from 'react-icons/fa';
+import SOPsSection from './SOPsSection';
+import BestPracticesSection from '../components/BestPractise';
 
 export default function CorporatePage() {
   const [dialogOpen, setDialogOpen] = useState(false); // state to control BookingDialog visibility
@@ -71,7 +75,7 @@ export default function CorporatePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -95,29 +99,29 @@ export default function CorporatePage() {
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-amber-500" />
+                <FaPeopleGroup className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Security First</h3>
+              <h3 className="text-xl font-semibold mb-3">Our Team</h3>
               <p className="text-gray-400">
-                All chauffeurs undergo rigorous background checks and our vehicles feature executive protection packages.
+                70 Employees , 300 Drivers , Pan india network Partners.
               </p>
             </div>
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <Clock className="h-8 w-8 text-amber-500" />
+                <FaDisplay className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">99.7% On-Time</h3>
+              <h3 className="text-xl font-semibold mb-3">Our Technology</h3>
               <p className="text-gray-400">
-                Industry-leading punctuality with real-time tracking and contingency planning.
+                Mobile Application , GPS and Mapping , Data Analytics, Live driver tracking
               </p>
             </div>
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <Briefcase className="h-8 w-8 text-amber-500" />
+                <FaCar className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Dedicated Account Management</h3>
+              <h3 className="text-xl font-semibold mb-3">Our Trainers</h3>
               <p className="text-gray-400">
-                Your single point of contact for all transportation needs.
+                5 Trainers exclusive for driver and partner training Pan India
               </p>
             </div>
           </div>
@@ -168,7 +172,8 @@ export default function CorporatePage() {
             ))}
           </div>
         </div>
-
+        <SOPsSection />
+        <BestPracticesSection/>
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2">
@@ -199,4 +204,3 @@ export default function CorporatePage() {
     </div>
   );
 }
-    

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, ShieldCheck, Clock, Star, Car, TrendingUp, Globe, ArrowRight, Phone } from 'lucide-react';
 import BookingDialog from '../components/BookingCar';
+import SOPsSection from './SOPsSection';
 
 // ABOUT PAGE — Polished content + same BookingDialog as Fleet
 // - Replaced dummy copy with your real "Legacy" + "Values" content
@@ -295,7 +296,7 @@ const fleet = [
           </div>
         )}
       </div>
-
+<SOPsSection/>
       {/* CTA */}
       <div className="bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 border-t border-amber-500/20">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">
