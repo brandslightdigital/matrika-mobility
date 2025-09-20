@@ -9,7 +9,7 @@ export default function Hero() {
 
   const slides = [
     {
-      title: "Corporate & Personal",
+      title: "Corporate",
       subtitle: "Car Rentals",
       description: "Premium fleet for business meetings, airport transfers, and family adventures",
       image: "/banner/banner1.jpeg"

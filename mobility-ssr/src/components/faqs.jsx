@@ -30,7 +30,7 @@ export default function FaqSection() {
   return (
     <section className="bg-black text-white py-20">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-12">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-black">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
               Frequently Asked
@@ -45,7 +45,7 @@ export default function FaqSection() {
             <div key={index} className="border border-white/10 rounded-xl overflow-hidden">
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white bg-white/5 hover:bg-white/10 transition-all"
+                className="w-full flex items-left justify-between px-6 py-5 text-left font-semibold text-white bg-white/5 hover:bg-white/10 transition-all"
               >
                 {item.question}
                 <span className="text-amber-400 ml-2">

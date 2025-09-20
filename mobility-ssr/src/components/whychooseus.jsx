@@ -54,11 +54,9 @@ export default function BenefitsAndWhy() {
       tone: "yellow",
     },
     {
-      icon: <FaChartPie />,
-      title: "Own inventory CRS",
-      desc:
-        "Distribute inventory across B2B/B2C/B2E channels with central pricing and availability.",
-      tone: "blue",
+      icon: <FaMapMarkerAlt />,
+      title: "Pan-India coverage",
+      desc: "Metros to tier-2 cities with consistent service quality and SLAs.",
     },
   ];
 
@@ -141,7 +139,7 @@ export default function BenefitsAndWhy() {
 
 
         {/* Reasons grid */}
-        <div className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8">
+        {/* <div className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8">
           <h3 className="text-white text-2xl font-bold mb-6">Why teams switch to us</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reasons.map((r) => (
@@ -155,7 +153,7 @@ export default function BenefitsAndWhy() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
