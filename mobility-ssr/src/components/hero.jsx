@@ -124,10 +124,10 @@ export default function Hero() {
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <Link to="/our-fleet" className="group border-2 border-white/30 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 backdrop-blur-sm flex items-center justify-center space-x-2">
+              {/* <Link to="/our-fleet" className="group border-2 border-white/30 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 hover:scale-105 backdrop-blur-sm flex items-center justify-center space-x-2">
                 <FaPlay className="group-hover:animate-pulse" />
                 <span>View Fleet</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
 
