@@ -78,10 +78,10 @@ export default function Hero() {
         <div className="w-full">
           <div className="text-center mb-16">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-amber-400/20 text-amber-400 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
+            {/* <div className="inline-flex items-center px-4 py-2 bg-amber-400/20 text-amber-400 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
               <FaStar className="mr-2" />
               Rated #1 Car Rental Service
-            </div>
+            </div> */}
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 leading-tight">
