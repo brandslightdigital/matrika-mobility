@@ -179,7 +179,7 @@ const Navbar = () => {
                 <FaCar className="text-2xl text-amber-400" />
                 <div className="text-xl font-black">
                   <span className="text-amber-400">Matrika</span>
-                  <span className="text-white">Mobility</span>
+                  <span className="text-white">mobilities</span>
                 </div>
               </div>
               <button

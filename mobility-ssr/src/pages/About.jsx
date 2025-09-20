@@ -25,33 +25,33 @@ export default function AboutPage() {
     { label: 'Cities Served', value: '25+', icon: Globe }
   ];
 
-const fleet = [
-  {
-    category: 'Mercedes-Benz S-Class',
-    description: 'Flagship luxury sedan with unmatched comfort.',
-    image: '/cars/mercedes.avif',
-    features: ['Executive seating', 'Advanced safety', 'Ambient lighting', 'Premium sound']
-  },
-  {
-    category: 'BMW 7 Series',
-    description: 'Full-size luxury sedan with lounge-like rear seats.',
-    image: '/cars/7i.webp',
-    features: ['Massage seats', 'Panoramic sunroof', 'Rear entertainment', 'Driver assistance tech']
-  },
-  {
-    category: 'Toyota Fortuner',
-    description: 'High-seating SUV with a commanding road presence.',
-    image: '/cars/Fortuner.avif',
-    features: ['7-seater options', '4x4 capability', 'Durable build', 'Spacious cabin']
-  }
-];
+  const fleet = [
+    {
+      category: 'Mercedes-Benz S-Class',
+      description: 'Flagship luxury sedan with unmatched comfort.',
+      image: '/cars/mercedes.avif',
+      features: ['Executive seating', 'Advanced safety', 'Ambient lighting', 'Premium sound']
+    },
+    {
+      category: 'BMW 7 Series',
+      description: 'Full-size luxury sedan with lounge-like rear seats.',
+      image: '/cars/7i.webp',
+      features: ['Massage seats', 'Panoramic sunroof', 'Rear entertainment', 'Driver assistance tech']
+    },
+    {
+      category: 'Toyota Fortuner',
+      description: 'High-seating SUV with a commanding road presence.',
+      image: '/cars/Fortuner.avif',
+      features: ['7-seater options', '4x4 capability', 'Durable build', 'Spacious cabin']
+    }
+  ];
 
 
   // Real content you provided — edited for clarity/flow
   const legacy = [
     "Matrika Mobilities was born from a simple idea between few friends with over 20 years of experience each in car rentals, customer service, and banking, luxury transportation needed  honesty and transparency.",
     "In 2024, we launched with a single premium sedan and a relentless, hands-on work ethic. We weren't just founders; we were the chauffeurs, the detailers, and the service line, obsessed with perfecting every detail from the ground up.Our commitment to engineering flawless experiences, not just offering rides, quickly built our reputation.",
-    "Today, we are one of the most trusted mobility provider for top-tier corporations, celebrities, and discerning travelers who demand perfection.",
+    "Today, we are one of the most trusted mobilities provider for top-tier corporations, celebrities, and discerning travelers who demand perfection.",
     "Our elite fleet grew from that one sedan, but our core mission remains unchanged. To prove that the ultimate luxury isn't just the vehicle, but the perfection of the journey itself."
   ];
 
@@ -106,20 +106,19 @@ const fleet = [
           }}
         />
 
-        <div className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
           <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium backdrop-blur-sm">Premium Mobility Since 2024</span>
           </div>
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none">
-            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">MATRIXA</span>
+            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">MATRIkA</span>
             <br />
-            <span className="text-white/90">MOBILITY</span>
+            <span className="text-white/90">Mobilities</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Redefining luxury transportation with elegance, technology, and a ruthless respect for your time.
+            Redefining luxury transportation with elegance, technology, and a deep respect for your time.
           </p>
+
         </div>
 
         {/* Floating stats */}
@@ -197,7 +196,7 @@ const fleet = [
 
         {/* Values with your list */}
         {activeTab === 'values' && (
-          <div className="animate-fadeIn">
+          <div className="animate-fadeIn max-w-3xl mx-auto" >
             <div className="text-center mb-14">
               <h2 className="text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Values</span>
@@ -270,7 +269,7 @@ const fleet = [
               </h2>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">The people who keep the standards high.</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               {team.map((m, i) => (
                 <div key={i} className="group">
                   <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02]">
@@ -296,7 +295,7 @@ const fleet = [
           </div>
         )}
       </div>
-<SOPsSection/>
+      <SOPsSection />
       {/* CTA */}
       <div className="bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 border-t border-amber-500/20">
         <div className="max-w-7xl mx-auto px-6 py-16 text-center">

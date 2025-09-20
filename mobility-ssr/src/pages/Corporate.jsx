@@ -35,7 +35,7 @@ export default function CorporatePage() {
     {
       icon: <Users className="h-8 w-8 text-amber-500" />,
       title: "Team Transfers",
-      description: "Comfortable group transportation for corporate events and employee mobility.",
+      description: "Comfortable group transportation for corporate events and employee mobilities.",
       image: '/cars/7i.webp',
       features: [
         "Luxury vans & coaches",
@@ -79,7 +79,7 @@ export default function CorporatePage() {
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-amber-500">Corporate</span> Mobility Solutions
+            <span className="text-amber-500">Corporate</span> mobilities Solutions
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Premium transportation services designed for businesses that value reliability, discretion, and exceptional service.
@@ -180,7 +180,7 @@ export default function CorporatePage() {
             <div className="p-12">
               <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
               <p className="text-lg mb-8">
-                Our mobility specialists will design a custom solution for your organization.
+                Our mobilities specialists will design a custom solution for your organization.
               </p>
               <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
                 Request Corporate Proposal

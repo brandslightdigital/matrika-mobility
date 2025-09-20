@@ -51,7 +51,7 @@ export default function ContactPage() {
             Contact Our Team
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-            Experience premium mobility services. Our dedicated team is available 24/7 to assist with your transportation needs.
+            Experience premium mobilities services. Our dedicated team is available 24/7 to assist with your transportation needs.
           </p>
         </div>
       </div>

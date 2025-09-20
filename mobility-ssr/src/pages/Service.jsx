@@ -63,7 +63,7 @@ const services = [
     id: 4,
     title: "MICE: Meetings, Incentives, Conferences & Events",
     blurb:
-      "End-to-end mobility for corporate events. Route planning, dispatch coordination, and on-site supervisors for smooth execution.",
+      "End-to-end mobilities for corporate events. Route planning, dispatch coordination, and on-site supervisors for smooth execution.",
     bullets: [
       "Shuttle loops and delegate logistics",
       "Driver rosters and live tracking",
@@ -125,7 +125,7 @@ export default function MatrikaServicesWithImages() {
             Services
           </h1>
           <p className="text-gray-200 mt-4 text-lg">
-            Local, long-term, airport, and event mobility — delivered with reliability and polish.
+            Local, long-term, airport, and event mobilities — delivered with reliability and polish.
           </p>
         </div>
       </div>
@@ -211,7 +211,7 @@ export default function MatrikaServicesWithImages() {
           <div className="p-12">
             <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
             <p className="text-lg mb-8">
-              Our mobility specialists will design a custom solution for your organization.
+              Our mobilities specialists will design a custom solution for your organization.
             </p>
             <button
               onClick={() => setDialogOpen(true)}

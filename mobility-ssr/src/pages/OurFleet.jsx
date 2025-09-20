@@ -254,7 +254,7 @@ export default function FleetPage() {
             <div className="p-12">
               <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
               <p className="text-lg mb-8">
-                Our mobility specialists will design a custom solution for your organization.
+                Our mobilities specialists will design a custom solution for your organization.
               </p>
               <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
                 Request Corporate Proposal
