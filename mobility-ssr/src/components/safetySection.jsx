@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 
 export const SafetySection = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-black py-20">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* Text Content */}
         <div>
-          <h2 className="text-5xl md:text-6xl font-extrabold text-black mb-4">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-4">
             Safety for <span className="text-amber-400">All</span>
           </h2>
           <div className="w-16 h-1 bg-amber-400 mb-6 rounded-full"></div>
-          <p className="text-black-300 text-lg md:text-xl mb-6">
+          <p className="text-black-300 text-lg md:text-xl mb-6 text-white">
             At Matrika, your safety is paramount. Our fleet is equipped with
             advanced GPS tracking, allowing us to monitor your journey in
             real-time for added security and efficiency. Every vehicle also
@@ -21,7 +21,7 @@ export const SafetySection = () => {
             SOS system in every car that instantly alerts our 24/7 support team,
             ensuring immediate assistance is just a click away.
           </p>
-          <p className="text-black-300 text-xl mb-6">
+          <p className="text-black-300 text-xl mb-6 text-white">
             Our professional drivers are meticulously vetted and trained, providing a secure, comfortable, and stress-free experience for every passenger.
 
 

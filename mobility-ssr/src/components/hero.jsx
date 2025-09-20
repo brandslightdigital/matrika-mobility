@@ -22,7 +22,7 @@ export default function Hero() {
     },
     {
       title: "24/7 Service",
-      subtitle: "Always Available",
+      subtitle: "And Support",
       description: "Round-the-clock support with instant booking and emergency assistance",
       image: "/banner/banner3.jpeg"
     }

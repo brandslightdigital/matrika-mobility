@@ -5,6 +5,7 @@ import BenefitsAndWhy from '../components/whychooseus';
 import { SafetySection } from '../components/safetySection';
 import BenefitsSection from '../components/benefitSection';
 import FaqSection from '../components/faqs';
+import MapAndFormSection from '../components/MapadnFormSection';
 
 const Home = () => {
   return (
@@ -13,7 +14,8 @@ const Home = () => {
       <FleetSection />
       <BenefitsAndWhy/>
       <SafetySection />
-      <FaqSection/>
+      {/* <FaqSection/> */}
+      <MapAndFormSection/>
     </>
   );
 };

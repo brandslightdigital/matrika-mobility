@@ -5,6 +5,7 @@ import {
   FaCar,
   FaPhone,
   FaMapMarkerAlt,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { usePopup } from "./PopupContext";
@@ -239,7 +240,7 @@ const Navbar = () => {
               {/* Contact Info */}
               <div className="pt-6 border-t border-gray-700 space-y-4">
                 <div className="flex items-center space-x-3 text-gray-400">
-                  <FaPhone className="text-amber-400" />
+                  <FaPhoneAlt className="text-amber-400" />
                   <span>+91 7011438890</span>
                 </div>
                 {/* <div className="flex items-center space-x-3 text-gray-400">

@@ -14,6 +14,7 @@ import {
   FaSnowflake,
   FaRoute,
 } from "react-icons/fa";
+import { FaShield } from "react-icons/fa6";
 
 export default function BenefitsAndWhy() {
   // Primary benefits (your first list), cleaned and kept
@@ -54,9 +55,9 @@ export default function BenefitsAndWhy() {
       tone: "yellow",
     },
     {
-      icon: <FaMapMarkerAlt />,
-      title: "Pan-India coverage",
-      desc: "Metros to tier-2 cities with consistent service quality and SLAs.",
+      icon: <FaShield />,
+      title: "HSSE compliance",
+      desc: "HSSE compliance means working safely, protecting people, assets, and the environment at all times.",
     },
   ];
 
@@ -109,10 +110,10 @@ export default function BenefitsAndWhy() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block rounded-full bg-yellow-400/20 text-yellow-400 px-4 py-1 text-sm font-semibold">
-            Why choose Matrika Mobilities
+           Matrika Mobilities
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">
-            Benefits that actually matter
+            Why choose Matrika ?
           </h2>
           <p className="mt-3 text-gray-300 max-w-2xl mx-auto">
             Fewer buzzwords, more reliability. Here’s what you get when you book with us.
