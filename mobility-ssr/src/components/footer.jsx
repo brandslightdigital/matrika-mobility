@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -51,7 +51,7 @@ const Footer = () => {
               <span> F 61, Jwahar Park, Khanpu,r Deoli Road, New Delhi 110062. <br /></span>
             </li>
             <li className="flex items-center gap-3">
-              <FaPhone className="text-amber-400" />
+              <FaPhoneAlt className="text-amber-400" />
               <a href="tel:+917011438890" className="hover:text-amber-400">+91 7011438890</a>
             </li>
             <li className="flex items-center gap-3">

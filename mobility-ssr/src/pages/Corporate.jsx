@@ -216,7 +216,7 @@ export default function CorporatePage() {
         <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2">
             <div className="p-12">
-              <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel - </h2>
+              <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
               <p className="text-lg mb-8">
                 “Guaranteed 10% savings on your current annual spends”
               </p>

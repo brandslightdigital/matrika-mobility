@@ -233,10 +233,10 @@ export default function MatrikaServicesWithImages() {
       <div className="max-w-7xl mx-auto bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="p-12">
-            <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
-            <p className="text-lg mb-8">
-              Our mobilities specialists will design a custom solution for your organization.
-            </p>
+              <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
+              <p className="text-lg mb-8">
+                “Guaranteed 10% savings on your current annual spends”
+              </p>
             <button
               onClick={() => setDialogOpen(true)}
               className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
