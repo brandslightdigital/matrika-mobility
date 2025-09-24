@@ -1,124 +1,107 @@
-import React, { useState, useEffect } from 'react';
-import { Users, ShieldCheck, Clock, Star, Car, TrendingUp, Globe, ArrowRight, Phone } from 'lucide-react';
-import BookingDialog from '../components/BookingCar';
-import SOPsSection from './SOPsSection';
+import React, { useEffect, useState } from "react";
+import { ShieldCheck, Clock, Star, Users, TrendingUp, Globe, ArrowRight, Phone } from "lucide-react";
+import BookingDialog from "../components/BookingCar";
+import SOPsSection from "./SOPsSection";
 
-// ABOUT PAGE — Polished content + same BookingDialog as Fleet
-// - Replaced dummy copy with your real "Legacy" + "Values" content
-// - Clean layout, subtle motion, image fallbacks
-// - CTA uses the same BookingDialog component (no PopupContext needed here)
+// Single-page About (no tabs). Uses existing BookingDialog.
 
-const FALLBACK = '/cars/placeholder.jpg';
+const FALLBACK = "/cars/placeholder.jpg";
 
 export default function AboutPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState('story');
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [model, setModel] = useState('About Page Enquiry');
 
-  useEffect(() => { setIsVisible(true); }, []);
+  useEffect(() => setIsVisible(true), []);
 
   const stats = [
-    { label: 'Years of Excellence', value: '15+', icon: TrendingUp },
-    { label: 'Premium Vehicles', value: '50+', icon: Car },
-    // { label: 'Satisfied Clients', value: '10K+', icon: Users },
-    { label: 'Cities Served', value: '25+', icon: Globe }
+    { label: "Years of Excellence", value: "15+" },
+    { label: "Premium Vehicles", value: "50+" },
+    { label: "Cities Served", value: "25+" },
   ];
 
-  const fleet = [
-    {
-      category: 'Mercedes-Benz S-Class',
-      description: 'Flagship luxury sedan with unmatched comfort.',
-      image: '/cars/mercedes.avif',
-      features: ['Executive seating', 'Advanced safety', 'Ambient lighting', 'Premium sound']
-    },
-    {
-      category: 'BMW 7 Series',
-      description: 'Full-size luxury sedan with lounge-like rear seats.',
-      image: '/cars/7i.webp',
-      features: ['Massage seats', 'Panoramic sunroof', 'Rear entertainment', 'Driver assistance tech']
-    },
-    {
-      category: 'Toyota Fortuner',
-      description: 'High-seating SUV with a commanding road presence.',
-      image: '/cars/Fortuner.avif',
-      features: ['7-seater options', '4x4 capability', 'Durable build', 'Spacious cabin']
-    }
+  const story = [
+    "The corporate world moves fast — but for years, business travel lagged behind. Companies were forced to deal with endless paperwork, inaccurate billing, exaggerated kilometre reports, delayed arrivals, rash driving, untrained drivers, and a worrying lack of safety measures for women executives.",
+    "Seeing this growing chaos, we knew there had to be a better way. That’s how Matrika Mobilities was born. The name “Matrika” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
+    "At Matrika Mobilities, we blend cutting-edge technology with human-centric service. From GPS-enabled vehicles and digital MIS reports to meticulously trained drivers and strict HSSE compliance, every detail is designed to ensure our clients travel comfortably, safely, and on time.",
+    "We believe corporate mobility should feel effortless. Our commitment is to deliver a service experience that reflects the values of a trusted partner — organized, transparent, and caring — just like a mother looking after her family.",
+    "Today, Matrika Mobilities continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
   ];
 
+  const mission = "To redefine corporate mobility in India with technology, sustainability, and unmatched service.";
 
-  // Real content you provided — edited for clarity/flow
-  const legacy = [
-    "Matrika Mobilities was born from a simple idea between few friends with over 20 years of experience each in car rentals, customer service, and banking, luxury transportation needed  honesty and transparency.",
-    "In 2024, we launched with a single premium sedan and a relentless, hands-on work ethic. We weren't just founders; we were the chauffeurs, the detailers, and the service line, obsessed with perfecting every detail from the ground up.Our commitment to engineering flawless experiences, not just offering rides, quickly built our reputation.",
-    "Today, we are one of the most trusted mobilities provider for top-tier corporations, celebrities, and discerning travelers who demand perfection.",
-    "Our elite fleet grew from that one sedan, but our core mission remains unchanged. To prove that the ultimate luxury isn't just the vehicle, but the perfection of the journey itself."
+  const growthBullets = [
+    "Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.",
+    "Lead the shift to sustainable mobility by steadily increasing the share of electric and hybrid vehicles in our fleet.",
+    "Leverage advanced technology — from AI-powered route optimization to real-time analytics — to give corporates complete visibility and control over their travel spend.",
+    "Build long-term partnerships with companies by offering customized solutions, dedicated account managers, and measurable service level commitments.",
+    "Invest in people and training, ensuring our drivers, staff, and support teams embody professionalism, safety, and care.",
   ];
 
-  const values = [
+  const coreValues = [
     {
       icon: ShieldCheck,
-      title: 'Uncompromising Excellence',
-      description: 'True luxury is flawless execution — from immaculate vehicles to intelligent route planning, we sweat the details.'
-    },
-    {
-      icon: Clock,
-      title: 'Relentless Reliability',
-      description: 'Your peace of mind matters. Absolute punctuality and consistency are non‑negotiable.'
+      title: "Safety First",
+      meaning: "Every vehicle, driver, and route is chosen with passenger safety as the highest priority — especially for women executives.",
     },
     {
       icon: Star,
-      title: 'Personalized Service',
-      description: 'We anticipate needs and tailor every journey. Discreet, attentive, and quietly exacting.'
+      title: "Customer‑Centric Service",
+      meaning: "We act like a trusted partner, not just a vendor — understanding your needs and tailoring our services accordingly.",
     },
     {
-      icon: Users,
-      title: 'Foundation of Trust',
-      description: 'Built on integrity and discretion. We earn confidence trip after trip.'
+      icon: Clock,
+      title: "Reliability & Accountability",
+      meaning: "Delivering on our promises with consistent quality and measurable service levels.",
     },
     {
       icon: TrendingUp,
-      title: 'A Legacy of Hard Work',
-      description: 'Our standards were forged in the grind. That discipline keeps our bar high.'
-    }
+      title: "Technology‑Driven Efficiency",
+      meaning: "Booking, tracking, reporting, and analytics that give corporates total control over travel spend.",
+    },
+    {
+      icon: Users,
+      title: "Professionalism & Training",
+      meaning: "Continuous driver and staff training to ensure punctuality, courtesy, and responsible driving.",
+    },
+    {
+      icon: Globe,
+      title: "Sustainability",
+      meaning: "Gradual transition to electric and hybrid vehicles to reduce environmental impact and align with responsible business practices.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Transparency & Integrity",
+      meaning: "Clear billing, accurate kilometre tracking, and honest communication — no surprises, no hidden costs.",
+    },
   ];
-
-  const team = [
-    { name: 'Rajiv Sharma', role: 'Founder & CEO', img: 'https://randomuser.me/api/portraits/men/32.jpg', experience: '20+ years in luxury transportation', expertise: 'Strategic Leadership' },
-    { name: 'Priya Patel', role: 'Operations Director', img: 'https://randomuser.me/api/portraits/women/44.jpg', experience: '15+ years operations excellence', expertise: 'Fleet Management' },
-  ];
-
-  const handleBookNowClick = () => {
-    setModel('General Booking');
-    setDialogOpen(true);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative min-h-screen flex items-center justify-center">
+      <section className="relative min-h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-gray-900/60 to-black/80 z-10" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed transform scale-110"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&h=1200')",
-            filter: 'brightness(0.4) contrast(1.2)'
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&h=1200')",
+            filter: "brightness(0.4) contrast(1.2)",
           }}
         />
 
-        <div className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-          <div className="mb-6">
-          </div>
-          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none">
-            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">MATRIkA</span>
+        <div
+          className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
+            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">Matrika</span>
             <br />
             <span className="text-white/90">Mobilities</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Redefining luxury transportation with elegance, technology, and a deep respect for your time.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            {mission}
           </p>
-
         </div>
 
         {/* Floating stats */}
@@ -132,194 +115,187 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Tabs */}
-      <div className="sticky top-0 z-30 bg-black/80 backdrop-blur-lg border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex space-x-8">
-            {[
-              { id: 'story', label: 'Our Story' },
-              { id: 'values', label: 'Core Values' },
-              { id: 'fleet', label: 'Premium Fleet' },
-              { id: 'team', label: 'Leadership' }
-            ].map(t => (
-              <button
-                key={t.id}
-                onClick={() => setActiveTab(t.id)}
-                className={`py-4 px-2 font-semibold transition-all duration-300 border-b-2 ${activeTab === t.id ? 'border-amber-500 text-amber-400' : 'border-transparent text-gray-400 hover:text-white'}`}
-              >
-                {t.label}
-              </button>
-            ))}
+      {/* Story */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Copy */}
+          <div className="lg:col-span-7">
+            <h2 className="text-5xl font-extrabold tracking-tight mb-4">
+              <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">About Us — Our Story</span>
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-600 mb-10 rounded" />
+
+            {/* Lead removed to ensure exact provided content is shown */}
+
+            {/* Body from `story` array (exact content) */}
+            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+              {story.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            {/* Quote strip */}
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="text-lg text-gray-200">“Corporate mobility should feel like a trusted partner: organised, transparent, and caring.”</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 py-5">
-        {/* Story with real content */}
-        {activeTab === 'story' && (
-          <div className="animate-fadeIn">
-            <div className="grid lg:grid-cols-2 gap-16 items-start mb-12">
-              <div className="space-y-6">
-                <h2 className="text-xl font-bold mb-2">
-                  <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">From a Shared Dream to the Pinnacle of Luxury</span>
-                </h2>
-                <div className="h-1 w-20 bg-gradient-to-r from-amber-500 to-amber-600 mb-6" />
-                {legacy.map((p, i) => (
-                  <p key={i} className="text-lg text-gray-300 leading-relaxed">{p}</p>
-                ))}
-                <div className="grid grid-cols-2 gap-6 pt-2">
-                  <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/5 p-6 rounded-xl border border-amber-500/20">
-                    <div className="text-3xl font-bold text-amber-400 mb-2">2024</div>
-                    <div className="text-gray-300">Founded</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/5 p-6 rounded-xl border border-amber-500/20">
-                    <div className="text-3xl font-bold text-amber-400 mb-2">50+</div>
-                    <div className="text-gray-300">Premium Fleet</div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-transparent rounded-3xl rotate-6" />
+          {/* Visual */}
+          <div className="lg:col-span-5">
+            <div className="relative">
+              <div className="absolute -inset-6 bg-gradient-to-tr from-amber-500/20 via-amber-400/10 to-transparent rounded-[2rem] blur-2xl" />
+              <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1200&h=800"
+                  src="/cars/740i.jpg"
                   onError={(e) => (e.currentTarget.src = FALLBACK)}
-                  alt="Our Legacy"
-                  className="relative rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                  alt="Executive transfer on open road"
+                  className="w-full h-[360px] object-cover"
                 />
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* Values with your list */}
-        {activeTab === 'values' && (
-          <div className="animate-fadeIn max-w-3xl mx-auto" >
-            <div className="text-center mb-14">
-              <h2 className="text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Values</span>
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">What shapes every journey we deliver.</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {values.map((v, i) => (
-                <div key={i} className="group">
-                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
-                    <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <v.icon className="h-8 w-8 text-amber-500" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">{v.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{v.description}</p>
-                  </div>
-                </div>
-              ))}
+              {/* Badge */}
+              <div className="absolute -bottom-5 left-6 bg-black/2  0 backdrop-blur rounded-xl border border-white/10 px-4 py-3 flex items-center gap-3 shadow-lg">
+                <span className="inline-block w-2.5 h-2.5 bg-amber-500 rounded-full" />
+                <span className="text-sm text-gray-200">HSSE‑trained chauffeurs • Digital MIS</span>
+              </div>
             </div>
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* Fleet */}
-        {activeTab === 'fleet' && (
-          <div className="animate-fadeIn">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Premium Fleet</span>
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">Meticulously curated vehicles for every occasion.</p>
-            </div>
-            <div className="grid lg:grid-cols-3 gap-8">
-              {fleet.map((vehicle, i) => (
-                <div key={i} className="group">
-                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02]">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={vehicle.image}
-                        onError={(e) => (e.currentTarget.src = FALLBACK)}
-                        alt={vehicle.category}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    </div>
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">{vehicle.category}</h3>
-                      <p className="text-gray-400 mb-6">{vehicle.description}</p>
-                      <div className="space-y-2">
-                        {vehicle.features.map((f, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
-                            {f}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Growth Vision */}
+      <section className="relative">
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
+          {/* Title + description stacked tightly */}
+          <div className="text-left max-w-4xl mx-0">
+            <h2 className="text-5xl font-extrabold tracking-tight mb-3">
+              <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Growth Vision</span>
+            </h2>
+            <p className="text-lg text-gray-300 mb-8">
+              At Matrika Mobilities, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in safety, transparency, and customer experience.
+            </p>
           </div>
-        )}
 
-        {/* Team */}
-        {activeTab === 'team' && (
-          <div className="animate-fadeIn">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Leadership Team</span>
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">The people who keep the standards high.</p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-              {team.map((m, i) => (
-                <div key={i} className="group">
-                  <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02]">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={m.img}
-                        onError={(e) => (e.currentTarget.src = FALLBACK)}
-                        alt={m.name}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold mb-1 group-hover:text-amber-400 transition-colors">{m.name}</h3>
-                      <p className="text-amber-500 font-semibold mb-2">{m.role}</p>
-                      <p className="text-sm text-gray-400 mb-2">{m.experience}</p>
-                      <div className="text-xs text-gray-500 px-3 py-1 bg-gray-700/50 rounded-full inline-block">{m.expertise}</div>
-                    </div>
-                  </div>
+          {/* Cards grid comes immediately under the text. No giant gap. */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
+            {[
+              {
+                n: '01',
+                text: 'Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.'
+              },
+              {
+                n: '02',
+                text: 'Lead the shift to sustainable mobility by steadily increasing the share of electric and hybrid vehicles in our fleet.'
+              },
+              {
+                n: '03',
+                text: 'Leverage advanced technology — from AI-powered route optimization to real-time analytics — to give corporates complete visibility and control over their travel spend.'
+              },
+              {
+                n: '04',
+                text: 'Build long-term partnerships with companies by offering customized solutions, dedicated account managers, and measurable service level commitments.'
+              },
+              {
+                n: '05',
+                text: 'Invest in people and training, ensuring our drivers, staff, and support teams embody professionalism, safety, and care.'
+              },
+            ].map((item, i) => (
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7 hover:bg-white/10 transition h-full">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-amber-400 font-bold">{item.n}</span>
+                  <span className="text-xs text-gray-400">Strategic pillar</span>
                 </div>
-              ))}
-            </div>
+                <p className="text-base md:text-lg text-gray-200 leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
-        )}
-      </div>
-      <SOPsSection />
-      {/* CTA */}
-      <div className="bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 border-t border-amber-500/20">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Experience
-            <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent"> Luxury?</span>
+
+          {/* Closing line kept exactly, tight spacing */}
+          <p className="text-gray-400 mt-8 text-base max-w-5xl">
+            Our growth journey is guided by a simple principle: corporate mobility should be as reliable and nurturing as a trusted partner — organized, efficient, and safe. As we scale, we will continue to uphold the values that inspired our beginning, while embracing innovation and sustainability to shape the future of business travel.
+          </p>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Core Values</span>
           </h2>
-          <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">Join thousands of clients who trust us for precision, privacy, and comfort.</p>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">What it means for your organisation in real life, not just on a slide.</p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {coreValues.map((v, i) => (
+            <div key={i} className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <v.icon className="h-8 w-8 text-amber-500" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">{v.title}</h3>
+              <p className="text-gray-400 leading-relaxed text-base">{v.meaning}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Table view for quick scanning */}
+        <div className="overflow-hidden rounded-2xl border border-white/10">
+          <table className="min-w-full divide-y divide-white/10">
+            <thead className="bg-white/5">
+              <tr>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">Value</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">What It Means for You</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/10">
+              {coreValues.map((v, i) => (
+                <tr key={`row-${i}`} className="hover:bg-white/5">
+                  <td className="px-6 py-4 text-gray-100">{v.title}</td>
+                  <td className="px-6 py-4 text-gray-300">{v.meaning}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* SOPs (kept as-is) */}
+      <SOPsSection />
+
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 border-t border-amber-500/20">
+        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+          <h2 className="text-4xl font-bold mb-4">
+            Partner With <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Us</span>
+          </h2>
+          <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
+            Safe, transparent, and technology-enabled transportation that actually makes your travel management easier.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={handleBookNowClick}
+              onClick={() => setDialogOpen(true)}
               className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] shadow-2xl"
             >
               <span className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                Book Now
+                Partner With Us
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
-            <a href="/fleet" className="text-center border-2 border-amber-500/50 hover:border-amber-500 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-amber-500/10">
+            <a
+              href="/our-fleet"
+              className="text-center border-2 border-amber-500/50 hover:border-amber-500 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-amber-500/10"
+            >
               View Fleet
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
       <style jsx>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -328,10 +304,10 @@ export default function AboutPage() {
 
       <BookingDialog
         open={dialogOpen}
-        model={model}
+        model="About Page Enquiry"
         onOpenChange={setDialogOpen}
         onSubmit={(payload) => {
-          console.log('About booking payload', payload);
+          console.log("About booking payload", payload);
           setDialogOpen(false);
         }}
       />

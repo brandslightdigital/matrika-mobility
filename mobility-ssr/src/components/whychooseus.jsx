@@ -17,81 +17,49 @@ import {
 import { FaShield } from "react-icons/fa6";
 
 export default function BenefitsAndWhy() {
-  // Primary benefits (your first list), cleaned and kept
+  // Updated benefits list
   const benefits = [
     {
-      icon: <FaCogs />,
-      title: "First-class service",
+      icon: <FaMapMarkerAlt />,
+      title: "Pan-India Operations",
       desc:
-        "Premium, chauffeur-driven experience powered by our platform and maintained fleet standards.",
+        "Our operations cover metros and tier-2 cities with consistent service quality and reliability.",
       tone: "sky",
     },
     {
-      icon: <FaCalendarAlt />,
-      title: "Flexible business terms",
+      icon: <FaCar />,
+      title: "Instant Bookings",
       desc:
-        "Book, amend, and cancel 24/7 / 365 via web or app. Zero drama, real-time confirmation.",
+        "Book your ride anytime with instant confirmation through our platform, ensuring smooth travel every time.",
       tone: "rose",
     },
     {
-      icon: <FaCar />,
-      title: "Extensive fleet",
+      icon: <FaShield />,
+      title: "Safety & Security Focus",
       desc:
-        "From economy to high-spec luxury vehicles, always clean, comfortable, and ready.",
+        "Real-time GPS tracking, SOS buttons, and vetted drivers ensure your safety is our top priority.",
       tone: "orange",
     },
     {
-      icon: <FaNetworkWired />,
-      title: "Global network",
+      icon: <FaClock />,
+      title: "24×7 Corporate Support Desk",
       desc:
-        "2,500+ locations across 100+ countries so your travel doesn’t fall apart across borders.",
+        "Our dedicated support team is available round the clock to assist with bookings, delays, and urgent issues.",
       tone: "green",
     },
     {
-      icon: <FaPuzzlePiece />,
-      title: "Customized solutions",
+      icon: <FaWallet />,
+      title: "Custom and Transparent Billing & MIS Reports",
       desc:
-        "Corporate SLAs, invoicing, rider policies, and integrations tailored to your workflows.",
+        "Get detailed, accurate, and clear invoices with custom billing options and easy-to-understand MIS reports.",
       tone: "yellow",
     },
     {
-      icon: <FaShield />,
-      title: "HSSE compliance",
-      desc: "HSSE compliance means working safely, protecting people, assets, and the environment at all times.",
-    },
-  ];
-
-  // Why choose (your second list), deduped and expanded
-  const reasons = [
-    {
-      icon: <FaHandshake />,
-      title: "Trusted by corporates",
-      desc: "500+ businesses rely on Matrika for daily commute, events, and VIP travel.",
-    },
-    {
-      icon: <FaClock />,
-      title: "24/7 human support",
-      desc: "Round-the-clock assistance for bookings, delays, changes, and urgent dispatch.",
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      title: "Pan-India coverage",
-      desc: "Metros to tier-2 cities with consistent service quality and SLAs.",
-    },
-    {
-      icon: <FaWallet />,
-      title: "Transparent pricing",
-      desc: "All-in prices, clear T&Cs, instant e-invoices. No hidden fees, ever.",
-    },
-    {
-      icon: <FaWifi />,
-      title: "In-car connectivity",
-      desc: "Wi-Fi available on select routes and vehicle classes to keep you online.",
-    },
-    {
-      icon: <FaSnowflake />,
-      title: "Climate control",
-      desc: "Cabin comfort dialed in for India’s weather so you don’t bake or freeze.",
+      icon: <FaPuzzlePiece />,
+      title: "Women Safety Top Priority",
+      desc:
+        "We prioritize women's safety with dedicated measures like verified drivers and emergency response systems.",
+      tone: "blue",
     },
   ];
 
@@ -110,7 +78,7 @@ export default function BenefitsAndWhy() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block rounded-full bg-yellow-400/20 text-yellow-400 px-4 py-1 text-sm font-semibold">
-           Matrika Mobilities
+            Matrika Mobilities
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">
             Why choose Matrika ?
@@ -137,24 +105,6 @@ export default function BenefitsAndWhy() {
             </div>
           ))}
         </div>
-
-
-        {/* Reasons grid */}
-        {/* <div className="rounded-3xl bg-white/5 border border-white/10 p-6 md:p-8">
-          <h3 className="text-white text-2xl font-bold mb-6">Why teams switch to us</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reasons.map((r) => (
-              <div
-                key={r.title}
-                className="rounded-2xl bg-black/30 border border-white/10 p-5 hover:bg-black/40 transition"
-              >
-                <div className="text-2xl text-amber-400 mb-3">{r.icon}</div>
-                <div className="text-white font-semibold">{r.title}</div>
-                <p className="mt-1 text-sm text-gray-300 leading-relaxed">{r.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
     </section>
   );

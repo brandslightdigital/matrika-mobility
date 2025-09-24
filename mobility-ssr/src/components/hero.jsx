@@ -11,7 +11,7 @@ export default function Hero() {
     {
       title: "Corporate",
       subtitle: "Car Rentals",
-      description: "Premium fleet for business meetings, airport transfers, and family adventures",
+      description: "Premium fleet for business meetings, airport transfers, and family adventures.",
       image: "/banner/banner1.jpeg"
     },
     {
@@ -120,7 +120,7 @@ export default function Hero() {
                 onClick={handleBookNowClick}
                 className="group bg-gradient-to-r from-amber-400 to-amber-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-amber-500 hover:to-amber-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/25 flex items-center justify-center space-x-2">
                 <FaCar className="group-hover:animate-bounce" />
-                <span>Book a Ride</span>
+                <span>Book a Ride </span>
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
 

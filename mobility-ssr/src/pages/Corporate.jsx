@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Briefcase, Users, Clock, Shield, Globe, BarChart, ArrowRight, Train } from 'lucide-react';
+import { Briefcase, Users, Globe, BarChart, ArrowRight} from 'lucide-react';
 import BookingDialog from '../components/BookingCar'; // Importing the BookingDialog component
-import { FaDisplay, FaPeopleGroup } from 'react-icons/fa6';
-import { FaCar } from 'react-icons/fa';
+import {
+  FaHandshake,
+  FaCogs,
+  FaTachometerAlt,
+  FaFileInvoice,
+  FaCalendarAlt,
+  FaUsers,
+} from 'react-icons/fa';
 import SOPsSection from './SOPsSection';
 import BestPracticesSection from '../components/BestPractise';
 
@@ -79,7 +85,7 @@ export default function CorporatePage() {
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-amber-500">Corporate</span> mobilities Solutions
+            <span className="text-amber-500">Tailored Solutions </span> for Corporate Mobility
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Premium transportation services designed for businesses that value reliability, discretion, and exceptional service.
@@ -92,6 +98,9 @@ export default function CorporatePage() {
 
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         {/* Value Proposition */}
+  <section className="bg-gradient-to-br from-black via-neutral-900 to-black py-4">
+      <div className="mx-auto max-w-6xl px-6">
+        {/* Value Proposition */}
         <div className="text-center mb-20">
           <h2 className="text-3xl font-bold mb-6">
             <span className="text-amber-500">Why</span> Corporations Choose Us
@@ -99,33 +108,62 @@ export default function CorporatePage() {
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <FaPeopleGroup className="h-8 w-8 text-amber-500" />
+                <FaHandshake className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Team</h3>
+              <h3 className="text-xl font-semibold mb-3">Service Level Agreements (SLAs)</h3>
               <p className="text-gray-400">
-                70 Employees , 300 Drivers , Pan india network Partners.
+                We provide tailored SLAs ensuring high-quality services for your business needs.
               </p>
             </div>
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <FaDisplay className="h-8 w-8 text-amber-500" />
+                <FaCogs className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Technology</h3>
+              <h3 className="text-xl font-semibold mb-3">Dedicated Account Managers</h3>
               <p className="text-gray-400">
-                Mobile Application , GPS and Mapping , Data Analytics, Live driver tracking
+                Our dedicated account managers provide personalized support for all your requirements.
               </p>
             </div>
             <div className="bg-gray-800 rounded-xl p-8">
               <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <FaCar className="h-8 w-8 text-amber-500" />
+                <FaTachometerAlt className="h-8 w-8 text-amber-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Our Trainers</h3>
+              <h3 className="text-xl font-semibold mb-3">Real-Time Tracking Dashboards</h3>
               <p className="text-gray-400">
-                5 Trainers exclusive for driver and partner training Pan India
+                Track vehicles in real-time, keeping you updated and in control at all times.
+              </p>
+            </div>
+            <div className="bg-gray-800 rounded-xl p-8">
+              <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <FaFileInvoice className="h-8 w-8 text-amber-500" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">MIS Reporting for Finance Teams</h3>
+              <p className="text-gray-400">
+                Customizable MIS reports that provide finance teams with accurate and detailed billing information.
+              </p>
+            </div>
+            <div className="bg-gray-800 rounded-xl p-8">
+              <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <FaCalendarAlt className="h-8 w-8 text-amber-500" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Specialization in Bulk Bookings/Event and VIP Transfers</h3>
+              <p className="text-gray-400">
+                Expertise in handling large-scale bookings for events and VIP transfers, ensuring a smooth experience.
+              </p>
+            </div>
+            <div className="bg-gray-800 rounded-xl p-8">
+              <div className="bg-amber-500/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <FaUsers className="h-8 w-8 text-amber-500" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Our Dedicated Team</h3>
+              <p className="text-gray-400">
+                A skilled and experienced team that ensures high-quality service at every step.
               </p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
         {/* Services */}
         <div className="mb-20">
@@ -173,14 +211,14 @@ export default function CorporatePage() {
           </div>
         </div>
         <SOPsSection />
-        <BestPracticesSection/>
+        <BestPracticesSection />
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2">
             <div className="p-12">
-              <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel?</h2>
+              <h2 className="text-3xl font-bold mb-4">Ready to elevate your corporate travel - </h2>
               <p className="text-lg mb-8">
-                Our mobilities specialists will design a custom solution for your organization.
+                “Guaranteed 10% savings on your current annual spends”
               </p>
               <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
                 Request Corporate Proposal

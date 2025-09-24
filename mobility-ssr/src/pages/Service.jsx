@@ -205,6 +205,30 @@ export default function MatrikaServicesWithImages() {
       </div>
 <SOPsSection/>
 <BestPracticesSection/>
+{/* GLOBAL AVAILABILITY SECTION */}
+<div className="bg-black py-16 border-t border-white/10">
+  <div className="container mx-auto px-6 max-w-7xl text-center">
+    <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
+    <p className="text-gray-300 mb-10">
+      Our premium mobility solutions are now available across key international markets.
+    </p>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
+        >
+          <span className="text-lg font-semibold">{region}</span>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</div>
+
       {/* CTA */}
       <div className="max-w-7xl mx-auto bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2">
