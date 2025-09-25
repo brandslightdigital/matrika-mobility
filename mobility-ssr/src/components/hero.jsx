@@ -20,7 +20,7 @@ export default function Hero() {
   const slides = [
     // Content-heavy first slide
     {
-      title: "Corporate Car rentals across India",
+      title: "Corporate Car Rentals Across India",
       subtitle: "Reliable, Safe & Tech-Enabled",
       description:
         "Matrika Mobilities provides premium chauffeur-driven cars for corporates, events, and airport transfers, backed by cutting-edge technology and exceptional service.",

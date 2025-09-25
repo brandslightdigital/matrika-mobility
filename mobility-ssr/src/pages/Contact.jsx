@@ -6,7 +6,8 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    service: "",
+    selectCountry: "",
+    selectCity: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -108,22 +109,49 @@ export default function ContactPage() {
                     />
                   </div>
                 </div>
-
                 <div>
-                  <label className="block text-gray-300 font-medium mb-2">Service Type</label>
+                  <label className="block text-gray-300 font-medium mb-2">Select City</label>
                   <select
-                    name="service"
-                    value={formData.service}
+                    name="selectCity"
+                    value={formData.selectCity}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:border-[#ffb900] focus:ring-2 focus:ring-[#ffb900]/50 transition-all"
                   >
-                    <option value="">Select a service</option>
-                    <option value="corporate">Corporate Services 200+ Cities</option>
-                    <option value="airport">Airport Transportation</option>
-                    <option value="outstation">Outstation Services</option>
-                    <option value="city">Cities Drive</option>
+                   <option value="">Select City</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="hyderabad">Hyderabad</option>
+                    <option value="pune">Pune</option>
+                    <option value="jaipur">Jaipur</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="lucknow">Lucknow</option>
                   </select>
                 </div>
+                <div>
+                  <label className="block text-gray-300 font-medium mb-2">Select Country</label>
+                  <select
+                    name="selectCountry"
+                    value={formData.selectCountry}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:border-[#ffb900] focus:ring-2 focus:ring-[#ffb900]/50 transition-all"
+                  >
+                    <option value="">Select Country</option>
+                    <option value="india">India</option>
+                    <option value="usa">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="canada">Canada</option>
+                    <option value="australia">Australia</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="japan">Japan</option>
+                    <option value="brazil">Brazil</option>
+                    <option value="southafrica">South Africa</option>
+                  </select>
+                </div>
+                
 
                 <div>
                   <label className="block text-gray-300 font-medium mb-2">Your Message</label>
@@ -202,11 +230,11 @@ export default function ContactPage() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-4">
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
-                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">200+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">10k+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Satisfied Clients</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
-                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">20+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">500+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Premium Vehicles</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
@@ -214,7 +242,7 @@ export default function ContactPage() {
                 <div className="text-xs sm:text-sm text-gray-400">Support</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
-                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">20+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">15+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Years Experience</div>
               </div>
             </div>
