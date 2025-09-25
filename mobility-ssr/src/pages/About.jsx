@@ -174,7 +174,7 @@ export default function AboutPage() {
               <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Growth Vision</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8">
-              At Matrika Mobilities, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in safety, transparency, and customer experience.
+              At Matrika Mobilities, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in Safety, Transparency, and Customer experience.
             </p>
           </div>
 
@@ -227,7 +227,7 @@ export default function AboutPage() {
           <h2 className="text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Core Values</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">"Where Integrity Needs Execution"</p>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">"Where Integrity Meets Execution"</p>
         </div>
 
         {/* Cards */}
