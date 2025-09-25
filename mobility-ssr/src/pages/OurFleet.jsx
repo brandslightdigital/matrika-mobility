@@ -5,72 +5,129 @@ import SOPsSection from "./SOPsSection";
 import BestPracticesSection from "../components/BestPractise";
 
 // -----------------------------------------------------------------------------
-// FLEET PAGE — POLISHED, ATTRACTIVE, AND CLEAR (JS ONLY, NO PRICES)
-// - Clean hero with subtle gradient and icon accents
-// - Sticky search + quick filters
-// - Robust search (tokenized, matches title/variant/specs/description)
-// - Nicer cards with better hierarchy and hover motion
-// - Reusable BookingDialog (external component you already have)
-// - Image safety: spaces encoded, onError fallback
+// FLEET PAGE — FLAT LIST (NO SUBCATEGORIES, NO VARIANTS)
 // -----------------------------------------------------------------------------
 
 const safeSrc = (src) => (typeof src === "string" ? src.split(" ").join("%20") : src);
-const FALLBACK = "/cars/placeholder.jpg"; // add a simple placeholder image in your public/cars
+const FALLBACK = "/cars/placeholder.jpg"; // keep a simple placeholder in /public/cars
 
+// Flat data, same shape for ALL entries
 const categoriesData = [
+  { 
+    key: "e200", 
+    title: "Mercedes-Benz E-Class E 200", 
+    brand: "Mercedes", 
+    tag: "Base", 
+    specs: "1999 cc • AT • Petrol • 15 kmpl", 
+    image: "/cars/E-200.avif",
+    description: "Executive sedan from the E-Class line-up.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "e220d", 
+    title: "Mercedes-Benz E-Class E 220d", 
+    brand: "Mercedes", 
+    specs: "1993 cc • AT • Diesel • 15 kmpl", 
+    image: "/cars/E-220d.jpg",
+    description: "Efficient diesel option in the E-Class range.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "e450", 
+    title: "Mercedes-Benz E-Class E 450", 
+    brand: "Mercedes", 
+    tag: "Top", 
+    specs: "2999 cc • AT • Petrol • 12 kmpl", 
+    image: "/cars/E-450.jpg",
+    description: "High-performance petrol E-Class variant.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "s350d", 
+    title: "Mercedes-Benz S-Class S 350d", 
+    brand: "Mercedes", 
+    tag: "Base", 
+    specs: "2925 cc • AT • Diesel • 18 kmpl", 
+    image: "/cars/S-350.jpg",
+    description: "Luxury diesel offering in the flagship S-Class.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "s450", 
+    title: "Mercedes-Benz S-Class S450 4Matic", 
+    brand: "Mercedes", 
+    tag: "Top", 
+    specs: "2999 cc • AT • Petrol • 12 kmpl", 
+    image: "/cars/S450.jpg",
+    description: "Petrol flagship with 4Matic all-wheel drive.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "740i-msport", 
+    title: "BMW 740i M Sport", 
+    brand: "BMW", 
+    specs: "2998 cc • AT • Petrol • 8 kmpl", 
+    image: "/cars/740i Sport.webp",
+    description: "Sporty petrol option in the 7 Series line-up.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "740d-msport", 
+    title: "BMW 740d M Sport", 
+    brand: "BMW", 
+    specs: "2993 cc • AT • Diesel • 12.1 kmpl", 
+    image: "/cars/740d.cms",
+    description: "Diesel-powered 7 Series with M Sport trim.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "530li", 
+    title: "BMW 530Li", 
+    brand: "BMW", 
+    specs: "1998 cc • AT • Petrol • 10.9 kmpl", 
+    image: "/cars/530Li.avif",
+    description: "Executive sedan from the BMW 5 Series range.", 
+    note: "All variants available" 
+  },
 
-  // {
-  //   key: "e-class",
-  //   title: "Mercedes-Benz E-Class",
-  //   brand: "Mercedes",
-  //   image: "/cars/Eclass.jpg",
-  //   description: "Executive sedan. All E-Class variants available.",
-  //   variants: [
-  //     { id: "e200", name: "E-Class E 200", tag: "Base", specs: "1999 cc • AT • Petrol • 15 kmpl", image: "/cars/E-200.avif" },
-  //     { id: "e220d", name: "E-Class E 220d", specs: "1993 cc • AT • Diesel • 15 kmpl", image: "/cars/E-220d.jpg" },
-  //     { id: "e450", name: "E-Class E 450", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/E-450.jpg" },
-  //   ],
-  // },
-  // {
-  //   key: "s-class",
-  //   title: "Mercedes-Benz S-Class",
-  //   brand: "Mercedes",
-  //   image: "/cars/mercedes.avif",
-  //   description: "Flagship luxury. All S-Class variants available.",
-  //   variants: [
-  //     { id: "s350d", name: "S-Class S 350d", tag: "Base", specs: "2925 cc • AT • Diesel • 18 kmpl", image: "/cars/S-350.jpg" },
-  //     { id: "s450", name: "S-Class S450 4Matic", tag: "Top", specs: "2999 cc • AT • Petrol • 12 kmpl", image: "/cars/S450.jpg" },
-  //   ],
-  // },
-  // {
-  //   key: "bmw-7",
-  //   title: "BMW 7 Series",
-  //   brand: "BMW",
-  //   image: "/cars/7i.webp",
-  //   description: "Full-size luxury with lounge-like rear seats.",
-  //   variants: [
-  //     { id: "740i-msport", name: "BMW 740i M Sport", specs: "2998 cc • AT • Petrol • 8 kmpl", image: "/cars/740i Sport.webp" },
-  //     { id: "740d-msport", name: "BMW 740d M Sport", specs: "2993 cc • AT • Diesel • 12.1 kmpl", image: "/cars/740d.cms" },
-  //   ],
-  // },
-  // {
-  //   key: "bmw-5",
-  //   title: "BMW 5 Series",
-  //   brand: "BMW",
-  //   image: "/cars/5s.avif",
-  //   description: "Business-class sedan with driver-focused ergonomics.",
-  //   variants: [
-  //     { id: "530li", name: "BMW 530Li", specs: "1998 cc • AT • Petrol • 10.9 kmpl", image: "/cars/530Li.avif" },
-  //   ],
-  // },
-  { key: "swift", title: "Maruti Suzuki Swift", brand: "Maruti", image: "/cars/swift.png", description: "All variants available.", note: "All variants available" },
-  { key: "swift-dzire", title: "Maruti Suzuki Swift Dzire", brand: "Maruti", image: "/cars/dezire.jpg", description: "All variants available.", note: "All variants available" },
-  { key: "crysta", title: "Toyota Crysta", brand: "Toyota", image: "/cars/innova.jpg", description: "Spacious MPV. All variants available.", note: "All variants available" },
-  { key: "hycross", title: "Innova Hycross", brand: "Toyota", image: "/cars/hycross.avif", description: "Hybrid comfort. All variants available.", note: "All variants available" },
-  { key: "fortuner", title: "Toyota Fortuner", brand: "Toyota", image: "/cars/Fortuner.avif", description: "High-seating SUV presence. All variants available.", note: "All variants available" },
+  { 
+    key: "swift-dzire", 
+    title: "Maruti Suzuki Swift Dzire", 
+    brand: "Maruti", 
+    image: "/cars/dezire.jpg", 
+    description: "Compact sedan for city and family use.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "crysta", 
+    title: "Toyota Crysta", 
+    brand: "Toyota", 
+    image: "/cars/innova.jpg", 
+    description: "Spacious MPV offering comfort and versatility.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "hycross", 
+    title: "Innova Hycross", 
+    brand: "Toyota", 
+    image: "/cars/hycross.avif", 
+    description: "Hybrid MPV for efficiency and comfort.", 
+    note: "All variants available" 
+  },
+  { 
+    key: "fortuner", 
+    title: "Toyota Fortuner", 
+    brand: "Toyota", 
+    image: "/cars/Fortuner.avif", 
+    description: "High-seating SUV presence with rugged capability.", 
+    note: "All variants available" 
+  },
 ];
 
-const BRANDS = ["All", "Toyota", "Maruti"];
+
+
+// Include all brands for chips
+const BRANDS = ["All", "Mercedes", "BMW", "Toyota", "Maruti"];
 
 export default function FleetPage() {
   const [brand, setBrand] = useState("All");
@@ -78,7 +135,6 @@ export default function FleetPage() {
   const [debounced, setDebounced] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("");
-  
 
   useEffect(() => {
     const t = setTimeout(() => setDebounced(query.trim().toLowerCase()), 200);
@@ -86,19 +142,15 @@ export default function FleetPage() {
   }, [query]);
 
   const list = useMemo(() => {
-    let base = brand === "All" ? categoriesData : categoriesData.filter((c) => c.brand === brand);
+    const base = brand === "All" ? categoriesData : categoriesData.filter((c) => c.brand === brand);
     if (!debounced) return base;
 
     const tokens = debounced.split(/\s+/).filter(Boolean);
     const matchesTokens = (text) => tokens.every((tk) => text.includes(tk));
 
     return base.filter((c) => {
-      const hay = [c.title, c.description].filter(Boolean).join(" ").toLowerCase();
-      const vHay = (c.variants || [])
-        .map((v) => [v.name, v.specs].filter(Boolean).join(" "))
-        .join(" ")
-        .toLowerCase();
-      return matchesTokens(hay) || matchesTokens(vHay);
+      const hay = [c.title, c.description, c.note].filter(Boolean).join(" ").toLowerCase();
+      return matchesTokens(hay);
     });
   }, [brand, debounced]);
 
@@ -112,13 +164,17 @@ export default function FleetPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_-10%,rgba(245,158,11,0.08),transparent_60%)]" />
-        <div className="max-w-7xl mx-auto px-4 pt-20 pb-10">
-          <div className="flex items-center justify-center gap-2 text-amber-400/90 text-sm mb-2">
-            <Car className="h-4 w-4" />
-            <span>Premium Fleet</span>
+        <div className="max-w-7xl mx-auto px-4 pt-20 pb-4">
+          <div className="flex items-center justify-center gap-2 text-amber-400/90 text-sm mt-2">
+            <Car className="h-12 w-12" />
+            <h1 className="text-2xl">Premium Fleet</h1>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center">Mercedes E & S as categories, variants included</h1>
-          <p className="mt-3 text-center text-zinc-300 max-w-2xl mx-auto">Minimal clutter. Clean visuals. Search and quick filters that actually work.</p>
+            {/* <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center">
+              Curated corporate fleet, no subcategories
+            </h1>
+            <p className="mt-3 text-center text-zinc-300 max-w-2xl mx-auto">
+              Minimal clutter. Clean visuals. Search and quick filters that actually work.
+            </p> */}
         </div>
       </section>
 
@@ -149,7 +205,7 @@ export default function FleetPage() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search variants, specs, models..."
+              placeholder="Search models, brands, notes..."
               className="flex-1 bg-transparent outline-none placeholder:text-zinc-500"
             />
           </div>
@@ -180,7 +236,9 @@ export default function FleetPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-4 text-sm text-zinc-200/80">
-                    <span className="inline-block px-2 py-1 rounded-md bg-zinc-950/60 border border-zinc-800">{cat.brand}</span>
+                    <span className="inline-block px-2 py-1 rounded-md bg-zinc-950/60 border border-zinc-800">
+                      {cat.brand}
+                    </span>
                   </div>
                 </div>
 
@@ -188,7 +246,9 @@ export default function FleetPage() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <h3 className="text-2xl font-semibold tracking-tight">{cat.title}</h3>
-                      <p className="mt-1 text-sm text-zinc-300">{cat.description}</p>
+                      {cat.description ? (
+                        <p className="mt-1 text-sm text-zinc-300">{cat.description}</p>
+                      ) : null}
                     </div>
                     <button
                       onClick={() => openFor(cat.title)}
@@ -198,71 +258,33 @@ export default function FleetPage() {
                     </button>
                   </div>
 
-                  {/* Variants */}
-                  {Array.isArray(cat.variants) && cat.variants.length > 0 && (
-                    <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {cat.variants.map((v) => (
-                        <li key={v.id} className="border border-zinc-800 rounded-xl p-4 bg-zinc-950/50 hover:border-amber-500/40 transition">
-                          <div className="flex gap-3">
-                            <img
-                              src={safeSrc(v.image)}
-                              onError={(e) => (e.currentTarget.src = FALLBACK)}
-                              alt={v.name}
-                              className="h-16 w-24 object-cover rounded-lg"
-                              loading="lazy"
-                            />
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <h4 className="font-semibold leading-tight">{v.name}</h4>
-                                {/* {v.tag ? (
-                                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                                    {v.tag}
-                                  </span>
-                                ) : null} */}
-                              </div>
-                              {v.specs ? <p className="text-xs text-zinc-400 mt-1">{v.specs}</p> : null}
-                              <div className="mt-3">
-                                <button
-                                  onClick={() => openFor(v.name)}
-                                  className="text-sm inline-flex items-center justify-center rounded-lg bg-amber-500 text-black font-medium px-3 py-1.5 hover:bg-amber-600 active:translate-y-px"
-                                >
-                                  Request a Corporate Proposal
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {!cat.variants && cat.note ? (
-                    <p className="mt-4 text-sm text-zinc-300">{cat.note}</p>
-                  ) : null}
+                  {cat.note ? <p className="mt-4 text-sm text-zinc-300">{cat.note}</p> : null}
                 </div>
               </article>
             ))}
           </div>
         )}
       </section>
-      <SOPsSection/>
-      <BestPracticesSection/>
-      {/* CTA Section */}
 
-        <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2">
-            <div className="p-12">
-              <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
-              <p className="text-lg mb-8">
-                “Guaranteed 10% savings on your current annual spends”
-              </p>
-              <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
-                Request a Corporate Proposal
-              </button>
-            </div>
-            <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>
+      <SOPsSection />
+      <BestPracticesSection />
+
+      {/* CTA Section */}
+      <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2">
+          <div className="p-12">
+            <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
+            <p className="text-lg mb-8">“Guaranteed 10% savings on your current annual spends”</p>
+            <button
+              onClick={() => setDialogOpen(true)}
+              className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
+            >
+              Request a Corporate Proposal
+            </button>
           </div>
+          <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>
         </div>
+      </div>
 
       {/* Booking dialog (external) */}
       <BookingDialog
