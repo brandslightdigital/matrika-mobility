@@ -283,16 +283,16 @@ export default function AboutPage() {
             >
               <span className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                Partner With Us
+Request a Corporate Proposal
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
-            <a
+            {/* <a
               href="/our-fleet"
               className="text-center border-2 border-amber-500/50 hover:border-amber-500 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-amber-500/10"
             >
               View Fleet
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
