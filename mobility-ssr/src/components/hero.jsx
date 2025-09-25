@@ -101,7 +101,7 @@ export default function Hero() {
         <div className="w-full">
           {/* Heading */}
           <h1 className="mb-3 leading-tight text-white">
-            <span className="block text-[clamp(28px,6vw,64px)] font-extrabold">
+            <span className="block text-[clamp(28px,6vw,64px)] font-semibold">
               {slides[current].title}
             </span>
             <span className="block bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-[clamp(26px,5vw,56px)] font-extrabold text-transparent">
@@ -137,7 +137,7 @@ export default function Hero() {
               className="group flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:scale-105 hover:from-amber-500 hover:to-amber-600 hover:shadow-lg hover:shadow-amber-500/25"
             >
               <FaCar className="group-hover:animate-bounce" />
-              <span>Book a Ride</span>
+              <span>Request a Corporate Proposal</span>
               <FaArrowRight className="transition-transform group-hover:translate-x-1" />
             </button>
 

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-700">
 
         <div>
-          <h2 className="text-2xl font-extrabold text-white mb-4">mobilities<span className="text-amber-400">Mobilities</span></h2>
+          <h2 className="text-2xl font-extrabold text-white mb-4">Matrika<span className="text-amber-400">Mobilities</span></h2>
           <p className="text-gray-400 text-sm mb-4">
             Your trusted partner for premium car rentals — reliable, professional, and affordable.
           </p>

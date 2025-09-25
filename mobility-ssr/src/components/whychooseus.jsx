@@ -84,7 +84,7 @@ export default function BenefitsAndWhy() {
             Why choose Matrika ?
           </h2>
           <p className="mt-3 text-gray-300 max-w-2xl mx-auto">
-            Fewer buzzwords, more reliability. Here’s what you get when you book with us.
+            Here’s what you get when you book with us.
           </p>
         </div>
 
