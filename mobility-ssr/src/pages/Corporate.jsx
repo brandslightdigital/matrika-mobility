@@ -29,7 +29,7 @@ export default function CorporatePage() {
 {
   icon: <Briefcase className="h-8 w-8 text-amber-500" />,
   title: "Executive Corporate Travel",
-  description: "Flexible rentals and chauffeured rides for business, leisure, or family travel. 24x7 availability, Meet-and-greet service, Real-time flight tracking, Confidentiality guaranteed",
+  description: "Flexible rentals and chauffeured rides for business, leisure, or family travel. 24x7 availability., Meet-and-greet service, Real-time flight tracking, Confidentiality guaranteed",
   image: '/cars/corporate.webp',
   features: [
     "Hourly, daily & multi-day rental options",

@@ -36,7 +36,7 @@ const DEFAULT_ITEMS = [
 
 export default function BestPracticesSection({
   title = "Best Practices",
-  subtitle = "Operational standards that keep every ride consistent, safe, and customer-first.",
+  subtitle = "Operational standards that keep every ride consistent, safe, and customer-friendly.",
   items = DEFAULT_ITEMS,
   variant = "grid",
   className = "",
