@@ -85,10 +85,10 @@ export default function CorporatePage() {
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-semibold mb-6">
-            <span className="text-amber-500">Tailored </span>Solutions for Corporate <span className='font-extrabold'>Mobility</span> 
+            <span className="text-amber-500">Tailored </span>Solutions for <span className='text-amber-500'>Corporate </span>Mobility
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Premium transportation services designed for businesses that value Reliability, Safety, Security, and transparent, exceptional service.
+            Premium transportation services designed for businesses that value Reliability, Safety, Security, and Transparent exceptional service.
           </p>
         </div>
         <div className="absolute inset-0 opacity-20">
