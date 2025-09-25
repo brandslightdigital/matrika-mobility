@@ -78,7 +78,7 @@ const DEFAULT_ITEMS = [
 
 export default function SOPsSection({
   title = "SOPs — Safety, Security, Health & Environment",
-  subtitle = "Our operational standards that keep every ride safe, compliant, and reliable.",
+  subtitle = "Our operational standards that keep every ride Safe, Compliant, and Reliable.",
   items = DEFAULT_ITEMS,
   variant = "full",
   className = "",
