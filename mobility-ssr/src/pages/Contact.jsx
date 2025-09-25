@@ -181,7 +181,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">Email Us</h3>
-                    <p className="text-base sm:text-lg text-amber-400 font-medium mb-1 sm:mb-2">Bookings@matrikamobilities.com</p>
+                    <p className="text-base sm:text-lg text-amber-400 font-medium mb-1 sm:mb-2">Sales@matrikamobilities.com</p>
                   </div>
                 </div>
 
