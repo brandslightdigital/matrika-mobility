@@ -51,7 +51,7 @@ export default function ContactPage() {
             Contact Our Team
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-            Experience premium mobilities services. Our dedicated team is available 24/7 to assist with your transportation needs.
+            Experience premium mobilities services. Our dedicated team is available 24x7 to assist with your transportation needs.
           </p>
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">Phone Support</h3>
                     <p className="text-base sm:text-lg text-amber-400 font-medium mb-1 sm:mb-2">+91 7011438890</p>
-                    <p className="text-sm sm:text-base text-gray-400">24/7 emergency support available</p>
+                    <p className="text-sm sm:text-base text-gray-400">24x7 emergency support available</p>
                   </div>
                 </div>
 
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 <div className="text-xs sm:text-sm text-gray-400">Premium Vehicles</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
-                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">24/7</div>
+                <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">24x7</div>
                 <div className="text-xs sm:text-sm text-gray-400">Support</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">

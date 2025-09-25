@@ -29,13 +29,13 @@ export default function CorporatePage() {
 {
   icon: <Briefcase className="h-8 w-8 text-amber-500" />,
   title: "Executive Corporate Travel",
-  description: "Flexible rentals and chauffeured rides for business, leisure, or family travel.",
+  description: "Flexible rentals and chauffeured rides for business, leisure, or family travel. 24x7 availability, Meet-and-greet service, Real-time flight tracking, Confidentiality guaranteed",
   image: '/cars/corporate.webp',
   features: [
-    "24x7 availability",
-    "Meet-and-greet service",
-    "Real-time flight tracking",
-    "Confidentiality guaranteed"
+    "Hourly, daily & multi-day rental options",
+    "Local & outstation trips",
+    "Sedans, SUVs, luxury cars & tempo travellers",
+    "Transparent pricing, no hidden charges"
   ]
 },
 {
@@ -59,7 +59,7 @@ export default function CorporatePage() {
     "Premium luxury & vintage classics",
     "Chauffeured rides for bride, groom & guests",
     "Custom-decorated vehicles to match themes",
-    "24/7 availability for ceremonies"
+    "24x7 availability for ceremonies"
   ]
 },
 {
@@ -68,7 +68,7 @@ export default function CorporatePage() {
   description: "Seamless transfers with personalized meet-and-greet service.",
   image: '/cars/Fortuner.avif',
   features: [
-    "24/7 availability",
+    "24x7 availability",
     "Real-time flight tracking",
     "Meet-and-greet at terminals",
     "Wide vehicle options: sedans to SUVs"

@@ -18,7 +18,7 @@ export const SafetySection = () => {
             real-time for added security and efficiency. Every vehicle also
             carries a fire extinguisher for all-scenario preparedness. We place
             a special emphasis on women's safety, with a discreet push-button
-            SOS system in every car that instantly alerts our 24/7 support team,
+            SOS system in every car that instantly alerts our 24x7 support team,
             ensuring immediate assistance is just a click away.
           </p>
           <p className="text-black-300 text-xl mb-6 text-white">

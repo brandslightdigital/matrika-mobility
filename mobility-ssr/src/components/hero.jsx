@@ -34,7 +34,7 @@ export default function Hero() {
       image: "/banner/banner2.jpeg",
     },
     {
-      title: "24/7 Service",
+      title: "24x7 Service",
       subtitle: "And Support",
       description:
         "Round-the-clock support with instant booking and emergency assistance.",
@@ -46,7 +46,7 @@ export default function Hero() {
     { icon: FaCar, number: "500+", label: "Premium Cars" },
     { icon: FaUsers, number: "10K+", label: "Happy Clients" },
     { icon: FaStar, number: "4.9", label: "Rating" },
-    { icon: FaCalendarAlt, number: "24/7", label: "Support" },
+    { icon: FaCalendarAlt, number: "24x7", label: "Support" },
   ];
 
   // autoplay (pause on hover)

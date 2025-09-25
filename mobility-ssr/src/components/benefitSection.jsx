@@ -10,7 +10,7 @@ const benefits = [
   {
     icon: <FaCalendarAlt className="text-rose-500 text-3xl mb-3" />,
     title: 'Flexible business terms',
-    desc: 'Book, amend and cancel bookings 24/7, 365 days year online.',
+    desc: 'Book, amend and cancel bookings 24x7, 365 days year online.',
   },
   {
     icon: <FaCar className="text-orange-500 text-3xl mb-3" />,
