@@ -90,9 +90,8 @@ export default function AboutPage() {
         />
 
         <div
-          className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
             <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">Matrika</span>
@@ -274,7 +273,7 @@ export default function AboutPage() {
             Partner With <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Us</span>
           </h2>
           <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
-            Safe, transparent, and technology-enabled transportation that actually makes your travel management easier.
+            “Safe, transparent, and seamless travel solutions designed to simplify your operations.”
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -283,7 +282,7 @@ export default function AboutPage() {
             >
               <span className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-Request a Corporate Proposal
+                Request a Corporate Proposal
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
