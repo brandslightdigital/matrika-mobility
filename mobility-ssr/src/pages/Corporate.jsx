@@ -88,7 +88,7 @@ export default function CorporatePage() {
             <span className="text-amber-500">Tailored </span>Solutions for <span className='text-amber-500'>Corporate </span>Mobility
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Premium transportation services designed for businesses that value Reliability, Safety, Security, and Transparent exceptional service.
+            Premium transportation services designed for businesses that value reliability, safety, security, and transparent exceptional service.
           </p>
         </div>
         <div className="absolute inset-0 opacity-20">
