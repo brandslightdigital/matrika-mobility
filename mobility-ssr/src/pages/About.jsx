@@ -15,8 +15,8 @@ export default function AboutPage() {
 
   const stats = [
     { label: "Years of Excellence", value: "15+" },
-    { label: "Premium Vehicles", value: "50+" },
-    { label: "Cities Served", value: "25+" },
+    { label: "Premium Vehicles", value: "500+" },
+    { label: "Global Cities Served", value: "200+" },
   ];
 
   const story = [
@@ -27,7 +27,7 @@ export default function AboutPage() {
     "Today, Matrika Mobilities continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
   ];
 
-  const mission = "To redefine corporate mobility in India with technology, sustainability, and unmatched service.";
+  const mission = "To redefine corporate mobility in India with Technology, Sustainability, and Unmatched Services.";
 
   const growthBullets = [
     "Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.",
@@ -138,7 +138,7 @@ export default function AboutPage() {
 
             {/* Quote strip */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <p className="text-lg text-gray-200">“Corporate mobility should feel like a trusted partner: organised, transparent, and caring.”</p>
+              <p className="text-lg text-gray-200">“Corporate mobility should feel like a trusted partner- Organised, Transparent, Reliable and Caring.”</p>
             </div>
           </div>
 
