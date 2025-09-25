@@ -13,84 +13,7 @@ const FALLBACK = "/cars/placeholder.jpg"; // keep a simple placeholder in /publi
 
 // Flat data, same shape for ALL entries
 const categoriesData = [
-  { 
-    key: "e200", 
-    title: "Mercedes-Benz E-Class E 200", 
-    brand: "Mercedes", 
-    tag: "Base", 
-    specs: "1999 cc • AT • Petrol • 15 kmpl", 
-    image: "/cars/E-200.avif",
-    description: "Executive sedan from the E-Class line-up.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "e220d", 
-    title: "Mercedes-Benz E-Class E 220d", 
-    brand: "Mercedes", 
-    specs: "1993 cc • AT • Diesel • 15 kmpl", 
-    image: "/cars/E-220d.jpg",
-    description: "Efficient diesel option in the E-Class range.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "e450", 
-    title: "Mercedes-Benz E-Class E 450", 
-    brand: "Mercedes", 
-    tag: "Top", 
-    specs: "2999 cc • AT • Petrol • 12 kmpl", 
-    image: "/cars/E-450.jpg",
-    description: "High-performance petrol E-Class variant.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "s350d", 
-    title: "Mercedes-Benz S-Class S 350d", 
-    brand: "Mercedes", 
-    tag: "Base", 
-    specs: "2925 cc • AT • Diesel • 18 kmpl", 
-    image: "/cars/S-350.jpg",
-    description: "Luxury diesel offering in the flagship S-Class.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "s450", 
-    title: "Mercedes-Benz S-Class S450 4Matic", 
-    brand: "Mercedes", 
-    tag: "Top", 
-    specs: "2999 cc • AT • Petrol • 12 kmpl", 
-    image: "/cars/S450.jpg",
-    description: "Petrol flagship with 4Matic all-wheel drive.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "740i-msport", 
-    title: "BMW 740i M Sport", 
-    brand: "BMW", 
-    specs: "2998 cc • AT • Petrol • 8 kmpl", 
-    image: "/cars/740i Sport.webp",
-    description: "Sporty petrol option in the 7 Series line-up.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "740d-msport", 
-    title: "BMW 740d M Sport", 
-    brand: "BMW", 
-    specs: "2993 cc • AT • Diesel • 12.1 kmpl", 
-    image: "/cars/740d.cms",
-    description: "Diesel-powered 7 Series with M Sport trim.", 
-    note: "All variants available" 
-  },
-  { 
-    key: "530li", 
-    title: "BMW 530Li", 
-    brand: "BMW", 
-    specs: "1998 cc • AT • Petrol • 10.9 kmpl", 
-    image: "/cars/530Li.avif",
-    description: "Executive sedan from the BMW 5 Series range.", 
-    note: "All variants available" 
-  },
-
-  { 
+    { 
     key: "swift-dzire", 
     title: "Maruti Suzuki Swift Dzire", 
     brand: "Maruti", 
@@ -121,13 +44,70 @@ const categoriesData = [
     image: "/cars/Fortuner.avif", 
     description: "High-seating SUV presence with rugged capability.", 
     note: "All variants available" 
+  },  
+  { 
+    key: "e450", 
+    title: "Mercedes-Benz E-Class E 450", 
+    brand: "Mercedes", 
+    tag: "Top", 
+    specs: "2999 cc • AT • Petrol • 12 kmpl", 
+    image: "/cars/E-450.jpg",
+    description: "High-performance petrol E-Class variant.", 
+    note: "All variants available" 
   },
+  { 
+    key: "s350d", 
+    title: "Mercedes-Benz S-Class S 350d", 
+    brand: "Mercedes", 
+    tag: "Base", 
+    specs: "2925 cc • AT • Diesel • 18 kmpl", 
+    image: "/cars/S-350.jpg",
+    description: "Luxury diesel offering in the flagship S-Class.", 
+    note: "All variants available" 
+  },
+  // { 
+  //   key: "s450", 
+  //   title: "Mercedes-Benz S-Class S450 4Matic", 
+  //   brand: "Mercedes", 
+  //   tag: "Top", 
+  //   specs: "2999 cc • AT • Petrol • 12 kmpl", 
+  //   image: "/cars/S450.jpg",
+  //   description: "Petrol flagship with 4Matic all-wheel drive.", 
+  //   note: "All variants available" 
+  // },
+  // { 
+  //   key: "740i-msport", 
+  //   title: "BMW 740i M Sport", 
+  //   brand: "BMW", 
+  //   specs: "2998 cc • AT • Petrol • 8 kmpl", 
+  //   image: "/cars/740i Sport.webp",
+  //   description: "Sporty petrol option in the 7 Series line-up.", 
+  //   note: "All variants available" 
+  // },
+  // { 
+  //   key: "740d-msport", 
+  //   title: "BMW 740d M Sport", 
+  //   brand: "BMW", 
+  //   specs: "2993 cc • AT • Diesel • 12.1 kmpl", 
+  //   image: "/cars/740d.cms",
+  //   description: "Diesel-powered 7 Series with M Sport trim.", 
+  //   note: "All variants available" 
+  // },
+  // { 
+  //   key: "530li", 
+  //   title: "BMW 530Li", 
+  //   brand: "BMW", 
+  //   specs: "1998 cc • AT • Petrol • 10.9 kmpl", 
+  //   image: "/cars/530Li.avif",
+  //   description: "Executive sedan from the BMW 5 Series range.", 
+  //   note: "All variants available" 
+  // }
 ];
 
 
 
 // Include all brands for chips
-const BRANDS = ["All", "Mercedes", "BMW", "Toyota", "Maruti"];
+const BRANDS = ["All", "Mercedes","Toyota", "Maruti"];
 
 export default function FleetPage() {
   const [brand, setBrand] = useState("All");
