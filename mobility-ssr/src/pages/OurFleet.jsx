@@ -24,7 +24,7 @@ const categoriesData = [
   { 
     key: "crysta", 
     title: "Toyota Crysta", 
-    brand: "SUVs", 
+    brand: "SUV", 
     image: "/cars/innova.jpg", 
     description: "Spacious MPV offering comfort and versatility.", 
     note: "All variants available" 
@@ -32,7 +32,7 @@ const categoriesData = [
   { 
     key: "hycross", 
     title: "Innova Hycross", 
-    brand: "SUVs", 
+    brand: "SUV", 
     image: "/cars/hycross.avif", 
     description: "Hybrid MPV for efficiency and comfort.", 
     note: "All variants available" 
@@ -40,7 +40,7 @@ const categoriesData = [
   { 
     key: "fortuner", 
     title: "Toyota Fortuner", 
-    brand: "SUVs", 
+    brand: "SUV", 
     image: "/cars/Fortuner.avif", 
     description: "High-seating SUV presence with rugged capability.", 
     note: "All variants available" 
@@ -48,7 +48,7 @@ const categoriesData = [
   { 
     key: "e450", 
     title: "Mercedes-Benz E-Class E 450", 
-    brand: "Luxry", 
+    brand: "Luxury", 
     tag: "Top", 
     specs: "2999 cc • AT • Petrol • 12 kmpl", 
     image: "/cars/E-450.jpg",
@@ -58,7 +58,7 @@ const categoriesData = [
   { 
     key: "s350d", 
     title: "Mercedes-Benz S-Class S 350d", 
-    brand: "Luxry", 
+    brand: "Luxury", 
     tag: "Base", 
     specs: "2925 cc • AT • Diesel • 18 kmpl", 
     image: "/cars/S-350.jpg",
@@ -107,7 +107,7 @@ const categoriesData = [
 
 
 // Include all brands for chips
-const BRANDS = ["All",  "Sedan", "Luxry","SUVs",];
+const BRANDS = ["All",  "Sedan","SUV","Luxury",];
 
 export default function FleetPage() {
   const [brand, setBrand] = useState("All");
