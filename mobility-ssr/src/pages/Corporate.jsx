@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, Users, Globe, BarChart, ArrowRight } from 'lucide-react';
+import { Briefcase, Users, Globe, BarChart, ArrowRight, Heart } from 'lucide-react';
 import BookingDialog from '../components/BookingCar'; // Importing the BookingDialog component
 import {
   FaHandshake,
@@ -26,54 +26,55 @@ export default function CorporatePage() {
   ];
 
   const services = [
-    {
-      icon: <Briefcase className="h-8 w-8 text-amber-500" />,
-      title: "Executive Transportation",
-      description: "Discreet, reliable chauffeured services for C-level executives and business leaders.",
-      image: '/cars/mercedes.avif',
-      features: [
-        "24/7 availability",
-        "Meet-and-greet service",
-        "Real-time flight tracking",
-        "Confidentiality guaranteed"
-      ]
-    },
-    {
-      icon: <Users className="h-8 w-8 text-amber-500" />,
-      title: "Team Transfers",
-      description: "Comfortable group transportation for corporate events and employee mobilities.",
-      image: '/cars/7i.webp',
-      features: [
-        "Luxury vans & coaches",
-        "Uniformed chauffeurs",
-        "Bulk booking discounts",
-        "Custom pickup schedules"
-      ]
-    },
-    {
-      icon: <Globe className="h-8 w-8 text-amber-500" />,
-      title: "Airport Solutions",
-      description: "Seamless airport transfers with flight monitoring and wait time flexibility.",
-      image: '/cars/Fortuner.avif',
-      features: [
-        "Global airport coverage",
-        "VIP terminal access",
-        "Baggage assistance",
-        "Corporate billing"
-      ]
-    },
-    {
-      icon: <BarChart className="h-8 w-8 text-amber-500" />,
-      title: "Event Transportation",
-      description: "Large-scale transportation solutions for conferences and corporate events.",
-      image: '/cars/mercedes.avif',
-      features: [
-        "Dedicated event coordinators",
-        "Branded vehicles available",
-        "Attendee tracking system",
-        "Multi-day rate packages"
-      ]
-    }
+{
+  icon: <Briefcase className="h-8 w-8 text-amber-500" />,
+  title: "Executive Corporate Travel",
+  description: "Flexible rentals and chauffeured rides for business, leisure, or family travel.",
+  image: '/cars/corporate.webp',
+  features: [
+    "24x7 availability",
+    "Meet-and-greet service",
+    "Real-time flight tracking",
+    "Confidentiality guaranteed"
+  ]
+},
+{
+  icon: <Users className="h-8 w-8 text-amber-500" />,
+  title: "Event and Conference Transportation",
+  description: "Coordinated fleet solutions for delegates, conferences, and large groups.",
+  image: '/cars/7i.webp',
+  features: [
+    "Professional, multilingual chauffeurs",
+    "On-time pickups & multi-venue drops",
+    "Luxury sedans, SUVs & minibuses",
+    "Dedicated event logistics team"
+  ]
+},
+{
+  icon: <Heart className="h-8 w-8 text-amber-500" />,
+  title: "Wedding & Special Occasion Cars",
+  description: "Luxury and vintage vehicles tailored for your special day.",
+  image: '/cars/mercedes.avif',
+  features: [
+    "Premium luxury & vintage classics",
+    "Chauffeured rides for bride, groom & guests",
+    "Custom-decorated vehicles to match themes",
+    "24/7 availability for ceremonies"
+  ]
+},
+{
+  icon: <Globe className="h-8 w-8 text-amber-500" />,
+  title: "Airport Transfers",
+  description: "Seamless transfers with personalized meet-and-greet service.",
+  image: '/cars/Fortuner.avif',
+  features: [
+    "24/7 availability",
+    "Real-time flight tracking",
+    "Meet-and-greet at terminals",
+    "Wide vehicle options: sedans to SUVs"
+  ]
+}
+
   ];
 
   const handlePopup = () => {
@@ -187,6 +188,8 @@ export default function CorporatePage() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                      
+                      <p className="text-amber-500 mb-5">{service.subtitle}</p>
                       <p className="text-gray-400 mb-5">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature, i) => (
