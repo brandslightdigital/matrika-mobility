@@ -194,7 +194,7 @@ export default function FleetPage() {
                       onClick={() => openFor(cat.title)}
                       className="shrink-0 inline-flex items-center justify-center rounded-xl bg-amber-500 text-black font-semibold px-4 py-2 hover:bg-amber-600 active:translate-y-px transition"
                     >
-                      Book now
+                      Request a Corporate Proposal
                     </button>
                   </div>
 
@@ -226,7 +226,7 @@ export default function FleetPage() {
                                   onClick={() => openFor(v.name)}
                                   className="text-sm inline-flex items-center justify-center rounded-lg bg-amber-500 text-black font-medium px-3 py-1.5 hover:bg-amber-600 active:translate-y-px"
                                 >
-                                  Book now
+                                  Request a Corporate Proposal
                                 </button>
                               </div>
                             </div>

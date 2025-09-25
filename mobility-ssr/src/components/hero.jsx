@@ -118,7 +118,7 @@ export default function Hero() {
           <div className="mb-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-gray-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              <span>Corporate and Expat Solution</span>
+              <span>Corporate and Expat Solutions</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
