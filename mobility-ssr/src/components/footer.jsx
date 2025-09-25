@@ -48,7 +48,7 @@ const Footer = () => {
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
               <FaMapMarkerAlt className="mt-1 text-amber-400" />
-              <span> F 61, Jwahar Park, Khanpu,r Deoli Road, New Delhi 110062. <br /></span>
+              <span> F 61, Jawahar Park, Khanpur Deoli Road, New Delhi 110062. <br /></span>
             </li>
             <li className="flex items-center gap-3">
               <FaPhoneAlt className="text-amber-400" />
