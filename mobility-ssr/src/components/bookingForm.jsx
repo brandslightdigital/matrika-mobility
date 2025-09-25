@@ -5,7 +5,7 @@ export const PopupForm = ({ show, onClose }) => {
     name: '',
     email: '',
     phone: '',
-    location: '',
+    corporateName: '',
     rentalType: '',
     message: ''
   });
@@ -61,12 +61,9 @@ export const PopupForm = ({ show, onClose }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
-                  Get Your Dream Car!
+                <h2 className="text-2xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
+                  “Get a Proposal for Reliable, Safe, and Efficient Rides.”
                 </h2>
-                <p className="text-gray-600 text-sm">
-                  Quick callback request - We'll find the perfect rental for you
-                </p>
               </div>
 
               {/* Form */}
@@ -111,10 +108,10 @@ export const PopupForm = ({ show, onClose }) => {
                   <div className="relative">
                     <input
                       type="text"
-                      name="location"
-                      value={formData.location}
+                      name="corporateName"
+                      value={formData.corporateName}
                       onChange={handleInputChange}
-                      placeholder="Pickup Location"
+                      placeholder="Corporate Name"
                       className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white"
                       required
                     />
