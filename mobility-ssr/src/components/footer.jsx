@@ -56,7 +56,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <FaEnvelope className="text-amber-400" />
-              <a href="mailto: Bookings@matrikamobilities.com" className="hover:text-amber-400"> Bookings@matrikamobilities.com</a>
+              <a href="mailto: sales@matrikamobilities.com" className="hover:text-amber-400"> sales@matrikamobilities.com</a>
             </li>
           </ul>
         </div>
