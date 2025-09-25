@@ -157,17 +157,17 @@ export const PopupForm = ({ show, onClose }) => {
                     className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white appearance-none"
                     required
                   >
-<option value="">Select Country</option>
-<option value="india">India</option>
-<option value="usa">United States</option>
-<option value="uk">United Kingdom</option>
-<option value="canada">Canada</option>
-<option value="australia">Australia</option>
-<option value="germany">Germany</option>
-<option value="france">France</option>
-<option value="japan">Japan</option>
-<option value="brazil">Brazil</option>
-<option value="southafrica">South Africa</option>
+                    <option value="">Select Country</option>
+                    <option value="india">India</option>
+                    <option value="usa">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="canada">Canada</option>
+                    <option value="australia">Australia</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="japan">Japan</option>
+                    <option value="brazil">Brazil</option>
+                    <option value="southafrica">South Africa</option>
                   </select>
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
