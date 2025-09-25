@@ -20,7 +20,7 @@ export default function Hero() {
   const slides = [
     // Content-heavy first slide
     {
-      title: "Corporate Car Rentals Across India",
+      title: "Corporate Car rentals across India",
       subtitle: "Reliable, Safe & Tech-Enabled",
       description:
         "Matrika Mobilities provides premium chauffeur-driven cars for corporates, events, and airport transfers, backed by cutting-edge technology and exceptional service.",
@@ -104,7 +104,7 @@ export default function Hero() {
             <span className="block text-[clamp(28px,6vw,64px)] font-semibold">
               {slides[current].title}
             </span>
-            <span className="block bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-[clamp(26px,5vw,56px)] font-extrabold text-transparent">
+            <span className="block bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-[clamp(26px,5vw,56px)] font-bold text-transparent">
               {slides[current].subtitle}
             </span>
           </h1>
@@ -122,7 +122,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
-              <span>24/7 Customer Support</span>
+              <span>24x7 Customer Support</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
