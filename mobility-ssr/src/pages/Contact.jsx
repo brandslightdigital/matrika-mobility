@@ -231,7 +231,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-4">
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
                 <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">10k+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Satisfied Clients</div>
+                <div className="text-xs sm:text-sm text-gray-400">Satisfied Users</div>
               </div>
               <div className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700">
                 <div className="text-2xl sm:text-3xl font-bold text-[#ffb900] mb-1">500+</div>
