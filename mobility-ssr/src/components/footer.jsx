@@ -11,7 +11,7 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-extrabold text-white mb-4">Matrika<span className="text-amber-400">Mobilities</span></h2>
           <p className="text-gray-400 text-sm mb-4">
-            Your trusted partner for premium car rentals — reliable, professional, and affordable.
+            Your trusted partner for premium car rentals — Reliable, Professional, and Affordable.
           </p>
           <div className="flex space-x-4 mt-4">
             <a href="#" className="hover:text-amber-400"><FaFacebookF /></a>

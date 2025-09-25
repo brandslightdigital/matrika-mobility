@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   FaCar,
   FaClock,
@@ -118,14 +118,15 @@ export default function MatrikaServicesWithImages() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         <div className="relative text-center px-6 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-black leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+          <h1 className="text-5xl font-black leading-tight">
+            <span className="text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
               Matrika Mobilities
             </span>{" "}
+            <br />
             Services
-          </h1>
+          </h1> 
           <p className="text-gray-200 mt-4 text-lg">
-            Local, long-term, airport, and event mobilities — delivered with reliability and polish.
+            Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with immense reliability and great precision.
           </p>
         </div>
       </div>
@@ -174,7 +175,29 @@ export default function MatrikaServicesWithImages() {
           ))}
         </div>
       </div>
-
+      {/* GLOBAL AVAILABILITY SECTION */}
+      <div className="bg-black py-16 border-t border-white/10">
+        <div className="container mx-auto px-6 max-w-7xl text-center">
+          <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
+          <p className="text-gray-300 mb-10">
+            Our premium mobility solutions are now available across key international markets.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
+              >
+                <span className="text-lg font-semibold">{region}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
       {/* COMPLIANCE & SAFETY SECTION */}
       <div className="bg-white/5 border-t border-b border-white/10 py-16">
         <div className="container mx-auto px-6 max-w-7xl">
@@ -203,40 +226,40 @@ export default function MatrikaServicesWithImages() {
           </div>
         </div>
       </div>
-<SOPsSection/>
-<BestPracticesSection/>
-{/* GLOBAL AVAILABILITY SECTION */}
-<div className="bg-black py-16 border-t border-white/10">
-  <div className="container mx-auto px-6 max-w-7xl text-center">
-    <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
-    <p className="text-gray-300 mb-10">
-      Our premium mobility solutions are now available across key international markets.
-    </p>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-      {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: i * 0.1 }}
-          className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
-        >
-          <span className="text-lg font-semibold">{region}</span>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</div>
+      <SOPsSection />
+      <BestPracticesSection />
+      {/* GLOBAL AVAILABILITY SECTION */}
+      <div className="bg-black py-16 border-t border-white/10">
+        <div className="container mx-auto px-6 max-w-7xl text-center">
+          <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
+          <p className="text-gray-300 mb-10">
+            Our premium mobility solutions are now available across key international markets.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
+              >
+                <span className="text-lg font-semibold">{region}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* CTA */}
       <div className="max-w-7xl mx-auto bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="p-12">
-              <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
-              <p className="text-lg mb-8">
-                “Guaranteed 10% savings on your current annual spends”
-              </p>
+            <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
+            <p className="text-lg mb-8">
+              “Guaranteed 10% savings on your current annual spends”
+            </p>
             <button
               onClick={() => setDialogOpen(true)}
               className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
