@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -17,6 +17,7 @@ const Footer = () => {
             <a href="#" className="hover:text-amber-400"><FaFacebookF /></a>
             <a href="#" className="hover:text-amber-400"><FaTwitter /></a>
             <a href="#" className="hover:text-amber-400"><FaInstagram /></a>
+            <a href="#" className="hover:text-amber-400"><FaLinkedin /></a>
           </div>
         </div>
 

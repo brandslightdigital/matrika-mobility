@@ -61,9 +61,12 @@ export const PopupForm = ({ show, onClose }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
-                  “Get a Proposal for Reliable, Safe, and Efficient Rides.”
+                <h2 className="text-xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
+                  Get a Proposal for Reliable, Safe, and Efficient Rides.
                 </h2>
+                <p className="text-gray-600 text-sm">
+                  “Request a Callback – Let’s Design Your Custom Rental Program.”
+                </p>
               </div>
 
               {/* Form */}
