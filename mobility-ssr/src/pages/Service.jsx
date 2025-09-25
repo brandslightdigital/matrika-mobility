@@ -126,7 +126,7 @@ export default function MatrikaServicesWithImages() {
             Services
           </h1> 
           <p className="text-gray-200 mt-4 text-lg">
-            Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great precision.
+            Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great Precision.
           </p>
         </div>
       </div>
