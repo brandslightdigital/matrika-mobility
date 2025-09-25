@@ -70,7 +70,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[100vh] overflow-hidden bg-black"
+      className="relative min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-black"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -87,7 +87,7 @@ export default function Hero() {
             <img
               src={s.image}
               alt={s.title}
-              className="h-full w-full object-cover"
+              className="h-full md:h-full w-full object-cover"
               draggable={false}
             />
             {/* Stronger overlay for long copy readability */}
@@ -118,7 +118,7 @@ export default function Hero() {
           <div className="mb-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-gray-300">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              <span>Global Network</span>
+              <span>Corporate and Expat Solution</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
@@ -128,6 +128,14 @@ export default function Hero() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
               <span>Instant Booking</span>
             </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+              <span>Police verified drivers</span>
+            </div>
+            {/* <div className="flex items-center gap-2">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
+              <span>Instant Booking</span>
+            </div> */}
           </div>
 
           {/* CTA */}
