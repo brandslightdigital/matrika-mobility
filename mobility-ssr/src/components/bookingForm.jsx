@@ -6,7 +6,8 @@ export const PopupForm = ({ show, onClose }) => {
     email: '',
     phone: '',
     corporateName: '',
-    rentalType: '',
+    selectCity: '',
+    selectCountry: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +23,7 @@ export const PopupForm = ({ show, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -41,10 +42,10 @@ export const PopupForm = ({ show, onClose }) => {
       <div className="bg-white text-gray-800 rounded-3xl shadow-2xl w-full max-w-lg relative max-h-[90vh] overflow-y-auto">
         {/* Decorative Header Background */}
         <div className="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 h-2 sticky top-0"></div>
-        
+
         {/* Close Button */}
-        <button 
-          onClick={onClose} 
+        <button
+          onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-light transition-colors duration-200 z-10"
           aria-label="Close popup"
         >
@@ -124,18 +125,49 @@ export const PopupForm = ({ show, onClose }) => {
                 <div className="relative">
                   <select
                     name="rentalType"
-                    value={formData.rentalType}
+                    value={formData.selectCity}
                     onChange={handleInputChange}
                     className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white appearance-none"
                     required
                   >
-                    <option value="">Select Rental Type</option>
-                    <option value="economy">Economy Car</option>
-                    <option value="compact">Compact Car</option>
-                    <option value="midsize">Midsize Car</option>
-                    <option value="luxury">Luxury Car</option>
-                    <option value="suv">SUV</option>
-                    <option value="van">Van/Minivan</option>
+                    <option value="">Select City</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="hyderabad">Hyderabad</option>
+                    <option value="pune">Pune</option>
+                    <option value="jaipur">Jaipur</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="lucknow">Lucknow</option>
+
+                  </select>
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative">
+                  <select
+                    name="rentalType"
+                    value={formData.selectCountry}
+                    onChange={handleInputChange}
+                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white appearance-none"
+                    required
+                  >
+<option value="">Select Country</option>
+<option value="india">India</option>
+<option value="usa">United States</option>
+<option value="uk">United Kingdom</option>
+<option value="canada">Canada</option>
+<option value="australia">Australia</option>
+<option value="germany">Germany</option>
+<option value="france">France</option>
+<option value="japan">Japan</option>
+<option value="brazil">Brazil</option>
+<option value="southafrica">South Africa</option>
                   </select>
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
