@@ -83,7 +83,7 @@ export default function BestPracticesSection({
             </span>
           </h2>
           {subtitle && (
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto">{subtitle}</p>
+            <p className="text-gray-400 mt-3 max-w-3xl mx-auto">"{subtitle}"</p>
           )}
         </motion.div>
 

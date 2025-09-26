@@ -84,7 +84,7 @@ export default function BenefitsAndWhy() {
             Why choose <span className="text-amber-500">Matrika ? </span>
           </h2>
           <p className="mt-3 text-gray-300 max-w-2xl mx-auto">
-            Here’s what you get when you book with us.
+            "Here’s what you get when you book with us."
           </p>
         </div>
 

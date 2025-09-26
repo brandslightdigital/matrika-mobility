@@ -29,7 +29,7 @@ const services = [
     ],
     icon: <FaCar className="w-7 h-7 text-amber-500" />,
     image:
-      "https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1400&q=70",
+      "/service/LOR.jpg",
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const services = [
     ],
     icon: <FaClock className="w-7 h-7 text-amber-500" />,
     image:
-      "https://images.unsplash.com/photo-1519581292491-0f3b7f1e9a52?auto=format&fit=crop&w=1400&q=70",
+      "/service/LT.jpg",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const services = [
     ],
     icon: <FaPlaneDeparture className="w-7 h-7 text-amber-500" />,
     image:
-      "https://images.unsplash.com/photo-1602407294551-6e985d8dfe25?auto=format&fit=crop&w=1400&q=70",
+      "/corporate/at.jpg",
   },
   {
     id: 4,
@@ -71,7 +71,7 @@ const services = [
     ],
     icon: <FaUsers className="w-7 h-7 text-amber-500" />,
     image:
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=70",
+      "/service/MICE.png",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function MatrikaServicesWithImages() {
             Services
           </h1> 
           <p className="text-gray-200 mt-4 text-lg">
-            Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great Precision.
+            "Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great Precision"
           </p>
         </div>
       </div>
@@ -180,7 +180,7 @@ export default function MatrikaServicesWithImages() {
         <div className="container mx-auto px-6 max-w-7xl text-center">
           <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
           <p className="text-gray-300 mb-10">
-            Our premium mobility solutions are now available across key international markets.
+            "Our premium mobility solutions are now available across key international markets."
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
             {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (

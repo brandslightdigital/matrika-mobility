@@ -44,7 +44,7 @@ export default function ServicesSection() {
             Our <span className="text-amber-400">Services</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Premium, Reliable and Comfortable Car services tailored to your needs.
+            "Premium, Reliable and Comfortable Car services tailored to your needs."
           </p>
         </div>
 

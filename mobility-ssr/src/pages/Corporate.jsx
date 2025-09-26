@@ -30,7 +30,7 @@ export default function CorporatePage() {
   icon: <Briefcase className="h-8 w-8 text-amber-500" />,
   title: "Executive Corporate Travel",
   description: "Flexible rentals and chauffeured rides for business, leisure, or family travel. 24x7 availability., Meet-and-greet service, Real-time flight tracking, Confidentiality guaranteed",
-  image: '/cars/corporate.webp',
+  image: '/corporate/ect.webp',
   features: [
     "Hourly, daily & multi-day rental options",
     "Local & outstation trips",
@@ -42,7 +42,7 @@ export default function CorporatePage() {
   icon: <Users className="h-8 w-8 text-amber-500" />,
   title: "Event and Conference Transportation",
   description: "Coordinated fleet solutions for delegates, conferences, and large groups.",
-  image: '/cars/7i.webp',
+  image: '/corporate/eact.jpg',
   features: [
     "Professional, multilingual chauffeurs",
     "On-time pickups & multi-venue drops",
@@ -54,7 +54,7 @@ export default function CorporatePage() {
   icon: <Heart className="h-8 w-8 text-amber-500" />,
   title: "Wedding & Special Occasion Cars",
   description: "Luxury and vintage vehicles tailored for your special day.",
-  image: '/cars/mercedes.avif',
+  image: '/corporate/wsoc.jpg',
   features: [
     "Premium luxury & vintage classics",
     "Chauffeured rides for bride, groom & guests",
@@ -66,7 +66,7 @@ export default function CorporatePage() {
   icon: <Globe className="h-8 w-8 text-amber-500" />,
   title: "Airport Transfers",
   description: "Seamless transfers with personalized meet-and-greet service.",
-  image: '/cars/Fortuner.avif',
+  image: '/corporate/at.jpg',
   features: [
     "24x7 availability",
     "Real-time flight tracking",
@@ -89,7 +89,7 @@ export default function CorporatePage() {
             <span className="text-amber-500">Tailored </span>Solutions for <span className='text-amber-500'>Corporate </span>Mobility
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Premium transportation services designed for businesses that value reliability, safety, security, and transparent exceptional service.
+           "Premium transportation services designed for businesses that value reliability, safety, security, and transparent exceptional service"
           </p>
         </div>
         <div className="absolute inset-0 opacity-20">
