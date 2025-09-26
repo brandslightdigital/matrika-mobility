@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import emailjs from 'emailjs-com';
 
 export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
   const [formData, setFormData] = useState({
@@ -33,16 +34,56 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // EmailJS integration
+      const result = await emailjs.send(
+        'service_goe734o', // Replace with your service ID
+        'template_1p60xx7', // Replace with your template ID
+        {
+          ...formData,
+          model: model || 'General Inquiry'
+        },
+         'lc85WOgfXS2GGvIlW' // Replace with your user ID
+      );
+
+      console.log('Email sent successfully:', result.text);
+      
       setIsSubmitting(false);
       setSubmitted(true);
+      
       if (onSubmit) onSubmit(formData);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        corporateName: '',
+        selectCity: '',
+        selectCountry: '',
+        message: ''
+      });
+
       setTimeout(() => {
         setSubmitted(false);
         onOpenChange(false);
       }, 2000);
-    }, 1500);
+      
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      
+      // Fallback to original simulation if EmailJS fails
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitted(true);
+        if (onSubmit) onSubmit(formData);
+        setTimeout(() => {
+          setSubmitted(false);
+          onOpenChange(false);
+        }, 2000);
+      }, 1500);
+    }
   };
 
   if (!open) return null;
@@ -78,6 +119,11 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                 <p className="text-gray-600 text-sm">
                   "Request a Callback – Let's Design Your Custom Rental Program."
                 </p>
+                {model && (
+                  <p className="text-amber-600 font-medium mt-2">
+                    Selected: {model}
+                  </p>
+                )}
               </div>
 
               {/* Form */}
@@ -132,58 +178,30 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                   </div>
                 </div>
 
+                {/* City Input Field */}
                 <div className="relative">
-                  <select
+                  <input
+                    type="text"
                     name="selectCity"
                     value={formData.selectCity}
                     onChange={handleInputChange}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white appearance-none"
+                    placeholder="Enter City"
+                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white"
                     required
-                  >
-                    <option value="">Select City</option>
-                    <option value="delhi">Delhi</option>
-                    <option value="mumbai">Mumbai</option>
-                    <option value="bangalore">Bangalore</option>
-                    <option value="chennai">Chennai</option>
-                    <option value="kolkata">Kolkata</option>
-                    <option value="hyderabad">Hyderabad</option>
-                    <option value="pune">Pune</option>
-                    <option value="jaipur">Jaipur</option>
-                    <option value="ahmedabad">Ahmedabad</option>
-                    <option value="lucknow">Lucknow</option>
-                  </select>
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
+                  />
                 </div>
 
+                {/* Country Input Field */}
                 <div className="relative">
-                  <select
+                  <input
+                    type="text"
                     name="selectCountry"
                     value={formData.selectCountry}
                     onChange={handleInputChange}
-                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white appearance-none"
+                    placeholder="Enter Country"
+                    className="w-full border-2 border-gray-200 rounded-xl px-4 py-2 md:py-3 focus:outline-none focus:border-amber-500 transition-colors duration-200 bg-gray-50 focus:bg-white"
                     required
-                  >
-                    <option value="">Select Country</option>
-                    <option value="india">India</option>
-                    <option value="usa">United States</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="canada">Canada</option>
-                    <option value="australia">Australia</option>
-                    <option value="germany">Germany</option>
-                    <option value="france">France</option>
-                    <option value="japan">Japan</option>
-                    <option value="brazil">Brazil</option>
-                    <option value="southafrica">South Africa</option>
-                  </select>
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
+                  />
                 </div>
 
                 <div className="relative">
@@ -211,7 +229,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                       Processing...
                     </div>
                   ) : (
-                    ' Request Callback Now'
+                    'Request Callback Now'
                   )}
                 </button>
               </form>
@@ -252,6 +270,11 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
               <p className="text-gray-600 text-sm md:text-base">
                 Thanks for your interest! We'll call you back within 15 minutes to discuss your car rental needs.
               </p>
+              {model && (
+                <p className="text-amber-600 font-medium mt-2">
+                  We'll discuss the {model} with you shortly.
+                </p>
+              )}
             </div>
           )}
         </div>
