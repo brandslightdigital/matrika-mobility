@@ -25,8 +25,7 @@ const Footer = () => {
           <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
           <ul className="space-y-3 text-sm">
             <li><Link to="/" className="hover:text-amber-400">Home</Link></li>
-            <li><Link to="/our-fleet" className="hover:text-amber-400">Our Fleet</Link></li>
-            <li><Link to="/corporate" className="hover:text-amber-400">Corporate</Link></li>
+
             <li><Link to="/about-us" className="hover:text-amber-400">About Us</Link></li>
             <li><Link to="/contact-us" className="hover:text-amber-400">Contact</Link></li>
           </ul>
@@ -36,10 +35,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-bold text-white mb-4">Services</h3>
           <ul className="space-y-3 text-sm">
-            <li><Link to="/our-fleet" className="hover:text-amber-400">City Drive</Link></li>
-            <li><Link to="/corporate" className="hover:text-amber-400">Corporate Service</Link></li>
-            <li><Link to="/airport-transfer" className="hover:text-amber-400"> Airport Transfer</Link></li>
-            <li><Link to="/out-station" className="hover:text-amber-400">Outstation Services</Link></li>
+            <li><Link to=" /corporate-protocol" className="hover:text-amber-400">Corporate Portol</Link></li>
+            <li><Link to="/our-fleet" className="hover:text-amber-400">Our Fleet</Link></li>
+            <li><Link to="/services" className="hover:text-amber-400"> Our Service</Link></li>
           </ul>
         </div>
 
