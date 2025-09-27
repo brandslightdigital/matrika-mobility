@@ -35,7 +35,6 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
     setIsSubmitting(true);
 
     try {
-      // EmailJS integration
       const result = await emailjs.send(
         'service_goe734o', // Replace with your service ID
         'template_1p60xx7', // Replace with your template ID
@@ -53,7 +52,6 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
       
       if (onSubmit) onSubmit(formData);
       
-      // Reset form
       setFormData({
         name: '',
         email: '',

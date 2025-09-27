@@ -15,6 +15,8 @@ import TermsConditionsPage from './pages/Terms&Condition';
 import AirportTransferPage from './pages/AirportTransfer';
 import OutstationTransferPage from './pages/OutStation';
 import ServicesPage from './pages/Service';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogDetails';
 
 
 export default function App() {
@@ -33,8 +35,10 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/privacy-policies" element={<PrivacyTermsPage />} />
           <Route path="/term-condition" element={<TermsConditionsPage />} />
-          <Route path="/airport-transfer" element={<AirportTransferPage/>}/>
-          <Route path="/out-station" element={<OutstationTransferPage/>}/>
+          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/airport-transfer" element={<AirportTransferPage />} />
+          <Route path="/out-station" element={<OutstationTransferPage />} />
         </Routes>
         <Footer />
       </PopupProvider>
