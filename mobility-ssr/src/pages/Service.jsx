@@ -15,6 +15,9 @@ import { motion } from "framer-motion";
 import BookingDialog from '../components/BookingCar'; // Importing the BookingDialog component
 import SOPsSection from "./SOPsSection";
 import BestPracticesSection from "../components/BestPractise";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import { feature } from "topojson-client";
+import world from "world-atlas/countries-110m.json";
 
 const services = [
   {
@@ -74,7 +77,14 @@ const services = [
       "/service/MICE.png",
   },
 ];
-
+const worldGeo = feature(world, world.objects.countries); // FeatureCollection
+const locations = [
+  { name: "USA", coordinates: [-97, 38] },
+  { name: "Europe", coordinates: [10, 50] },
+  { name: "UK", coordinates: [-1, 54] },
+  { name: "Singapore", coordinates: [103.8198, 1.3521] },
+  { name: "Malaysia", coordinates: [101.9758, 4.2105] },
+];
 // Compliance / Safety commitments
 const commitments = [
   {
@@ -124,7 +134,7 @@ export default function MatrikaServicesWithImages() {
             </span>{" "}
             <br />
             Services
-          </h1> 
+          </h1>
           <p className="text-gray-200 mt-4 text-lg">
             "Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great Precision"
           </p>
@@ -176,28 +186,65 @@ export default function MatrikaServicesWithImages() {
         </div>
       </div>
       {/* GLOBAL AVAILABILITY SECTION */}
-      <div className="bg-black py-16 border-t border-white/10">
-        <div className="container mx-auto px-6 max-w-7xl text-center">
-          <h2 className="text-3xl font-bold mb-8">Now Serving Globally</h2>
-          <p className="text-gray-300 mb-10">
-            "Our premium mobility solutions are now available across key international markets."
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-            {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
-              >
-                <span className="text-lg font-semibold">{region}</span>
-              </motion.div>
-            ))}
-          </div>
+<div className="bg-black py-6 border-t border-white/10">
+  <div className="container mx-auto px-6 max-w-7xl text-center">
+    <h2 className="text-3xl font-bold mb-8 text-white">
+      Now Serving Globally
+    </h2>
+    <p className="text-gray-300 mb-10">
+      "Our premium mobility solutions are now available across key international markets."
+    </p>
+
+    {/* Map */}
+    <div className="w-full mb-2">
+      <ComposableMap
+        projectionConfig={{ scale: 155 }}
+        style={{ width: "100%", height: "520px" }}
+      >
+        <Geographies geography={worldGeo}>
+          {({ geographies }) =>
+            geographies.map((geo) => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                fill="rgba(255,255,255,0.06)"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth={0.5}
+              />
+            ))
+          }
+        </Geographies>
+
+        {locations.map(({ name, coordinates }) => (
+          <Marker key={name} coordinates={coordinates}>
+            <circle r={7} fill="#ef4444" stroke="#fff" strokeWidth={2} />
+            <text
+              textAnchor="middle"
+              y={-12}
+              fill="#fff"
+              style={{ fontSize: 12, fontWeight: 600 }}
+            >
+              {name}
+            </text>
+          </Marker>
+        ))}
+      </ComposableMap>
+    </div>
+
+    {/* Optional: keep your grid of regions if you like */}
+    {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
+        >
+          <span className="text-lg font-semibold text-white">{region}</span>
         </div>
-      </div>
+      ))}
+    </div> */}
+  </div>
+</div>
+
       {/* COMPLIANCE & SAFETY SECTION */}
       <div className="bg-white/5 border-t border-b border-white/10 py-16">
         <div className="container mx-auto px-6 max-w-7xl">
