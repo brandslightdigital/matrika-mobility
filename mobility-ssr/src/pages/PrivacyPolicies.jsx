@@ -37,7 +37,7 @@ export default function PrivacyTermsPage() {
 
         <Section id="intro" title="Introduction">
           <p>
-            This privacy policy sets out how <strong>Matrika Mobilities</strong>{" "}
+            This privacy policy sets out how <strong>Taxi Tribe</strong>{" "}
             uses and protects any information that you give when you use this
             website.
           </p>

@@ -78,7 +78,7 @@ export default function BenefitsAndWhy() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block rounded-full bg-yellow-400/20 text-yellow-400 px-4 py-1 text-sm font-semibold">
-            Matrika Mobilities
+            Taxi Tribe
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">
             Why choose <span className="text-amber-500">Matrika ? </span>

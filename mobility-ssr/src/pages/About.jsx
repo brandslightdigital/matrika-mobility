@@ -21,10 +21,10 @@ export default function AboutPage() {
 
   const story = [
     "The corporate world moves fast — but for years, business travel lagged behind. Companies were forced to deal with endless paperwork, inaccurate billing, exaggerated kilometre reports, delayed arrivals, rash driving, untrained drivers, and a worrying lack of safety measures for women executives.",
-    "Seeing this growing chaos, we knew there had to be a better way. That’s how Matrika Mobilities was born. The name “Matrika” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
-    "At Matrika Mobilities, we blend cutting-edge technology with human-centric service. From GPS-enabled vehicles and digital MIS reports to meticulously trained drivers and strict HSSE compliance, every detail is designed to ensure our clients travel comfortably, safely, and on time.",
+    "Seeing this growing chaos, we knew there had to be a better way. That’s how Taxi Tribe was born. The name “Matrika” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
+    "At Taxi Tribe, we blend cutting-edge technology with human-centric service. From GPS-enabled vehicles and digital MIS reports to meticulously trained drivers and strict HSSE compliance, every detail is designed to ensure our clients travel comfortably, safely, and on time.",
     "We believe corporate mobility should feel effortless. Our commitment is to deliver a service experience that reflects the values of a trusted partner — organized, transparent, and caring — just like a mother looking after her family.",
-    "Today, Matrika Mobilities continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
+    "Today, Taxi Tribe continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
   ];
 
   const mission = "To redefine corporate mobility in India with Technology, Sustainability, and Unmatched Services.";
@@ -173,7 +173,7 @@ export default function AboutPage() {
               <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Growth Vision</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8">
-              "At Matrika Mobilities, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in Safety, Transparency, and Customer experience."
+              "At Taxi Tribe, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in Safety, Transparency, and Customer experience."
             </p>
           </div>
 

@@ -130,7 +130,7 @@ export default function MatrikaServicesWithImages() {
         <div className="relative text-center px-6 max-w-3xl">
           <h1 className="text-5xl font-black leading-tight">
             <span className="text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-              Matrika Mobilities
+              Taxi Tribe
             </span>{" "}
             <br />
             Services

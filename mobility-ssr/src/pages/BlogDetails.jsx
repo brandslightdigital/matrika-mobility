@@ -11,7 +11,7 @@ export default function BlogPostPage() {
     return <main className="bg-black text-white"><div className="mx-auto max-w-5xl px-6 py-20">Post not found</div></main>;
   }
 
-  const metaTitle = post.meta?.metaTitle || `${post.title} - Matrika Mobilities`;
+  const metaTitle = post.meta?.metaTitle || `${post.title} - Taxi Tribe`;
   const metaDescription = post.meta?.metaDescription || post.excerpt || 'Reliable corporate mobility and transfers.';
   const canonicalUrl = post.meta?.canonicalUrl || `https://localhost:5173/blog/${post.slug}`;
   const ogImage = post.meta?.ogImage || post.coverImage;
@@ -32,7 +32,7 @@ export default function BlogPostPage() {
         {/* Header */}
         <div className="mb-8">
           <p className="text-xs tracking-[0.2em] text-neutral-400">
-            {(post.author || 'Matrika Mobilities').toUpperCase()}
+            {(post.author || 'Taxi Tribe').toUpperCase()}
           </p>
           <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight text-white">
             {post.title}

@@ -23,7 +23,7 @@ export default function Hero() {
       title: "Corporate Car Rentals Across India",
       subtitle: "Reliable, Safe & Tech-Enabled",
       description:
-        "Matrika Mobilities provides premium chauffeur-driven cars for corporates, events, and airport transfers, backed by cutting-edge technology and exceptional service.",
+        "Taxi Tribe provides premium chauffeur-driven cars for corporates, events, and airport transfers, backed by cutting-edge technology and exceptional service.",
       image: "/banner/banner1.jpeg",
     },
     {

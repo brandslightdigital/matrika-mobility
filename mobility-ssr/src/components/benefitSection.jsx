@@ -37,7 +37,7 @@ const benefits = [
 export default function BenefitsSection() {
   return (
     <section className="bg-white py-12 px-6 text-center">
-      <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Benefits of using Matrika mobilities Cars</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Benefits of using Taxi Tribe Cars</h2>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
         {benefits.map((item, idx) => (
           <div key={idx} className="p-4 rounded shadow hover:shadow-md transition-all">
