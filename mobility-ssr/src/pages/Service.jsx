@@ -66,7 +66,7 @@ const services = [
     id: 4,
     title: "MICE: Meetings, Incentives, Conferences & Events",
     blurb:
-      "End-to-end mobilities for corporate events. Route planning, dispatch coordination, and on-site supervisors for smooth execution.",
+      "End-to-end Tribe for corporate events. Route planning, dispatch coordination, and on-site supervisors for smooth execution.",
     bullets: [
       "Shuttle loops and delegate logistics",
       "Driver rosters and live tracking",
@@ -114,7 +114,7 @@ const commitments = [
   },
 ];
 
-export default function MatrikaServicesWithImages() {
+export default function TaxiServicesWithImages() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
@@ -136,7 +136,7 @@ export default function MatrikaServicesWithImages() {
             Services
           </h1>
           <p className="text-gray-200 mt-4 text-lg">
-            "Local, Outstation, Long-term, Airport, and Event mobilities — Delivered with Immense Reliability and Great Precision"
+            "Local, Outstation, Long-term, Airport, and Event Tribe — Delivered with Immense Reliability and Great Precision"
           </p>
         </div>
       </div>

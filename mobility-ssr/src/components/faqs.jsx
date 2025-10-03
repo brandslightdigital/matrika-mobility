@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const faqs = [
   {
-    question: 'How do I book a car on mobilities?',
+    question: 'How do I book a car on Tribe?',
     answer: 'You can book a car by selecting your preferred vehicle, choosing the dates, and completing the online payment process. You’ll receive a confirmation instantly.',
   },
   {

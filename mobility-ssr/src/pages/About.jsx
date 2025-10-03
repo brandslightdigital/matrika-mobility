@@ -21,7 +21,7 @@ export default function AboutPage() {
 
   const story = [
     "The corporate world moves fast — but for years, business travel lagged behind. Companies were forced to deal with endless paperwork, inaccurate billing, exaggerated kilometre reports, delayed arrivals, rash driving, untrained drivers, and a worrying lack of safety measures for women executives.",
-    "Seeing this growing chaos, we knew there had to be a better way. That’s how Taxi Tribe was born. The name “Matrika” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
+    "Seeing this growing chaos, we knew there had to be a better way. That’s how Taxi Tribe was born. The name “Taxi” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
     "At Taxi Tribe, we blend cutting-edge technology with human-centric service. From GPS-enabled vehicles and digital MIS reports to meticulously trained drivers and strict HSSE compliance, every detail is designed to ensure our clients travel comfortably, safely, and on time.",
     "We believe corporate mobility should feel effortless. Our commitment is to deliver a service experience that reflects the values of a trusted partner — organized, transparent, and caring — just like a mother looking after her family.",
     "Today, Taxi Tribe continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
@@ -94,9 +94,8 @@ export default function AboutPage() {
             }`}
         >
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
-            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">Matrika</span>
-            <br />
-            <span className="text-white/90">Mobilities</span>
+            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">Taxi </span> 
+            <span className="text-white/90">Tribe</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             "{mission}"

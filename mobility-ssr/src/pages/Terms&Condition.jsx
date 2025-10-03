@@ -19,7 +19,7 @@ export default function TermsConditionsPage() {
             Welcome to our website. If you continue to browse and use this
             website, you are agreeing to comply with and be bound by the
             following terms and conditions of use, which together with our
-            privacy policy govern Matrika’s relationship with you in relation to
+            privacy policy govern Taxi’s relationship with you in relation to
             this website. If you disagree with any part of these terms and
             conditions, please do not use our website.
           </p>
@@ -27,8 +27,8 @@ export default function TermsConditionsPage() {
 
         <Section id="ownership" title="Ownership">
           <p>
-            The term <strong>"Matrika"</strong> or <strong>"us"</strong> or{" "}
-            <strong>"we"</strong> refers to the MATRIKA MOBILTIES PRIVATE
+            The term <strong>"Taxi"</strong> or <strong>"us"</strong> or{" "}
+            <strong>"we"</strong> refers to the Taxi MOBILTIES PRIVATE
             LIMITED whose registered office is{" "}
             <em>F 61 Jawahar Park Khanpur Deoli Road, New Delhi 10062</em>. The
             term <strong>"you"</strong> refers to the user or viewer of our
@@ -108,10 +108,10 @@ export default function TermsConditionsPage() {
           <p className="mt-2">
             You can cancel your booking by sending an email to{" "}
             <a
-              href="mailto:bookings@matrikamobilties.com"
+              href="mailto:bookings@Taximobilties.com"
               className="text-yellow-700 underline hover:text-yellow-600"
             >
-              bookings@matrikamobilties.com
+              bookings@Taximobilties.com
             </a>{" "}
             or by calling our helpline.
           </p>
@@ -124,10 +124,10 @@ export default function TermsConditionsPage() {
             in <strong>5–7 working days</strong>. In case of any issues, write
             to us at{" "}
             <a
-              href="mailto:bookings@matrikamobilties.com"
+              href="mailto:bookings@Taximobilties.com"
               className="text-yellow-700 underline hover:text-yellow-600"
             >
-              bookings@matrikamobilties.com
+              bookings@Taximobilties.com
             </a>{" "}
             or call us at <strong>7011438890</strong>.
           </p>

@@ -47,7 +47,7 @@ export default function MapAndFormSection() {
             <div className="aspect-[4/3]">
               {/* Swap src with your preferred coordinates/place */}
               <iframe
-                title="mobilities Map"
+                title="Tribe Map"
                 className="w-full h-full"
                 loading="lazy"
                 allowFullScreen

@@ -9,7 +9,14 @@ const Footer = () => {
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-gray-700">
 
         <div>
-          <h2 className="text-2xl font-extrabold text-white mb-4">Matrika<span className="text-amber-400">Mobilities</span></h2>
+          <Link to="/" className="flex items-center space-x-3 group mb-3">
+            {/* Logo image */}
+            <img
+              src="/logo.png" // apna logo ka path yahan daalna (public folder me)
+              alt="Taxi Tribe"
+              className="h-14 w-auto group-hover:opacity-90 transition-opacity duration-300"
+            />
+          </Link>
           <p className="text-gray-400 text-sm mb-4">
             Your trusted partner for premium car rentals — Reliable, Professional, and Affordable.
           </p>

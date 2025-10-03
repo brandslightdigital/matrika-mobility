@@ -43,26 +43,26 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled
-            ? "bg-black/95 backdrop-blur-sm shadow-2xl"
-            : "bg-gradient-to-r from-gray-900 to-black"
+          ? "bg-black/95 backdrop-blur-sm shadow-2xl"
+          : "bg-gradient-to-r from-gray-900 to-black"
           }`}
       >
         <div className="container mx-auto px-2 py-4 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              {/* <FaCar className="text-3xl text-amber-400 group-hover:text-amber-300 transition-colors duration-300" /> */}
+              {/* Blue pulsing dot */}
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
             </div>
-            <div className="text-2xl font-black">
-              <span className="text-amber-400 group-hover:text-amber-300 transition-colors duration-300">
-                Matrika
-              </span>
-              <span className="text-white group-hover:text-gray-200 transition-colors duration-300">
-                Mobilities
-              </span>
-            </div>
+
+            {/* Logo image */}
+            <img
+              src="/logo.png" // apna logo ka path yahan daalna (public folder me)
+              alt="Taxi Tribe"
+              className="h-14 w-auto group-hover:opacity-90 transition-opacity duration-300"
+            />
           </Link>
+
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-6">
@@ -170,8 +170,8 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-300 lg:hidden ${open
-            ? "bg-black/70 backdrop-blur-sm opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          ? "bg-black/70 backdrop-blur-sm opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
           }`}
       >
         {/* Mobile Menu Sidebar */}
@@ -185,8 +185,8 @@ const Navbar = () => {
               <div className="flex items-center space-x-3">
                 <FaCar className="text-2xl text-amber-400" />
                 <div className="text-xl font-black">
-                  <span className="text-amber-400">Matrika</span>
-                  <span className="text-white">mobilities</span>
+                  <span className="text-amber-400">Taxi</span>
+                  <span className="text-white">Tribe</span>
                 </div>
               </div>
               <button
@@ -223,7 +223,7 @@ const Navbar = () => {
 
               <Link
                 to="/services"
-                 onClick={() => handleNavClick("/services")}
+                onClick={() => handleNavClick("/services")}
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
               >
                 Our Services

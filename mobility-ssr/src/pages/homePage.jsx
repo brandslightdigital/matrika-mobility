@@ -7,7 +7,7 @@ import BenefitsSection from '../components/benefitSection';
 import FaqSection from '../components/faqs';
 import MapAndFormSection from '../components/MapadnFormSection';
 import BookingDialog from '../components/BookingCar'; // Importing the BookingDialog component
-import MatrikaTestimonials from '../components/Testimonial';
+import TaxiTestimonials from '../components/Testimonial';
 
 const Home = () => {
   const [dialogOpen, setDialogOpen] = useState(false); // state to control BookingDialog visibility
@@ -17,7 +17,7 @@ const Home = () => {
       <FleetSection />
       <BenefitsAndWhy />
       <SafetySection />
-      <MatrikaTestimonials/>
+      <TaxiTestimonials/>
       {/* <FaqSection/> */}
       {/* <MapAndFormSection /> */}
       {/* CTA Section */}

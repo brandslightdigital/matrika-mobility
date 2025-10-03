@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
- * MatrikaTestimonials (Continuous Carousel)
+ * TaxiTestimonials (Continuous Carousel)
  * - Seamless, slow, continuous auto-scroll (no stop-start)
  * - Dark theme to match your site
  * - Pause on hover/focus
  * - Optional manual controls (commented below)
  * - No external deps
  */
-export default function MatrikaTestimonials({
+export default function TaxiTestimonials({
   testimonials,
   heading = "What our clients say",
   subheading = "We deliver Safe, Reliable, On‑time mobility. Our customers noticed.",
@@ -19,7 +19,7 @@ const fallback = useMemo(
   () => [
     {
       quote:
-        "Booking with Matrika was seamless. The driver arrived early, the car was spotless, and my team reached the airport stress-free.",
+        "Booking with Taxi was seamless. The driver arrived early, the car was spotless, and my team reached the airport stress-free.",
       name: "Ananya Mehta",
       role: "Executive Assistant",
       company: "FutureTech Pvt Ltd",
@@ -35,7 +35,7 @@ const fallback = useMemo(
     },
     {
       quote:
-        "Matrika handled our client delegation from abroad. Professional drivers and luxury cars created a great first impression.",
+        "Taxi handled our client delegation from abroad. Professional drivers and luxury cars created a great first impression.",
       name: "Ritu Kapoor",
       role: "Events Lead",
       company: "Summit Global",
