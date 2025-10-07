@@ -81,7 +81,7 @@ export default function BenefitsAndWhy() {
             Taxi Tribe
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">
-            Why choose <span className="text-amber-500">Taxi ? </span>
+            Why choose <span className="text-amber-500">Taxi Tribe ? </span>
           </h2>
           <p className="mt-3 text-gray-300 max-w-2xl mx-auto">
             "Here’s what you get when you book with us."

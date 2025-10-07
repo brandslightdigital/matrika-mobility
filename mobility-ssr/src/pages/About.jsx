@@ -20,11 +20,10 @@ export default function AboutPage() {
   ];
 
   const story = [
-    "The corporate world moves fast — but for years, business travel lagged behind. Companies were forced to deal with endless paperwork, inaccurate billing, exaggerated kilometre reports, delayed arrivals, rash driving, untrained drivers, and a worrying lack of safety measures for women executives.",
-    "Seeing this growing chaos, we knew there had to be a better way. That’s how Taxi Tribe was born. The name “Taxi” is inspired by the nurturing spirit of a mother — a symbol of care, safety, and reliability. We set out to create a corporate mobility partner that brings order, transparency, and peace of mind to an industry that desperately needs it.",
-    "At Taxi Tribe, we blend cutting-edge technology with human-centric service. From GPS-enabled vehicles and digital MIS reports to meticulously trained drivers and strict HSSE compliance, every detail is designed to ensure our clients travel comfortably, safely, and on time.",
-    "We believe corporate mobility should feel effortless. Our commitment is to deliver a service experience that reflects the values of a trusted partner — organized, transparent, and caring — just like a mother looking after her family.",
-    "Today, Taxi Tribe continues to expand across India, serving leading corporates, events, and VIP travellers. But our mission remains the same: to redefine corporate car rentals with reliability, safety, and unmatched customer care.",
+    "TaxiTribe is a global network of professionals passionate about transforming corporate car rental services into a safe, seamless, and human experience. Born from the need for more reliable and transparent business travel, we provide chauffeur-driven corporate mobility, airport transfers, and employee transportation solutions across India and beyond.",
+    "Every member of the TaxiTribe family — from trained chauffeurs to corporate coordinators — is united by one purpose: to deliver trust, transparency, and reliability in every ride. With GPS-enabled vehicles, digital MIS reports, and strict HSSE (Health, Safety, Security, and Environment) compliance, we ensure every journey meets the highest standards of safety and accountability.",
+    "With a pan-India presence, advanced technology, and a deep focus on women’s safety and corporate travel compliance, TaxiTribe is redefining the way organizations move their people — with care, precision, and purpose.",
+    "TaxiTribe — One Tribe. One Journey. Endless Destinations.",
   ];
 
   const mission = "To redefine corporate mobility in India with Technology, Sustainability, and Unmatched Services.";

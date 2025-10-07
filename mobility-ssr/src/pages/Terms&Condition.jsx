@@ -19,7 +19,7 @@ export default function TermsConditionsPage() {
             Welcome to our website. If you continue to browse and use this
             website, you are agreeing to comply with and be bound by the
             following terms and conditions of use, which together with our
-            privacy policy govern Taxi’s relationship with you in relation to
+            privacy policy govern Taxi Tribe relationship with you in relation to
             this website. If you disagree with any part of these terms and
             conditions, please do not use our website.
           </p>
@@ -28,7 +28,7 @@ export default function TermsConditionsPage() {
         <Section id="ownership" title="Ownership">
           <p>
             The term <strong>"Taxi"</strong> or <strong>"us"</strong> or{" "}
-            <strong>"we"</strong> refers to the Taxi MOBILTIES PRIVATE
+            <strong>"we"</strong> refers to the TAXI TRIBE PRIVATE
             LIMITED whose registered office is{" "}
             <em>F 61 Jawahar Park Khanpur Deoli Road, New Delhi 10062</em>. The
             term <strong>"you"</strong> refers to the user or viewer of our

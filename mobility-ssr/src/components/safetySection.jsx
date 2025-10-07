@@ -13,7 +13,7 @@ export const SafetySection = () => {
           </h2>
           <div className="w-16 h-1 bg-amber-400 mb-6 rounded-full"></div>
           <p className="text-black-300 text-lg md:text-xl mb-6 text-white">
-            At Taxi, your safety is paramount. Our fleet is equipped with
+            At Taxi Tribe, your safety is paramount. Our fleet is equipped with
             advanced GPS tracking, allowing us to monitor your journey in
             real-time for added security and efficiency. Every vehicle also
             carries a fire extinguisher for all-scenario preparedness. We place

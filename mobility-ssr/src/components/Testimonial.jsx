@@ -19,7 +19,7 @@ const fallback = useMemo(
   () => [
     {
       quote:
-        "Booking with Taxi was seamless. The driver arrived early, the car was spotless, and my team reached the airport stress-free.",
+        "Booking with Taxi Tribe was seamless. The driver arrived early, the car was spotless, and my team reached the airport stress-free.",
       name: "Ananya Mehta",
       role: "Executive Assistant",
       company: "FutureTech Pvt Ltd",
@@ -35,7 +35,7 @@ const fallback = useMemo(
     },
     {
       quote:
-        "Taxi handled our client delegation from abroad. Professional drivers and luxury cars created a great first impression.",
+        "Taxi Tribe handled our client delegation from abroad. Professional drivers and luxury cars created a great first impression.",
       name: "Ritu Kapoor",
       role: "Events Lead",
       company: "Summit Global",
