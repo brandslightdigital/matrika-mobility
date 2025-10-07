@@ -23,7 +23,6 @@ export default function AboutPage() {
     "TaxiTribe is a global network of professionals passionate about transforming corporate car rental services into a safe, seamless, and human experience. Born from the need for more reliable and transparent business travel, we provide chauffeur-driven corporate mobility, airport transfers, and employee transportation solutions across India and beyond.",
     "Every member of the TaxiTribe family — from trained chauffeurs to corporate coordinators — is united by one purpose: to deliver trust, transparency, and reliability in every ride. With GPS-enabled vehicles, digital MIS reports, and strict HSSE (Health, Safety, Security, and Environment) compliance, we ensure every journey meets the highest standards of safety and accountability.",
     "With a pan-India presence, advanced technology, and a deep focus on women’s safety and corporate travel compliance, TaxiTribe is redefining the way organizations move their people — with care, precision, and purpose.",
-    "TaxiTribe — One Tribe. One Journey. Endless Destinations.",
   ];
 
   const mission = "To redefine corporate mobility in India with Technology, Sustainability, and Unmatched Services.";
@@ -135,7 +134,7 @@ export default function AboutPage() {
 
             {/* Quote strip */}
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <p className="text-lg text-gray-200">“Corporate mobility should feel like a trusted partner- Organised, Transparent, Reliable and Caring.”</p>
+              <p className="text-lg text-gray-200">“TaxiTribe — One Tribe. One Journey. Endless Destinations.”</p>
             </div>
           </div>
 
