@@ -205,7 +205,7 @@ export default function CorporatePage() {
                 <div className="bg-gray-700 px-8 py-4 flex justify-between items-center">
                   <span className="text-sm text-gray-400">Custom solutions available</span>
                   <button onClick={() => setDialogOpen(true)} className="text-amber-500 hover:text-amber-400 font-medium flex items-center group">
-                    Request a Corporate Proposal
+                    Get Quote
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -224,7 +224,7 @@ export default function CorporatePage() {
                 “Guaranteed 10% savings on your current annual spends”
               </p>
               <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
-                Request a Corporate Proposal
+                Get Quote
               </button>
             </div>
             <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>

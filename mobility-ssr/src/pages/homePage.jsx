@@ -29,7 +29,7 @@ const Home = () => {
                 “Guaranteed 10% savings on your current annual spends”
               </p>
             <button onClick={() => setDialogOpen(true)} className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors">
-              Request a Corporate Proposal
+              Get Quote
             </button>
           </div>
           <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>

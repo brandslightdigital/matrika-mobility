@@ -279,7 +279,7 @@ export default function AboutPage() {
             >
               <span className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                Request a Corporate Proposal
+                Get Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>

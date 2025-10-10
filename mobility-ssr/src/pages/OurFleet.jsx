@@ -234,7 +234,7 @@ export default function FleetPage() {
                       onClick={() => openFor(cat.title)}
                       className="shrink-0 inline-flex items-center justify-center rounded-xl bg-amber-500 text-black font-semibold px-4 py-2 hover:bg-amber-600 active:translate-y-px transition"
                     >
-                      Request a Corporate Proposal
+                      Get Quote
                     </button>
                   </div>
 
@@ -259,7 +259,7 @@ export default function FleetPage() {
               onClick={() => setDialogOpen(true)}
               className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
             >
-              Request a Corporate Proposal
+              Get Quote
             </button>
           </div>
           <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>

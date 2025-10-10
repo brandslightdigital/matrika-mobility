@@ -52,7 +52,7 @@ export default function ContactPage() {
             Contact Our Team
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-"Experience the Finest in Mobility. Our team is at your service round-the-clock to handle every Ground transport travel requirement.”
+            "Experience the Finest in Mobility. Our team is at your service round-the-clock to handle every Ground transport travel requirement."
           </p>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:border-[#ffb900] focus:ring-2 focus:ring-[#ffb900]/50 transition-all"
                   >
-                   <option value="">Select City</option>
+                    <option value="">Select City</option>
                     <option value="delhi">Delhi</option>
                     <option value="mumbai">Mumbai</option>
                     <option value="bangalore">Bangalore</option>
@@ -151,7 +151,6 @@ export default function ContactPage() {
                     <option value="southafrica">South Africa</option>
                   </select>
                 </div>
-                
 
                 <div>
                   <label className="block text-gray-300 font-medium mb-2">Your Message</label>
@@ -213,15 +212,56 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Location */}
-                <div className="flex items-start">
-                  <div className="bg-[#ffb900] p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
-                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                {/* Locations Section */}
+                <div className="space-y-4">
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">Our Locations</h3>
+                  
+                  {/* Head Office */}
+                  <div className="flex items-start">
+                    <div className="bg-[#ffb900] p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg text-amber-400 font-medium mb-1">Head Office</h4>
+                      <p className="text-sm sm:text-base text-gray-400 mb-1">
+                        E-169, East of Kailash
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-400">
+                        New Delhi, India 110065
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">Corporate Office</h3>
-                    <p className="text-base sm:text-lg text-amber-400 font-medium mb-1">F 61, Jawahar Park, Khanpur Deoli Road</p>
-                    <p className="text-sm sm:text-base text-gray-400 mb-1">New Delhi, India 110062.</p>
+
+                  {/* Gurgaon Hub */}
+                  <div className="flex items-start">
+                    <div className="bg-[#ffb900] p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg text-amber-400 font-medium mb-1">Gurgaon Hub</h4>
+                      <p className="text-sm sm:text-base text-gray-400 mb-1">
+                        FF-7, Vyapari Kendal, Tusnt Lok 1
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-400">
+                        Gurugram 122002
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Noida Hub */}
+                  <div className="flex items-start">
+                    <div className="bg-[#ffb900] p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 flex-shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg text-amber-400 font-medium mb-1">Noida Hub</h4>
+                      <p className="text-sm sm:text-base text-gray-400 mb-1">
+                        Sector 143, Opposite Metro Station
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-400">
+                        Noida 201303
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

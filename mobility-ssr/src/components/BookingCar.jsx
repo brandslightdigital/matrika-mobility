@@ -115,7 +115,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                   Get a Proposal for Reliable, Safe, and Efficient Rides.
                 </h2>
                 <p className="text-gray-600 text-sm">
-                  "Request a Callback – Let's Design Your Custom Rental Program."
+                  "Get Quote – Let's Design Your Custom Rental Program."
                 </p>
                 {model && (
                   <p className="text-amber-600 font-medium mt-2">

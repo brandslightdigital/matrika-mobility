@@ -18,6 +18,7 @@ import BestPracticesSection from "../components/BestPractise";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { feature } from "topojson-client";
 import world from "world-atlas/countries-110m.json";
+import GlobalAvailabilitySection from "../components/Map";
 
 const services = [
   {
@@ -186,64 +187,7 @@ export default function TaxiServicesWithImages() {
         </div>
       </div>
       {/* GLOBAL AVAILABILITY SECTION */}
-<div className="bg-black py-6 border-t border-white/10">
-  <div className="container mx-auto px-6 max-w-7xl text-center">
-    <h2 className="text-3xl font-bold mb-8 text-white">
-      Now Serving Globally
-    </h2>
-    <p className="text-gray-300 mb-10">
-      "Our premium mobility solutions are now available across key international markets."
-    </p>
-
-    {/* Map */}
-    <div className="w-full mb-2">
-      <ComposableMap
-        projectionConfig={{ scale: 155 }}
-        style={{ width: "100%", height: "520px" }}
-      >
-        <Geographies geography={worldGeo}>
-          {({ geographies }) =>
-            geographies.map((geo) => (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="rgba(255,255,255,0.06)"
-                stroke="rgba(255,255,255,0.25)"
-                strokeWidth={0.5}
-              />
-            ))
-          }
-        </Geographies>
-
-        {locations.map(({ name, coordinates }) => (
-          <Marker key={name} coordinates={coordinates}>
-            <circle r={7} fill="#ef4444" stroke="#fff" strokeWidth={2} />
-            <text
-              textAnchor="middle"
-              y={-12}
-              fill="#fff"
-              style={{ fontSize: 12, fontWeight: 600 }}
-            >
-              {name}
-            </text>
-          </Marker>
-        ))}
-      </ComposableMap>
-    </div>
-
-    {/* Optional: keep your grid of regions if you like */}
-    {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-      {["USA", "Europe", "UK", "Singapore", "Malaysia"].map((region, i) => (
-        <div
-          key={i}
-          className="rounded-xl border border-white/10 bg-white/5 py-6 px-4 hover:bg-white/10 transition"
-        >
-          <span className="text-lg font-semibold text-white">{region}</span>
-        </div>
-      ))}
-    </div> */}
-  </div>
-</div>
+<GlobalAvailabilitySection/>
 
       {/* COMPLIANCE & SAFETY SECTION */}
       <div className="bg-white/5 border-t border-b border-white/10 py-16">
@@ -288,7 +232,7 @@ export default function TaxiServicesWithImages() {
               onClick={() => setDialogOpen(true)}
               className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
             >
-              Request a Corporate Proposal
+              Get Quote
             </button>
           </div>
           <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>

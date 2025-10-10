@@ -91,7 +91,7 @@ const Navbar = () => {
               to="/services"
               className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 relative group"
             >
-              Our Services
+              Enterprise Services
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
@@ -226,7 +226,7 @@ const Navbar = () => {
                 onClick={() => handleNavClick("/services")}
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
               >
-                Our Services
+                Enterprise Services
               </Link>
               <Link
                 to="/about-us"
