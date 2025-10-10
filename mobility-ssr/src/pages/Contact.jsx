@@ -240,7 +240,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="text-base sm:text-lg text-amber-400 font-medium mb-1">Gurgaon Hub</h4>
                       <p className="text-sm sm:text-base text-gray-400 mb-1">
-                        FF-7, Vyapari Kendal, Tusnt Lok 1
+                        FF-7, Vyapar Kendra, Shushant Lok - I
                       </p>
                       <p className="text-sm sm:text-base text-gray-400">
                         Gurugram 122002

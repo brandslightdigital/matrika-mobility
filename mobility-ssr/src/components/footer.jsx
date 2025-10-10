@@ -93,8 +93,8 @@ const Footer = () => {
               <h4 className="text-xl font-bold text-white">Gurgaon Hub</h4>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              FF-7, Vyapari Kendal<br />
-              Tusnt Lok 1<br />
+              FF-7, Vyapar Kendra<br />
+              Shushant Lok - I<br />
               Gurugram 122002
             </p>
           </div>

@@ -227,7 +227,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                       Processing...
                     </div>
                   ) : (
-                    'Request Callback Now'
+                    'Get Quote'
                   )}
                 </button>
               </form>

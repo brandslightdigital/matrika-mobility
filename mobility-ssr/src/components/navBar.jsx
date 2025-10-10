@@ -207,16 +207,16 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                to="/corporate"
+                to="/corporate-protocolcorporate"
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
-                onClick={() => handleNavClick("/corporate")}
+                onClick={() => handleNavClick("/corporate-protocol")}
               >
-                Corporate
+                Corporate Protocal
               </Link>
               <Link
                 to="/our-fleet"
                 className="block text-gray-300 hover:text-white font-medium text-lg transition-all duration-300 hover:translate-x-2 transform"
-                onClick={() => handleNavClick("/cars")}
+                onClick={() => handleNavClick("/our-fleet")}
               >
                 Our Fleet
               </Link>

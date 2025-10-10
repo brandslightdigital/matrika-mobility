@@ -77,6 +77,20 @@ const services = [
     image:
       "/service/MICE.png",
   },
+  {
+    id: 5,
+    title: "Wedding & Special Occasion Cars",
+    blurb:
+      "Luxury and vintage vehicles tailored for your special day.",
+    bullets: [
+      "Premium luxury & vintage classics",
+      "Chauffeured rides for bride, groom & guests",
+      "VIP protocols and staggered dispersals",
+    ],
+    icon: <FaUsers className="w-7 h-7 text-amber-500" />,
+    image:
+      "/corporate/wsoc.jpg",
+  }
 ];
 const worldGeo = feature(world, world.objects.countries); // FeatureCollection
 const locations = [
