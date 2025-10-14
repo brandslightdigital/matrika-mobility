@@ -20,6 +20,50 @@
   <meta name="google-site-verification" content="wlwvX8DxQWM3g536Zg_yhPsTBT5ARVTvIXOrOlNllrk" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taxi Tribe - Best Car Rental in India</title>
+  
+  <!-- ========== FOUC FIX - CRITICAL CSS ========== -->
+  <style>
+    /* Critical CSS to prevent FOUC */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    /* Loading screen */
+    #critical-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-size: 18px;
+      color: #334155;
+    }
+    
+    /* Basic layout to prevent layout shift */
+    #root {
+      min-height: 100vh;
+    }
+    
+    /* When CSS loads, show content smoothly */
+    .css-loaded body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/src/index.css" as="style">
+  <link rel="preload" href="/src/entry-client.jsx" as="script">
   <!--app-head-->
 </head>
 
@@ -28,8 +72,59 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVP8BSNM" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Critical Loading Screen -->
+  <div id="critical-loading">
+    <div style="text-align: center;">
+      <div style="font-size: 24px; font-weight: bold; color: #1e40af; margin-bottom: 10px;">
+        Taxi Tribe
+      </div>
+      <div>Best Car Rental in India</div>
+      <div style="margin-top: 20px; font-size: 14px; color: #64748b;">Loading...</div>
+    </div>
+  </div>
+  
   <div id="root"><!--app-html--></div>
   <script type="module" src="/src/entry-client.jsx"></script>
+  
+  <!-- ========== FOUC FIX SCRIPT ========== -->
+  <script>
+    // FOUC Prevention Script
+    document.addEventListener('DOMContentLoaded', function() {
+      // First hide the loading when React takes over (fast)
+      setTimeout(function() {
+        const loadingEl = document.getElementById('critical-loading');
+        if (loadingEl) {
+          loadingEl.style.display = 'none';
+        }
+        document.body.style.visibility = 'visible';
+        document.body.style.opacity = '1';
+        document.documentElement.classList.add('css-loaded');
+      }, 100);
+    });
+
+    // Fallback - always show content after 2 seconds max
+    setTimeout(function() {
+      const loadingEl = document.getElementById('critical-loading');
+      if (loadingEl) {
+        loadingEl.style.display = 'none';
+      }
+      document.body.style.visibility = 'visible';
+      document.body.style.opacity = '1';
+      document.documentElement.classList.add('css-loaded');
+    }, 2000);
+
+    // Additional safety - when window fully loads
+    window.addEventListener('load', function() {
+      const loadingEl = document.getElementById('critical-loading');
+      if (loadingEl && loadingEl.style.display !== 'none') {
+        loadingEl.style.display = 'none';
+        document.body.style.visibility = 'visible';
+        document.body.style.opacity = '1';
+        document.documentElement.classList.add('css-loaded');
+      }
+    });
+  </script>
 </body>
 
 </html>
