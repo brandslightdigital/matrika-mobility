@@ -151,7 +151,7 @@ export default function TaxiServicesWithImages() {
             Services
           </h1>
           <p className="text-gray-200 mt-4 text-lg">
-            "Local, Outstation, Long-term, Airport Transfer, Wedding and Event — Delivered with Immense Reliability and Great Precision"
+            "Local business  travel , out station trips, Long term rentals , Expat services , Airport transfers , weddings , events and conferences — Delivered with Immense Reliability and Great Precision"
           </p>
         </div>
       </div>
