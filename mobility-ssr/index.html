@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
       }); var f = d.getElementsByTagName(s)[0],
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
@@ -21,49 +19,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taxi Tribe - Best Car Rental in India</title>
   
-  <!-- ========== FOUC FIX - CRITICAL CSS ========== -->
+  <!-- ========== PERFECT FOUC FIX ========== -->
   <style>
-    /* Critical CSS to prevent FOUC */
+    /* Body initially hidden */
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
+      font-family: system-ui, -apple-system, sans-serif;
+      overflow: hidden; /* Prevent scroll during loading */
     }
     
-    /* Loading screen */
-    #critical-loading {
+    /* Professional Loader */
+    #app-loader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #f8fafc;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      font-size: 18px;
-      color: #334155;
+      color: white;
+      transition: opacity 0.5s ease-in-out;
     }
     
-    /* Basic layout to prevent layout shift */
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .loader-content {
+      text-align: center;
+    }
+    
+    .loader-content h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .loader-content p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    
+    /* Main content initially hidden */
     #root {
-      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
     }
     
-    /* When CSS loads, show content smoothly */
-    .css-loaded body {
-      visibility: visible;
+    /* When app is ready */
+    .app-ready #app-loader {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .app-ready #root {
       opacity: 1;
     }
   </style>
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/src/index.css" as="style">
-  <link rel="preload" href="/src/entry-client.jsx" as="script">
   <!--app-head-->
 </head>
 
@@ -73,58 +101,47 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   
-  <!-- Critical Loading Screen -->
-  <div id="critical-loading">
-    <div style="text-align: center;">
-      <div style="font-size: 24px; font-weight: bold; color: #1e40af; margin-bottom: 10px;">
-        Taxi Tribe
-      </div>
-      <div>Best Car Rental in India</div>
-      <div style="margin-top: 20px; font-size: 14px; color: #64748b;">Loading...</div>
+  <!-- Professional Loader -->
+  <div id="app-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-content">
+      <h1>Taxi Tribe</h1>
+      <p>Best Car Rental in India</p>
+      <p style="margin-top: 10px; font-size: 14px; opacity: 0.7;">Loading...</p>
     </div>
   </div>
   
+  <!-- Main App -->
   <div id="root"><!--app-html--></div>
   <script type="module" src="/src/entry-client.jsx"></script>
   
-  <!-- ========== FOUC FIX SCRIPT ========== -->
+  <!-- ========== SMOOTH TRANSITION SCRIPT ========== -->
   <script>
-    // FOUC Prevention Script
-    document.addEventListener('DOMContentLoaded', function() {
-      // First hide the loading when React takes over (fast)
-      setTimeout(function() {
-        const loadingEl = document.getElementById('critical-loading');
-        if (loadingEl) {
-          loadingEl.style.display = 'none';
-        }
-        document.body.style.visibility = 'visible';
-        document.body.style.opacity = '1';
-        document.documentElement.classList.add('css-loaded');
-      }, 100);
-    });
-
-    // Fallback - always show content after 2 seconds max
-    setTimeout(function() {
-      const loadingEl = document.getElementById('critical-loading');
-      if (loadingEl) {
-        loadingEl.style.display = 'none';
+    function hideLoaderAndShowApp() {
+      const loader = document.getElementById('app-loader');
+      const root = document.getElementById('root');
+      
+      if (loader && root) {
+        // Add ready class for smooth transition
+        document.documentElement.classList.add('app-ready');
+        
+        // Remove loader from DOM after transition
+        setTimeout(() => {
+          if (loader.parentNode) {
+            loader.parentNode.removeChild(loader);
+          }
+        }, 500); // Match CSS transition time
       }
-      document.body.style.visibility = 'visible';
-      document.body.style.opacity = '1';
-      document.documentElement.classList.add('css-loaded');
-    }, 2000);
+    }
 
-    // Additional safety - when window fully loads
-    window.addEventListener('load', function() {
-      const loadingEl = document.getElementById('critical-loading');
-      if (loadingEl && loadingEl.style.display !== 'none') {
-        loadingEl.style.display = 'none';
-        document.body.style.visibility = 'visible';
-        document.body.style.opacity = '1';
-        document.documentElement.classList.add('css-loaded');
-      }
-    });
+    // When React loads
+    window.addEventListener('DOMContentLoaded', hideLoaderAndShowApp);
+    
+    // Fallback - max 3 seconds
+    setTimeout(hideLoaderAndShowApp, 3000);
+    
+    // When everything is fully loaded
+    window.addEventListener('load', hideLoaderAndShowApp);
   </script>
 </body>
-
 </html>
