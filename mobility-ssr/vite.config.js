@@ -5,11 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [tailwindcss(), react()],
-  
   build: {
     minify: 'esbuild',
     cssCodeSplit: false,
-    
     // Safe rollup options
     rollupOptions: {
       output: {
@@ -27,8 +25,19 @@ export default defineConfig({
       }
     }
   },
-  
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom']
   }
+  server: {
+    host: true, // Listen on all network interfaces
+    allowedHosts: [
+      'taxitribe.in',
+      'www.taxitribe.in'
+    ]
+  },
+  preview: {
+    host: true,
+    port: 5173 // Or whatever port your SSR server uses
+  }
 })
+
