@@ -1,4 +1,3 @@
-// server.js
 import fs from 'node:fs/promises'
 import express from 'express'
 import { Transform } from 'node:stream'
@@ -13,20 +12,6 @@ const ABORT_DELAY = 10000
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
   : ''
-
-// CSS file path - yeh build ke baad check karna
-let cssPath = ''
-if (isProduction) {
-  try {
-    const assets = await fs.readdir('./dist/client/assets')
-    const cssFile = assets.find(file => file.endsWith('.css'))
-    if (cssFile) {
-      cssPath = `/assets/${cssFile}`
-    }
-  } catch (e) {
-    console.log('CSS file not found in assets')
-  }
-}
 
 // Create http server
 const app = express()
@@ -49,7 +34,7 @@ if (!isProduction) {
   app.use(base, sirv('./dist/client', { extensions: [] }))
 }
 
-// Serve HTML - YAHAN CHANGE KARO
+// Serve HTML
 app.use('*all', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '')
@@ -57,20 +42,17 @@ app.use('*all', async (req, res) => {
     let render
 
     if (!isProduction) {
+      // For development: Read template and transform it using Vite
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
+      // For production: Read the cached template from dist/client/index.html
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    // CSS injection logic
-    let criticalCss = ''
-    if (isProduction && cssPath) {
-      criticalCss = `<link rel="stylesheet" href="${cssPath}" />`
-    }
-
+    // Handle SSR Render logic
     let didError = false
     const { pipe, abort } = render(url, {
       onShellError() {
@@ -82,19 +64,11 @@ app.use('*all', async (req, res) => {
         res.status(didError ? 500 : 200)
         res.set({ 'Content-Type': 'text/html' })
 
-        // Split template and inject CSS
-        const templateParts = template.split(`<!--app-html-->`)
-        if (templateParts.length !== 2) {
-          res.send(template)
-          return
-        }
-
-        const [htmlStart, htmlEnd] = templateParts
+        // Inject inline CSS into the HTML
+        const criticalCss = isProduction ? '<link rel="stylesheet" href="/dist/client/style.css" />' : '' // For development, the CSS should already be loaded
+        const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`)
         
-        // CSS ko head mein inject karo
-        const htmlWithCss = htmlStart.replace('</head>', `${criticalCss}</head>`)
-        
-        res.write(htmlWithCss)
+        res.write(htmlStart.replace('<head>', `<head>${criticalCss}`)) // Inject critical CSS here
 
         const transformStream = new Transform({
           transform(chunk, encoding, callback) {
@@ -120,8 +94,8 @@ app.use('*all', async (req, res) => {
     }, ABORT_DELAY)
   } catch (e) {
     vite?.ssrFixStacktrace(e)
-    console.log('Server error:', e.message)
-    res.status(500).send('Internal Server Error')
+    console.log(e.stack)
+    res.status(500).end(e.stack)
   }
 })
 
