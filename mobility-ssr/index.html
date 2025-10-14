@@ -21,12 +21,11 @@
   
   <!-- ========== TAXI TRIBE THEME FOUC FIX ========== -->
   <style>
-    /* Body initially hidden */
+    /* Body initially hidden but scrollable */
     body {
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, sans-serif;
-      overflow: hidden; /* Prevent scroll during loading */
       background: #000000; /* Black background */
     }
     
@@ -45,6 +44,8 @@
       z-index: 9999;
       color: #fbbf24; /* Yellow text */
       transition: opacity 0.5s ease-in-out;
+      /* ONLY loader ko overflow hidden karo, body ko nahi */
+      overflow: hidden;
     }
     
     /* Taxi-inspired spinner */
@@ -130,6 +131,11 @@
     .app-ready #root {
       opacity: 1;
     }
+    
+    /* IMPORTANT: Enable scrolling when app is ready */
+    .app-ready body {
+      overflow: auto !important;
+    }
   </style>
   <!--app-head-->
 </head>
@@ -176,6 +182,9 @@
         // Add ready class for smooth transition
         document.documentElement.classList.add('app-ready');
         
+        // Enable scrolling
+        document.body.style.overflow = 'auto';
+        
         // Remove loader from DOM after transition
         setTimeout(() => {
           if (loader.parentNode) {
@@ -193,6 +202,12 @@
     
     // When everything is fully loaded
     window.addEventListener('load', hideLoaderAndShowApp);
+    
+    // Additional safety - ensure scrolling is enabled
+    setTimeout(() => {
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    }, 3500);
   </script>
 </body>
 </html>
