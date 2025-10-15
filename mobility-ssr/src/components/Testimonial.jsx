@@ -137,7 +137,7 @@ const fallback = useMemo(
   return (
     <section
       aria-label="Client testimonials"
-      className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 bg-black"
+      className="relative mx-auto container px-4 py-16 sm:px-6 lg:px-8 bg-black"
     >
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">

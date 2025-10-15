@@ -74,7 +74,7 @@ export default function BenefitsAndWhy() {
 
   return (
     <section className="bg-gradient-to-br from-black via-neutral-900 to-black py-16">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block rounded-full bg-yellow-400/20 text-yellow-400 px-4 py-1 text-sm font-semibold">

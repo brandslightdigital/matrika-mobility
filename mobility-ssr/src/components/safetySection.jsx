@@ -23,8 +23,16 @@ export const SafetySection = () => {
           </p>
           <p className="text-black-300 text-xl mb-6 text-white">
             Our professional drivers are meticulously vetted and trained, providing a secure, comfortable, and stress-free experience for every passenger.
+          </p>
+          <p className="text-black-300 text-xl mb-6 text-white">
+            For us our philosophy of  a Tribe represents a trusted community — a network of people bound by shared values of care, accountability, and vigilance. This network extends deep into Tier 2 and Tier 3 cities, where personal connection and human empathy still define service. Our aim is to create a mobility ecosystem where a woman travelling in a smaller city feels as safe and supported as she would in a Tier 1 environment.
 
-
+          </p>
+          <p className="text-black-300 text-xl mb-6 text-white">
+         To achieve this, we ensure that our driver and support community is trained on the same safety and service parameters as those in metropolitan cities. This means consistent training, behavioural standards, and response systems across all operational geographies — ensuring that every passenger, regardless of city or region, experiences the same high standards of safety and professionalism.
+          </p>
+          <p className="text-black-300 text-xl mb-6 text-white">
+At Taxi Tribe, safety is not just a protocol — it’s a culture. One that travels with every passenger, strengthened by empathy, powered by technology, and rooted in a community that moves together as one Tribe.
           </p>
         </div>
 
