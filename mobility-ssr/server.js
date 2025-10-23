@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import { Transform } from 'node:stream'
+import { Helmet } from 'react-helmet' // ✅ Add this
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -42,19 +43,16 @@ app.use('*all', async (req, res) => {
     let render
 
     if (!isProduction) {
-      // For development: Read template and transform it using Vite
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
     } else {
-      // For production: Read the cached template from dist/client/index.html
       template = templateHtml
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    // Handle SSR Render logic
     let didError = false
-    const { pipe, abort } = render(url, {
+    const { pipe, abort, helmetContext } = render(url, {
       onShellError() {
         res.status(500)
         res.set({ 'Content-Type': 'text/html' })
@@ -64,11 +62,27 @@ app.use('*all', async (req, res) => {
         res.status(didError ? 500 : 200)
         res.set({ 'Content-Type': 'text/html' })
 
-        // Inject inline CSS into the HTML
-        const criticalCss = isProduction ? '<link rel="stylesheet" href="/dist/client/style.css" />' : '' // For development, the CSS should already be loaded
+        // 🧠 Pull Helmet data after renderToPipeableStream starts
+        const helmet = Helmet.renderStatic()
+
+        const criticalCss = isProduction
+          ? '<link rel="stylesheet" href="/dist/client/style.css" />'
+          : ''
+
         const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`)
-        
-        res.write(htmlStart.replace('<head>', `<head>${criticalCss}`)) // Inject critical CSS here
+
+        // ✅ Inject Helmet tags before streaming
+        res.write(
+          htmlStart.replace(
+            '<head>',
+            `<head>
+              ${criticalCss}
+              ${helmet.title.toString()}
+              ${helmet.meta.toString()}
+              ${helmet.link.toString()}
+            `
+          )
+        )
 
         const transformStream = new Transform({
           transform(chunk, encoding, callback) {
