@@ -38,7 +38,7 @@ if (!isProduction) {
 // Serve HTML
 app.use('*all', async (req, res) => {
   try {
-    const url = req.originalUrl.replace(base, '')
+    const url = req.originalUrl
     let template
     let render
 
