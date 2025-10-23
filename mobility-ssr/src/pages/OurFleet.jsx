@@ -3,6 +3,7 @@ import { Car, Search, Sparkles } from "lucide-react";
 import BookingDialog from "../components/BookingCar";
 import SOPsSection from "./SOPsSection";
 import BestPracticesSection from "../components/BestPractise";
+import { Helmet } from "react-helmet";
 
 // -----------------------------------------------------------------------------
 // FLEET PAGE — FLAT LIST (NO SUBCATEGORIES, NO VARIANTS)
@@ -141,6 +142,10 @@ export default function FleetPage() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 z-10">
+      <Helmet>
+        <title>Our Fleet | Premium Corporate Car Rentals & Taxi Services</title>
+        <meta name="description" content="Explore our premium fleet of corporate car rentals and taxi services. Choose from a wide range of vehicles tailored for business travel. Book your ride today!" />
+      </Helmet>
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_-10%,rgba(245,158,11,0.08),transparent_60%)]" />

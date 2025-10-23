@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa';
 import SOPsSection from './SOPsSection';
 import BestPracticesSection from '../components/BestPractise';
+import { Helmet } from "react-helmet";
 
 export default function CorporatePage() {
   const [dialogOpen, setDialogOpen] = useState(false); // state to control BookingDialog visibility
@@ -82,7 +83,13 @@ export default function CorporatePage() {
   };
 
   return (
+
     <div className="min-h-screen bg-black text-white">
+      <Helmet>
+        <title>Best Corporate Car Rental in India | Daily Office & Business Travel</title>
+         <meta name="description" content="Book your ride online with TaxiTribe. 24x7 taxi booking, airport transfers & corporate travel—safe, quick, and affordable. Book now!" />
+         <link rel="canonical" href="https://taxitribe.in/corporate-protocol" />
+      </Helmet>
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-semibold mb-6">
