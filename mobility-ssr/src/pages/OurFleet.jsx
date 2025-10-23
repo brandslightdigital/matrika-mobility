@@ -143,8 +143,9 @@ export default function FleetPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 z-10">
       <Helmet>
-        <title>Our Fleet | Premium Corporate Car Rentals & Taxi Services</title>
-        <meta name="description" content="Explore our premium fleet of corporate car rentals and taxi services. Choose from a wide range of vehicles tailored for business travel. Book your ride today!" />
+        <title>Luxury & Budget Car Rental Fleet | Sedans, SUVs & Tempo Travellers</title>
+        <meta name="description" content="Choose from our premium fleet—sedans, SUVs, tempo travellers & hatchbacks for every trip. Comfort and class await. Explore our cars now!" />
+        <link rel="canonical" href="https://taxitribe.in/our-fleet" />
       </Helmet>
       {/* Hero */}
       <section className="relative overflow-hidden">

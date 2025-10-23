@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ShieldCheck, Clock, Star, Users, TrendingUp, Globe, ArrowRight, Phone } from "lucide-react";
 import BookingDialog from "../components/BookingCar";
 import SOPsSection from "./SOPsSection";
+import { Helmet } from "react-helmet";
 
 // Single-page About (no tabs). Uses existing BookingDialog.
 
@@ -75,6 +76,11 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
+      <Helmet>
+        <title>About TaxiTribe | India’s Trusted Car Rental & Taxi Service</title>
+        <meta name="description" content="We redefine travel with safe, affordable taxi and rental services across India. Trusted by thousands—discover why TaxiTribe leads the ride." />
+        <link rel="canonical" href="https://taxitribe.in/about-us" />
+      </Helmet>
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-gray-900/60 to-black/80 z-10" />

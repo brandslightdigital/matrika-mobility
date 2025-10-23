@@ -19,6 +19,7 @@ import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps
 import { feature } from "topojson-client";
 import world from "world-atlas/countries-110m.json";
 import GlobalAvailabilitySection from "../components/Map";
+import { Helmet } from "react-helmet";
 
 const services = [
   {
@@ -134,6 +135,11 @@ export default function TaxiServicesWithImages() {
 
   return (
     <section className="bg-black text-white">
+      <Helmet>
+        <title>Car Rental Services in India | Local, Outstation & Airport Cabs</title>
+        <meta name="description" content="From corporate trips to airport transfers—book reliable car rentals across India. Flexible packages for every journey. Reserve now!" />
+        <link rel="canonical" href="https://taxitribe.in/services" />
+      </Helmet>
       {/* HERO */}
       <div className="relative h-[58vh] min-h-[420px] flex items-center justify-center overflow-hidden">
         <img

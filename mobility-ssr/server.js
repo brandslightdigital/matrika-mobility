@@ -39,6 +39,7 @@ if (!isProduction) {
 app.use('*all', async (req, res) => {
   try {
     const url = req.originalUrl
+
     let template
     let render
 

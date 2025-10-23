@@ -87,7 +87,7 @@ export default function CorporatePage() {
     <div className="min-h-screen bg-black text-white">
       <Helmet>
         <title>Best Corporate Car Rental in India | Daily Office & Business Travel</title>
-         <meta name="description" content="Book your ride online with TaxiTribe. 24x7 taxi booking, airport transfers & corporate travel—safe, quick, and affordable. Book now!" />
+         <meta name="description" content=" Reliable office cab and corporate taxi services for seamless business travel. Trusted by top companies—book your corporate ride today!" />
          <link rel="canonical" href="https://taxitribe.in/corporate-protocol" />
       </Helmet>
       <div className="relative bg-gradient-to-r from-gray-900 to-black py-24 px-4 overflow-hidden">
