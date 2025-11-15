@@ -1,120 +1,120 @@
-import fs from 'node:fs/promises'
-import express from 'express'
-import { Transform } from 'node:stream'
-import { Helmet } from 'react-helmet' // ✅ Add this
+import fs from "node:fs/promises";
+import express from "express";
+import { Transform } from "node:stream";
 
-// Constants
-const isProduction = process.env.NODE_ENV === 'production'
-const port = process.env.PORT || 5173
-const base = process.env.BASE || '/'
-const ABORT_DELAY = 10000
+const isProduction = process.env.NODE_ENV === "production";
+const port = process.env.PORT || 5173;
+const base = process.env.BASE || "/";
+const ABORT_DELAY = 10000;
 
-// Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile('./dist/client/index.html', 'utf-8')
-  : ''
+  ? await fs.readFile("./dist/client/index.html", "utf-8")
+  : "";
 
-// Create http server
-const app = express()
+const app = express();
 
-// Add Vite or respective production middlewares
-/** @type {import('vite').ViteDevServer | undefined} */
-let vite
+let vite;
 if (!isProduction) {
-  const { createServer } = await import('vite')
-  vite = await createServer({
-    server: { middlewareMode: true },
-    appType: 'custom',
-    base,
-  })
-  app.use(vite.middlewares)
+  const { createServer } = await import("vite");
+vite = await createServer({
+    server: { middlewareMode: "ssr" },
+    appType: "custom",
+    optimizeDeps: {
+      entries: [],
+    }
+});
+
+  app.use(vite.middlewares);
 } else {
-  const compression = (await import('compression')).default
-  const sirv = (await import('sirv')).default
-  app.use(compression())
-  app.use(base, sirv('./dist/client', { extensions: [] }))
+  const compression = (await import("compression")).default;
+  const sirv = (await import("sirv")).default;
+  app.use(compression());
+  app.use(base, sirv("./dist/client", { extensions: [] }));
 }
 
-// Serve HTML
-app.use('*all', async (req, res) => {
+// --------------------------------------------------------------
+// ⭐ Chrome DevTools ka cursed request fix
+// --------------------------------------------------------------
+function shouldIgnoreBadChromeRequests(url) {
+  return url.startsWith("/.well-known");
+}
+
+// --------------------------------------------------------------
+// ⭐ Main SSR handler
+// --------------------------------------------------------------
+app.use("*all", async (req, res) => {
   try {
-    const url = req.originalUrl
+    const url = req.originalUrl;
 
-    let template
-    let render
-
-    if (!isProduction) {
-      template = await fs.readFile('./index.html', 'utf-8')
-      template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
-    } else {
-      template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+    // Block browser devtools junk before Vite touches it
+    if (shouldIgnoreBadChromeRequests(url)) {
+      return res.status(204).end();
     }
 
-    let didError = false
+    let template;
+    let render;
+
+    if (!isProduction) {
+      template = await fs.readFile("./index.html", "utf-8");
+      template = await vite.transformIndexHtml(url, template);
+      render = (await vite.ssrLoadModule("/src/entry-server.jsx")).render;
+    } else {
+      template = templateHtml;
+      render = (await import("./dist/server/entry-server.js")).render;
+    }
+
+    let didError = false;
+
     const { pipe, abort, helmetContext } = render(url, {
       onShellError() {
-        res.status(500)
-        res.set({ 'Content-Type': 'text/html' })
-        res.send('<h1>Something went wrong</h1>')
+        res.status(500).send("<h1>SSR Error</h1>");
       },
+
       onShellReady() {
-        res.status(didError ? 500 : 200)
-        res.set({ 'Content-Type': 'text/html' })
+        res.status(didError ? 500 : 200);
+        res.set({ "Content-Type": "text/html" });
 
-        // 🧠 Pull Helmet data after renderToPipeableStream starts
-        const helmet = Helmet.renderStatic()
+        const helmet = helmetContext.helmet;
+        const [htmlStart, htmlEnd] = template.split("<!--app-html-->");
 
-        const criticalCss = isProduction
-          ? '<link rel="stylesheet" href="/dist/client/style.css" />'
-          : ''
-
-        const [htmlStart, htmlEnd] = template.split(`<!--app-html-->`)
-
-        // ✅ Inject Helmet tags before streaming
         res.write(
           htmlStart.replace(
-            '<head>',
+            "<head>",
             `<head>
-              ${criticalCss}
               ${helmet.title.toString()}
               ${helmet.meta.toString()}
-              ${helmet.link.toString()}
-            `
+              ${helmet.link.toString()}`
           )
-        )
+        );
 
         const transformStream = new Transform({
-          transform(chunk, encoding, callback) {
-            res.write(chunk, encoding)
-            callback()
+          transform(chunk, enc, cb) {
+            res.write(chunk, enc);
+            cb();
           },
-        })
+        });
 
-        transformStream.on('finish', () => {
-          res.end(htmlEnd)
-        })
+        transformStream.on("finish", () => {
+          res.end(htmlEnd);
+        });
 
-        pipe(transformStream)
+        pipe(transformStream);
       },
-      onError(error) {
-        didError = true
-        console.error(error)
-      },
-    })
 
-    setTimeout(() => {
-      abort()
-    }, ABORT_DELAY)
-  } catch (e) {
-    vite?.ssrFixStacktrace(e)
-    console.log(e.stack)
-    res.status(500).end(e.stack)
+      onError(err) {
+        didError = true;
+        console.error(err);
+      },
+    });
+
+    setTimeout(() => abort(), ABORT_DELAY);
+  } catch (err) {
+    vite?.ssrFixStacktrace(err);
+    console.error(err);
+    res.status(500).end(err.stack);
   }
-})
+});
 
-// Start http server
 app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`)
-})
+  console.log("Server running on http://localhost:" + port);
+});

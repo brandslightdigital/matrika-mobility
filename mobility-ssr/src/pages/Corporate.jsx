@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import SOPsSection from './SOPsSection';
 import BestPracticesSection from '../components/BestPractise';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function CorporatePage() {
   const [dialogOpen, setDialogOpen] = useState(false); // state to control BookingDialog visibility

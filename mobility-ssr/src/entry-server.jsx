@@ -1,16 +1,25 @@
-import { StrictMode } from 'react'
-import { renderToPipeableStream } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom/server'
-import App from './App'
-import './index.css'
+import React from "react";
+import { renderToPipeableStream } from "react-dom/server";
+import { StaticRouter } from "react-router-dom/server";
+
+import { HelmetProvider } from "react-helmet-async";
+import App from "./App";
 
 export function render(url, options) {
-  return renderToPipeableStream(
-    <StrictMode>
+  const helmetContext = {};
+
+  const stream = renderToPipeableStream(
+    <HelmetProvider context={helmetContext}>
       <StaticRouter location={url}>
         <App />
       </StaticRouter>
-    </StrictMode>,
-    options,
-  )
+    </HelmetProvider>,
+    options
+  );
+
+  return {
+    pipe: stream.pipe,
+    abort: stream.abort,
+    helmetContext
+  };
 }

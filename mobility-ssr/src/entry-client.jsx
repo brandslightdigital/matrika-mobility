@@ -1,14 +1,15 @@
-import './index.css'
-import { StrictMode } from 'react'
-import { hydrateRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App'
-import './index.css'
+import React from "react";
+import { hydrateRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import './index.css';
+import { HelmetProvider } from "react-helmet-async";
+import App from "./App";
+
 hydrateRoot(
-  document.getElementById('root'),
-  <StrictMode>
+  document.getElementById("root"),
+  <HelmetProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>,
-)
+  </HelmetProvider>
+);

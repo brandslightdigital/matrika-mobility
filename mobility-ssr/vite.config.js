@@ -18,3 +18,4 @@ export default defineConfig({
     port: 5173 // Or whatever port your SSR server uses
   }
 })
+ 
