@@ -17,7 +17,7 @@ export default function BlogPostPage() {
   const ogImage = post.meta?.ogImage || post.coverImage;
 
   return (
-    <main className="bg-black text-white mt-10">
+    <main className="bg-black text-white mt-14">
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
@@ -54,14 +54,14 @@ export default function BlogPostPage() {
         </div>
 
         {/* Cover Image */}
-        {post.coverImage && (
+        {/* {post.coverImage && (
           <img
             src={post.coverImage}
             alt={post.title}
             className="mb-8 w-full rounded-xl object-cover ring-1 ring-white/10"
             loading="lazy"
           />
-        )}
+        )} */}
 
         {/* Content */}
         <div

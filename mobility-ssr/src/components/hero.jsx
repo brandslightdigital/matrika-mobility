@@ -69,141 +69,102 @@ export default function Hero() {
   };
 
   return (
-    <section
-      className="relative min-h-[80vh] md:min-h-[100vh] overflow-hidden bg-black"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* Slides */}
-      <div className="absolute inset-0">
-        {slides.map((s, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-[900ms] ${
-              i === current ? "opacity-100" : "opacity-0"
-            }`}
-            aria-hidden={i !== current}
-          >
-            <img
-              src={s.image}
-              alt={s.title}
-              className="h-full md:h-full w-full object-cover"
-              draggable={false}
-            />
-            {/* Stronger overlay for long copy readability */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/40 to-black/30" />
-          </div>
-        ))}
+<section className="relative min-h-[80vh] md:min-h-screen overflow-hidden bg-black pt-20">
+
+  {/* Background Slides */}
+  <div className="absolute inset-0">
+    {slides.map((s, i) => (
+      <div
+        key={i}
+        className={`absolute inset-0 transition-opacity duration-900 ${
+          i === current ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <img
+          src={s.image}
+          alt={s.title}
+          className="h-full w-full object-cover"
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-linear-to-tr from-black/70 via-black/40 to-black/20" />
       </div>
+    ))}
+  </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-7xl items-center px-6 py-16">
-        <div className="w-full">
-          {/* Heading */}
-          <h1 className="mb-3 leading-tight text-white">
-            <span className="block text-[clamp(28px,6vw,64px)] font-semibold">
-              {slides[current].title}
-            </span>
-            <span className="block bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-[clamp(26px,5vw,56px)] font-bold text-transparent">
-              {slides[current].subtitle}
-            </span>
-          </h1>
+  {/* HERO MAIN GRID */}
+  <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto min-h-[90vh] items-center px-6 py-10 gap-10">
 
-          {/* Description – roomy for slide 1 */}
-          <p className="mb-8 max-w-3xl text-[clamp(16px,2.3vw,22px)] leading-relaxed text-gray-200 md:max-w-4xl">
-            {slides[current].description}
-          </p>
+    {/* LEFT CONTENT ALWAYS CENTERED */}
+    <div className="flex flex-col justify-center">
+      <h1 className="mb-3 leading-tight text-white">
+        <span className="block text-[clamp(28px,6vw,64px)] font-semibold">
+          {slides[current].title}
+        </span>
+        <span className="block bg-linear-to-r from-amber-400 to-amber-600 bg-clip-text text-[clamp(26px,5vw,56px)] font-bold text-transparent">
+          {slides[current].subtitle}
+        </span>
+      </h1>
 
-          {/* Trust Indicators */}
-          <div className="mb-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-gray-300">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              <span>Corporate and Expat Solutions</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
-              <span>24x7 Customer Support</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
-              <span>Instant Booking</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
-              <span>Police verified drivers</span>
-            </div>
-            {/* <div className="flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
-              <span>Instant Booking</span>
-            </div> */}
-          </div>
+      <p className="mb-8 max-w-3xl text-[clamp(16px,2vw,22px)] text-gray-200 leading-relaxed">
+        {slides[current].description}
+      </p>
 
-          {/* CTA */}
-          <div className="mb-10 flex flex-col items-start gap-4 sm:flex-row">
-            <button
-              onClick={handleBookNowClick}
-              className="group flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 px-8 py-4 text-lg font-bold text-black transition-all duration-300 hover:scale-105 hover:from-amber-500 hover:to-amber-600 hover:shadow-lg hover:shadow-amber-500/25"
-            >
-              <FaCar className="group-hover:animate-bounce" />
-              <span>Get Quote</span>
-              <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-            </button>
-
-            {/* Optional secondary CTA
-            <Link
-              to="/our-fleet"
-              className="group flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black"
-            >
-              <FaPlay className="group-hover:animate-pulse" />
-              <span>View Fleet</span>
-            </Link> */}
-          </div>
-
-          {/* Stats row */}
-          {/* <div className="grid max-w-3xl grid-cols-2 gap-6 text-gray-200 sm:grid-cols-4">
-            {stats.map((s, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <s.icon className="text-amber-400" />
-                <div>
-                  <div className="text-xl font-extrabold text-white">{s.number}</div>
-                  <div className="text-sm text-gray-300">{s.label}</div>
-                </div>
-              </div>
-            ))}
-          </div> */}
+      {/* Trust Indicators */}
+      <div className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-gray-300">
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+          <span>Corporate and Expat Solutions</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+          <span>24x7 Customer Support</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+          <span>Instant Booking</span>
         </div>
       </div>
 
-      {/* Controls */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-20 flex items-center justify-center gap-3">
-        {/* <button
-          onClick={prev}
-          aria-label="Previous slide"
-          className="pointer-events-auto hidden rounded-full bg-white/15 px-3 py-2 text-white backdrop-blur hover:bg-white/25 sm:block"
-        >
-          Prev
-        </button> */}
+    </div>
 
-        {/* Dots */}
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goto(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`pointer-events-auto h-2 rounded-full transition-all ${
-              i === current ? "w-8 bg-amber-400" : "w-2 bg-white/40 hover:bg-white/70"
-            }`}
-          />
-        ))}
+    {/* RIGHT FIXED ENQUIRY FORM */}
+    <div className="w-full flex justify-center lg:justify-end">
+      <div className="w-full max-w-md rounded-2xl bg-black/50 backdrop-blur-xl border border-white/10 p-6 shadow-2xl">
+        <h2 className="text-xl text-center font-bold text-white mb-5">
+          Quick Enquiry
+        </h2>
 
-        {/* <button
-          onClick={next}
-          aria-label="Next slide"
-          className="pointer-events-auto hidden rounded-full bg-white/15 px-3 py-2 text-white backdrop-blur hover:bg-white/25 sm:block"
-        >
-          Next
-        </button> */}
+        <div className="space-y-4">
+          <input className="w-full p-3 rounded bg-white/10 text-white placeholder-gray-300" placeholder="Your Name" />
+          <input className="w-full p-3 rounded bg-white/10 text-white placeholder-gray-300" placeholder="Phone Number" />
+          <input className="w-full p-3 rounded bg-white/10 text-white placeholder-gray-300" placeholder="Email" />
+          <input className="w-full p-3 rounded bg-white/10 text-white placeholder-gray-300" placeholder="City" />
+          <textarea rows="3" className="w-full p-3 rounded bg-white/10 text-white placeholder-gray-300" placeholder="Your Requirements"></textarea>
+
+          <button className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded">
+            Submit Enquiry
+          </button>
+        </div>
       </div>
-    </section>
+    </div>
+
+  </div>
+
+  {/* DOTS */}
+  <div className="absolute bottom-6 inset-x-0 flex justify-center gap-2">
+    {slides.map((_, i) => (
+      <button
+        key={i}
+        onClick={() => goto(i)}
+        className={`h-2 rounded-full transition-all ${
+          i === current ? "w-6 bg-amber-400" : "w-2 bg-white/40"
+        }`}
+      />
+    ))}
+  </div>
+
+</section>
+
+
   );
 }
