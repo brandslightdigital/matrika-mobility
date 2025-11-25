@@ -10,21 +10,12 @@ import {
 import { motion } from "framer-motion";
 
 /**
- * <SOPsSection />
- * - Reusable trust/compliance block for Corporate & Services pages
- * - Props:
- *    title?: string
- *    subtitle?: string
- *    items?: Array<{icon: JSX.Element, heading: string, bullets: string[]}>
- *    variant?: "full" | "compact"   // compact = 3 cards, shorter height
- *    className?: string
- *
- * Tailwind + framer-motion
+ * SOPsSection (light theme)
  */
 
 const DEFAULT_ITEMS = [
   {
-    icon: <FaClipboardCheck className="w-6 h-6 text-amber-500" />,
+    icon: <FaClipboardCheck className="w-6 h-6 text-amber-600" />,
     heading: "Process-based Operations",
     bullets: [
       "Reservation TAT 10 min, instant confirmation",
@@ -33,7 +24,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    icon: <FaSatelliteDish className="w-6 h-6 text-amber-500" />,
+    icon: <FaSatelliteDish className="w-6 h-6 text-amber-600" />,
     heading: "Live Tracking",
     bullets: [
       "All GPS-enabled cars; mobile app driver tracking",
@@ -42,7 +33,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    icon: <FaCarSide className="w-6 h-6 text-amber-500" />,
+    icon: <FaCarSide className="w-6 h-6 text-amber-600" />,
     heading: "Ageing Focus",
     bullets: [
       "Cars used max 3 years or 1 lakh km, whichever earlier",
@@ -50,7 +41,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    icon: <FaTools className="w-6 h-6 text-amber-500" />,
+    icon: <FaTools className="w-6 h-6 text-amber-600" />,
     heading: "Safety Measures & Daily Amenities",
     bullets: [
       "Daily checks: tyres, seat belts, fuel, inspections, servicing",
@@ -59,7 +50,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    icon: <FaShieldAlt className="w-6 h-6 text-amber-500" />,
+    icon: <FaShieldAlt className="w-6 h-6 text-amber-600" />,
     heading: "Contingency Plan",
     bullets: [
       "Two reservation teams operating in parallel",
@@ -67,7 +58,7 @@ const DEFAULT_ITEMS = [
     ],
   },
   {
-    icon: <FaHeartbeat className="w-6 h-6 text-amber-500" />,
+    icon: <FaHeartbeat className="w-6 h-6 text-amber-600" />,
     heading: "Extensive Focus on Health",
     bullets: [
       "COVID compliance first; hypo-chloride washed interiors",
@@ -83,30 +74,39 @@ export default function SOPsSection({
   variant = "full",
   className = "",
 }) {
-  const showItems =
-    variant === "compact" ? items.slice(0, 3) : items;
+  const showItems = variant === "compact" ? items.slice(0, 3) : items;
 
   return (
-    <section className={`bg-black text-white ${className}`}>
-      <div className="container mx-auto px-6 max-w-7xl py-14">
-        {/* Heading */}
+    <section
+      className={`py-12 ${className}`}
+      style={{ backgroundColor: "#FFFAFA" }}
+    >
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* Header row with small logo */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="flex items-center justify-between mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-              {title}
-            </span>
-          </h2>
-          {subtitle && (
-            <p className="text-gray-400 mt-3 max-w-3xl mx-auto">
-              "{subtitle}"
-            </p>
-          )}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+              <span className="text-amber-600">{title}</span>
+            </h2>
+            {subtitle && (
+              <p className="text-gray-600 mt-2 max-w-3xl">{subtitle}</p>
+            )}
+          </div>
+
+          {/* Uploaded logo (local path will be transformed to URL by tooling) */}
+          <div className="hidden sm:block">
+            <img
+              src="/mnt/data/logo.png"
+              alt="Taxi Tribe"
+              className="h-12 object-contain"
+            />
+          </div>
         </motion.div>
 
         {/* Grid */}
@@ -120,23 +120,25 @@ export default function SOPsSection({
           {showItems.map((card, i) => (
             <motion.div
               key={card.heading}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
-              className="rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition p-6"
+              className="rounded-2xl bg-white border border-gray-100 p-6 hover:shadow-md transition"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center shrink-0">
                   {card.icon}
                 </div>
-                <h3 className="font-semibold text-lg">{card.heading}</h3>
+                <div>
+                  <h3 className="font-semibold text-gray-900 text-lg">{card.heading}</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                    {card.bullets.map((b, idx) => (
+                      <li key={idx} className="leading-relaxed">• {b}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <ul className="space-y-2 text-sm text-gray-300">
-                {card.bullets.map((b, idx) => (
-                  <li key={idx} className="leading-relaxed">• {b}</li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>
@@ -146,7 +148,7 @@ export default function SOPsSection({
           <div className="text-center mt-8">
             <a
               href="#sops-full"
-              className="inline-block px-5 py-2 rounded-xl font-semibold border border-white/15 bg-white/0 hover:bg-white/10 transition"
+              className="inline-block px-5 py-2 rounded-xl font-semibold border border-gray-200 bg-white hover:bg-amber-50 transition"
             >
               View full SOPs
             </a>

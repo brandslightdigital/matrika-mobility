@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const GlobalAvailabilitySection = () => {
   const [Map, setMap] = useState(null);
@@ -9,26 +9,31 @@ const GlobalAvailabilitySection = () => {
     setIsClient(true);
     // Dynamically import the map component only on client side
     const loadMap = async () => {
-      const { default: DynamicMap } = await import('./DynamicMap');
+      const { default: DynamicMap } = await import("./DynamicMap");
       setMap(() => DynamicMap);
     };
     loadMap();
   }, []);
 
   const countries = [
-    { name: "India", color: "bg-green-500" },
-    { name: "USA", color: "bg-green-500" },
-    { name: "Europe", color: "bg-green-500" },
-    { name: "UK", color: "bg-green-500" },
-    { name: "Singapore", color: "bg-green-500" },
-    { name: "Malaysia", color: "bg-green-500" },
+    { name: "India" },
+    { name: "USA" },
+    { name: "Europe" },
+    { name: "UK" },
+    { name: "Singapore" },
+    { name: "Malaysia" },
   ];
 
   return (
-    <div className="bg-black py-16 border-t border-white/10">
+    <div style={{ backgroundColor: "#FFFAFA" }} className="py-16">
       <div className="container mx-auto px-6 max-w-7xl text-center">
-        <h2 className="text-3xl font-bold mb-8 text-white">Now Serving Globally</h2>
-        <p className="text-gray-300 mb-10 text-lg">
+        <div className="flex items-center justify-center mb-6 gap-4">
+          {/* Using your uploaded logo path - tooling will convert local path to URL */}
+          <img src="/mnt/data/logo.png" alt="Taxi Tribe" className="h-10 object-contain" />
+        </div>
+
+        <h2 className="text-3xl font-bold mb-4 text-gray-900">Now Serving Globally</h2>
+        <p className="text-gray-600 mb-10 text-lg">
           "Our premium mobility solutions are now available across key international markets."
         </p>
 
@@ -37,25 +42,26 @@ const GlobalAvailabilitySection = () => {
           {countries.map((country, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-xl border border-yellow-500/30 bg-green-500/10 py-4 px-3 hover:bg-green-500/20 transition-all duration-300 hover:scale-105"
+              transition={{ duration: 0.45, delay: i * 0.06 }}
+              className="rounded-xl border border-gray-200 bg-white py-4 px-3 hover:bg-amber-50 transition-all duration-300 hover:scale-105"
             >
-              <span className="text-base font-semibold text-yellow-400">{country.name}</span>
+              <span className="text-sm font-semibold text-amber-600">{country.name}</span>
             </motion.div>
           ))}
         </div>
 
         {/* Map Container */}
-        <div className="relative bg-gray-900 rounded-2xl p-8 border border-yellow-500/30 min-h-[400px]">
+        <div className="relative bg-white rounded-2xl p-6 border border-gray-200 min-h-[420px] shadow-sm">
           {isClient && Map ? (
             <Map />
           ) : (
             // Fallback loading state
-            <div className="flex items-center justify-center h-64">
-              <div className="text-yellow-400 text-lg">Loading map...</div>
+            <div className="flex flex-col items-center justify-center h-64">
+              <div className="text-amber-600 text-lg font-medium">Loading map...</div>
+              <div className="mt-3 text-sm text-gray-500">Interactive map will appear here shortly.</div>
             </div>
           )}
         </div>

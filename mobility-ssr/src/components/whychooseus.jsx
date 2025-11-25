@@ -1,23 +1,14 @@
 import React from "react";
 import {
   FaCar,
-  FaCogs,
-  FaNetworkWired,
-  FaChartPie,
-  FaPuzzlePiece,
-  FaCalendarAlt,
-  FaHandshake,
   FaClock,
   FaMapMarkerAlt,
   FaWallet,
-  FaWifi,
-  FaSnowflake,
-  FaRoute,
+  FaPuzzlePiece,
 } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 
 export default function BenefitsAndWhy() {
-  // Updated benefits list
   const benefits = [
     {
       icon: <FaMapMarkerAlt />,
@@ -64,47 +55,62 @@ export default function BenefitsAndWhy() {
   ];
 
   const toneToClasses = {
-    sky: "text-sky-400",
-    rose: "text-rose-400",
-    orange: "text-orange-400",
-    green: "text-green-400",
-    yellow: "text-yellow-400",
-    blue: "text-blue-400",
+    sky: "text-sky-500",
+    rose: "text-rose-500",
+    orange: "text-orange-500",
+    green: "text-green-500",
+    yellow: "text-yellow-500",
+    blue: "text-blue-500",
   };
 
   return (
-    <section className="bg-gradient-to-br from-black via-neutral-900 to-black py-16">
+    <section
+      className="py-16"
+      style={{ backgroundColor: "#FFFAFA" }}
+    >
       <div className="container mx-auto px-6">
+
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block rounded-full bg-yellow-400/20 text-yellow-400 px-4 py-1 text-sm font-semibold">
+          <span className="inline-block rounded-full bg-amber-100 text-amber-600 px-4 py-1 text-sm font-semibold">
             Taxi Tribe
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-black text-white">
-            Why choose <span className="text-amber-500">Taxi Tribe ? </span>
+
+          <h2 className="mt-4 text-4xl md:text-5xl font-black text-gray-900">
+            Why choose <span className="text-amber-600">Taxi Tribe?</span>
           </h2>
-          <p className="mt-3 text-gray-300 max-w-2xl mx-auto">
+
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
             "Here’s what you get when you book with us."
           </p>
         </div>
 
         {/* Benefits grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b) => (
             <div
               key={b.title}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:bg-white/10 hover:scale-[1.01]"
+              className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition hover:scale-[1.02]"
             >
-              <div className="mb-4 text-3xl text-amber-400">
-                <span className={`${toneToClasses[b.tone] || "text-amber-400"} inline-flex`}>
+              <div className="mb-4 text-3xl">
+                <span
+                  className={`${toneToClasses[b.tone] || "text-amber-600"} inline-flex`}
+                >
                   {b.icon}
                 </span>
               </div>
-              <h3 className="text-white text-lg font-semibold">{b.title}</h3>
-              <p className="mt-2 text-sm text-gray-300 leading-relaxed">{b.desc}</p>
+
+              <h3 className="text-gray-900 text-lg font-bold">
+                {b.title}
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-700 leading-relaxed">
+                {b.desc}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

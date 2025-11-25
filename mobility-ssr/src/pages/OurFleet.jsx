@@ -6,109 +6,68 @@ import BestPracticesSection from "../components/BestPractise";
 import { Helmet } from "react-helmet";
 
 // -----------------------------------------------------------------------------
-// FLEET PAGE — FLAT LIST (NO SUBCATEGORIES, NO VARIANTS)
+// FLEET PAGE — LIGHT / WHITE THEME
 // -----------------------------------------------------------------------------
 
 const safeSrc = (src) => (typeof src === "string" ? src.split(" ").join("%20") : src);
-const FALLBACK = "/cars/placeholder.jpg"; // keep a simple placeholder in /public/cars
+const FALLBACK = "/cars/placeholder.jpg";
 
-// Flat data, same shape for ALL entries
 const categoriesData = [
-    { 
-    key: "swift-dzire", 
-    title: "Maruti Suzuki Swift Dzire", 
-    brand: "Sedan", 
-    image: "/cars/dezire.jpg", 
-    description: "Compact sedan for city and family use.", 
-    note: "All variants available" 
+  {
+    key: "swift-dzire",
+    title: "Maruti Suzuki Swift Dzire",
+    brand: "Sedan",
+    image: "/cars/dezire.jpg",
+    description: "Compact sedan for city and family use.",
+    note: "All variants available",
   },
-  { 
-    key: "crysta", 
-    title: "Toyota Crysta", 
-    brand: "SUV", 
-    image: "/cars/innova.jpg", 
-    description: "Spacious MPV offering comfort and versatility.", 
-    note: "All variants available" 
+  {
+    key: "crysta",
+    title: "Toyota Crysta",
+    brand: "SUV",
+    image: "/cars/innova.jpg",
+    description: "Spacious MPV offering comfort and versatility.",
+    note: "All variants available",
   },
-  { 
-    key: "hycross", 
-    title: "Innova Hycross", 
-    brand: "SUV", 
-    image: "/cars/hycross.avif", 
-    description: "Hybrid MPV for efficiency and comfort.", 
-    note: "All variants available" 
+  {
+    key: "hycross",
+    title: "Innova Hycross",
+    brand: "SUV",
+    image: "/cars/hycross.avif",
+    description: "Hybrid MPV for efficiency and comfort.",
+    note: "All variants available",
   },
-  { 
-    key: "fortuner", 
-    title: "Toyota Fortuner", 
-    brand: "SUV", 
-    image: "/cars/Fortuner.avif", 
-    description: "High-seating SUV presence with rugged capability.", 
-    note: "All variants available" 
-  },  
-  { 
-    key: "e450", 
-    title: "Mercedes-Benz E-Class E 450", 
-    brand: "Luxury", 
-    tag: "Top", 
-    specs: "2999 cc • AT • Petrol • 12 kmpl", 
+  {
+    key: "fortuner",
+    title: "Toyota Fortuner",
+    brand: "SUV",
+    image: "/cars/Fortuner.avif",
+    description: "High-seating SUV presence with rugged capability.",
+    note: "All variants available",
+  },
+  {
+    key: "e450",
+    title: "Mercedes-Benz E-Class E 450",
+    brand: "Luxury",
+    tag: "Top",
+    specs: "2999 cc • AT • Petrol • 12 kmpl",
     image: "/cars/E-450.jpg",
-    description: "High-performance petrol E-Class variant.", 
-    note: "All variants available" 
+    description: "High-performance petrol E-Class variant.",
+    note: "All variants available",
   },
-  { 
-    key: "s350d", 
-    title: "Mercedes-Benz S-Class S 350d", 
-    brand: "Luxury", 
-    tag: "Base", 
-    specs: "2925 cc • AT • Diesel • 18 kmpl", 
+  {
+    key: "s350d",
+    title: "Mercedes-Benz S-Class S 350d",
+    brand: "Luxury",
+    tag: "Base",
+    specs: "2925 cc • AT • Diesel • 18 kmpl",
     image: "/cars/S-350.jpg",
-    description: "Luxury diesel offering in the flagship S-Class.", 
-    note: "All variants available" 
+    description: "Luxury diesel offering in the flagship S-Class.",
+    note: "All variants available",
   },
-  // { 
-  //   key: "s450", 
-  //   title: "Mercedes-Benz S-Class S450 4Matic", 
-  //   brand: "Mercedes", 
-  //   tag: "Top", 
-  //   specs: "2999 cc • AT • Petrol • 12 kmpl", 
-  //   image: "/cars/S450.jpg",
-  //   description: "Petrol flagship with 4Matic all-wheel drive.", 
-  //   note: "All variants available" 
-  // },
-  // { 
-  //   key: "740i-msport", 
-  //   title: "BMW 740i M Sport", 
-  //   brand: "BMW", 
-  //   specs: "2998 cc • AT • Petrol • 8 kmpl", 
-  //   image: "/cars/740i Sport.webp",
-  //   description: "Sporty petrol option in the 7 Series line-up.", 
-  //   note: "All variants available" 
-  // },
-  // { 
-  //   key: "740d-msport", 
-  //   title: "BMW 740d M Sport", 
-  //   brand: "BMW", 
-  //   specs: "2993 cc • AT • Diesel • 12.1 kmpl", 
-  //   image: "/cars/740d.cms",
-  //   description: "Diesel-powered 7 Series with M Sport trim.", 
-  //   note: "All variants available" 
-  // },
-  // { 
-  //   key: "530li", 
-  //   title: "BMW 530Li", 
-  //   brand: "BMW", 
-  //   specs: "1998 cc • AT • Petrol • 10.9 kmpl", 
-  //   image: "/cars/530Li.avif",
-  //   description: "Executive sedan from the BMW 5 Series range.", 
-  //   note: "All variants available" 
-  // }
 ];
 
-
-
-// Include all brands for chips
-const BRANDS = ["All",  "Sedan","SUV","Luxury",];
+const BRANDS = ["All", "Sedan", "SUV", "Luxury"];
 
 export default function FleetPage() {
   const [brand, setBrand] = useState("All");
@@ -141,31 +100,38 @@ export default function FleetPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 z-10">
+    <div style={{ backgroundColor: "#FFFAFA" }} className="min-h-screen text-gray-900">
       <Helmet>
-        <title>Luxury & Budget Car Rental Fleet | Sedans, SUVs & Tempo Travellers</title>
-        <meta name="description" content="Choose from our premium fleet—sedans, SUVs, tempo travellers & hatchbacks for every trip. Comfort and class await. Explore our cars now!" />
+        <title>Luxury & Budget Car Rental Fleet | Sedans, SUVs & More</title>
+        <meta
+          name="description"
+          content="Choose from our premium fleet—sedans, SUVs, tempo travellers & hatchbacks for every trip. Comfort and class await. Explore our cars now!"
+        />
         <link rel="canonical" href="https://taxitribe.in/our-fleet" />
       </Helmet>
+
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_circle_at_50%_-10%,rgba(245,158,11,0.08),transparent_60%)]" />
-        <div className="max-w-7xl mx-auto px-4 pt-20 pb-4">
-          <div className="flex items-center justify-center gap-2 text-amber-400/90 text-sm mt-2">
-            <Car className="h-12 w-12" />
-            <h1 className="text-2xl">Premium Fleet</h1>
+      <section className="relative overflow-hidden border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 pt-8 pb-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-amber-50">
+              <Car className="h-8 w-8 text-amber-600" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">Premium Fleet</h1>
+              <p className="text-sm text-gray-600">Curated corporate & executive vehicles for every need</p>
+            </div>
           </div>
-            {/* <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center">
-              Curated corporate fleet, no subcategories
-            </h1>
-            <p className="mt-3 text-center text-zinc-300 max-w-2xl mx-auto">
-              Minimal clutter. Clean visuals. Search and quick filters that actually work.
-            </p> */}
+
+          {/* small logo on hero right */}
+          <div className="hidden sm:block">
+            <img src="/mnt/data/logo.png" alt="Taxi Tribe" className="h-10 object-contain" />
+          </div>
         </div>
       </section>
 
       {/* Sticky controls */}
-      <div className="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60 border-y border-zinc-900">
+      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
           {/* Brand chips */}
           <div className="flex flex-wrap gap-2">
@@ -177,7 +143,7 @@ export default function FleetPage() {
                   "px-3 py-1.5 rounded-full text-sm border transition " +
                   (brand === b
                     ? "bg-amber-500 text-black border-amber-500"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800")
+                    : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50")
                 }
               >
                 {b}
@@ -186,13 +152,13 @@ export default function FleetPage() {
           </div>
 
           {/* Search */}
-          <div className="flex items-center gap-2 bg-zinc-900/70 border border-zinc-800 rounded-xl px-3 py-2 w-full md:w-96">
-            <Search className="h-4 w-4 text-zinc-500" />
+          <div className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2 w-full md:w-96">
+            <Search className="h-4 w-4 text-gray-400" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search models, brands, notes..."
-              className="flex-1 bg-transparent outline-none placeholder:text-zinc-500"
+              className="flex-1 bg-transparent outline-none placeholder:text-gray-400 text-gray-800"
             />
           </div>
         </div>
@@ -201,8 +167,8 @@ export default function FleetPage() {
       {/* Grid */}
       <section className="max-w-7xl mx-auto px-4 py-10">
         {list.length === 0 ? (
-          <div className="text-center py-24 text-zinc-400">
-            <Sparkles className="h-8 w-8 mx-auto mb-3" />
+          <div className="text-center py-24 text-gray-500">
+            <Sparkles className="h-8 w-8 mx-auto mb-3 text-amber-500" />
             No results. Try clearing filters or searching a simpler term.
           </div>
         ) : (
@@ -210,7 +176,7 @@ export default function FleetPage() {
             {list.map((cat) => (
               <article
                 key={cat.key}
-                className="group bg-gradient-to-b from-zinc-900/80 to-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden shadow-xl shadow-black/20 hover:shadow-amber-500/10 transition-all"
+                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all"
               >
                 <div className="relative">
                   <img
@@ -220,21 +186,23 @@ export default function FleetPage() {
                     className="h-56 w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 text-sm text-zinc-200/80">
-                    <span className="inline-block px-2 py-1 rounded-md bg-zinc-950/60 border border-zinc-800">
+                  <div className="absolute bottom-3 left-4 text-sm">
+                    <span className="inline-block px-2 py-1 rounded-md bg-white/80 border border-gray-200 text-gray-700 text-xs">
                       {cat.brand}
                     </span>
+                    {cat.tag ? (
+                      <span className="ml-2 inline-block px-2 py-1 rounded-md bg-amber-100 text-amber-700 text-xs border border-amber-200">
+                        {cat.tag}
+                      </span>
+                    ) : null}
                   </div>
                 </div>
 
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-semibold tracking-tight">{cat.title}</h3>
-                      {cat.description ? (
-                        <p className="mt-1 text-sm text-zinc-300">{cat.description}</p>
-                      ) : null}
+                      <h3 className="text-2xl font-semibold tracking-tight text-gray-900">{cat.title}</h3>
+                      {cat.description ? <p className="mt-1 text-sm text-gray-600">{cat.description}</p> : null}
                     </div>
                     <button
                       onClick={() => openFor(cat.title)}
@@ -244,7 +212,7 @@ export default function FleetPage() {
                     </button>
                   </div>
 
-                  {cat.note ? <p className="mt-4 text-sm text-zinc-300">{cat.note}</p> : null}
+                  {cat.note ? <p className="mt-4 text-sm text-gray-600">{cat.note}</p> : null}
                 </div>
               </article>
             ))}
@@ -252,23 +220,28 @@ export default function FleetPage() {
         )}
       </section>
 
-      <SOPsSection />
-      <BestPracticesSection />
+      {/* SOPs & Best Practices (light) */}
+      <div className="max-w-7xl mx-auto px-4">
+        <SOPsSection />
+        <BestPracticesSection />
+      </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2">
-          <div className="p-12">
-            <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
-            <p className="text-lg mb-8">“Guaranteed 10% savings on your current annual spends”</p>
-            <button
-              onClick={() => setDialogOpen(true)}
-              className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-colors"
-            >
-              Get Quote
-            </button>
+      <div className="max-w-7xl mx-auto px-4 mt-10 mb-16">
+        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+          <div className="grid md:grid-cols-2">
+            <div className="p-10">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Ready to elevate your corporate travel?</h2>
+              <p className="text-gray-700 mb-6">Guaranteed 10% savings on your current annual spends</p>
+              <button
+                onClick={() => setDialogOpen(true)}
+                className="bg-amber-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-700 transition"
+              >
+                Get Quote
+              </button>
+            </div>
+            <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=60')] bg-cover bg-center" />
           </div>
-          <div className="hidden md:block bg-[url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800')] bg-cover bg-center"></div>
         </div>
       </div>
 

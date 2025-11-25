@@ -4,8 +4,7 @@ import BookingDialog from "../components/BookingCar";
 import SOPsSection from "./SOPsSection";
 import { Helmet } from "react-helmet";
 
-// Single-page About (no tabs). Uses existing BookingDialog.
-
+// Single-page About (white theme)
 const FALLBACK = "/cars/placeholder.jpg";
 
 export default function AboutPage() {
@@ -28,14 +27,6 @@ export default function AboutPage() {
 
   const mission = "To redefine corporate mobility in India with Technology, Sustainability, and Unmatched Services.";
 
-  const growthBullets = [
-    "Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.",
-    "Lead the shift to sustainable mobility by steadily increasing the share of electric and hybrid vehicles in our fleet.",
-    "Leverage advanced technology — from AI-powered route optimization to real-time analytics — to give corporates complete visibility and control over their travel spend.",
-    "Build long-term partnerships with companies by offering customized solutions, dedicated account managers, and measurable service level commitments.",
-    "Invest in people and training, ensuring our drivers, staff, and support teams embody professionalism, safety, and care.",
-  ];
-
   const coreValues = [
     {
       icon: ShieldCheck,
@@ -44,7 +35,7 @@ export default function AboutPage() {
     },
     {
       icon: Star,
-      title: "Customer‑Centric Service",
+      title: "Customer-Centric Service",
       meaning: "We act like a trusted partner, not just a vendor — understanding your needs and tailoring our services accordingly.",
     },
     {
@@ -54,7 +45,7 @@ export default function AboutPage() {
     },
     {
       icon: TrendingUp,
-      title: "Technology‑Driven Efficiency",
+      title: "Technology-Driven Efficiency",
       meaning: "Booking, tracking, reporting, and analytics that give corporates total control over travel spend.",
     },
     {
@@ -75,44 +66,48 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white overflow-hidden">
+    <div style={{ backgroundColor: "#FFFAFA" }} className="min-h-screen text-gray-900">
       <Helmet>
         <title>About TaxiTribe | India’s Trusted Car Rental & Taxi Service</title>
         <meta name="description" content="We redefine travel with safe, affordable taxi and rental services across India. Trusted by thousands—discover why TaxiTribe leads the ride." />
         <link rel="canonical" href="https://taxitribe.in/about-us" />
       </Helmet>
+
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-gray-900/60 to-black/80 z-10" />
+      <section className="relative min-h-[70vh] flex items-center">
+        {/* optional light background image or gradient */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed transform scale-110"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&h=1200')",
-            filter: "brightness(0.4) contrast(1.2)",
+            background:
+              "linear-gradient(90deg, rgba(255,250,240,1) 0%, rgba(255,249,245,1) 50%, rgba(255,250,240,1) 100%)",
           }}
         />
 
+        <div className="absolute top-6 left-6 z-30">
+          {/* Use uploaded logo local path; tool will convert /mnt/data/logo.png to a URL */}
+          <img src="/mnt/data/logo.png" alt="Taxi Tribe" className="h-12" />
+        </div>
+
         <div
-          className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+          className={`relative z-20 text-center max-w-5xl mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
-            <span className="bg-gradient-to-r from-white via-amber-200 to-amber-500 bg-clip-text text-transparent">Taxi </span> 
-            <span className="text-white/90">Tribe</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-gray-900">
+            <span className="text-gray-900">Taxi</span>{" "}
+            <span className="text-amber-600">Tribe</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            "{mission}"
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            {mission}
           </p>
         </div>
 
         {/* Floating stats */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-          <div className="flex gap-8 bg-black/40 backdrop-blur-lg rounded-2xl p-6 border border-white/10">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+          <div className="flex gap-6 bg-white border border-gray-200 rounded-2xl p-4 shadow-sm">
             {stats.map((s, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl font-bold text-amber-400 mb-1">{s.value}</div>
-                <div className="text-sm text-gray-300">{s.label}</div>
+                <div className="text-xl font-bold text-amber-600 mb-1">{s.value}</div>
+                <div className="text-sm text-gray-600">{s.label}</div>
               </div>
             ))}
           </div>
@@ -120,35 +115,30 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
+      <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Copy */}
           <div className="lg:col-span-7">
-            <h2 className="text-5xl font-extrabold tracking-tight mb-4">
-              <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">About Us — Our Story</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-gray-900">
+              <span className="text-amber-600">About Us — Our Story</span>
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-amber-500 to-amber-600 mb-10 rounded" />
+            <div className="h-1 w-20 bg-amber-500 mb-8 rounded" />
 
-            {/* Lead removed to ensure exact provided content is shown */}
-
-            {/* Body from `story` array (exact content) */}
-            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+            <div className="space-y-6 text-base text-gray-700 leading-relaxed">
               {story.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
 
-            {/* Quote strip */}
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <p className="text-lg text-gray-200">“TaxiTribe — One Tribe. One Journey. Endless Destinations.”</p>
+            <div className="mt-8 rounded-2xl bg-white border border-gray-100 p-6 shadow-sm">
+              <p className="text-gray-800 text-lg">“TaxiTribe — One Tribe. One Journey. Endless Destinations.”</p>
             </div>
           </div>
 
           {/* Visual */}
           <div className="lg:col-span-5">
             <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-to-tr from-amber-500/20 via-amber-400/10 to-transparent rounded-[2rem] blur-2xl" />
-              <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+              <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-lg">
                 <img
                   src="/cars/740i.jpg"
                   onError={(e) => (e.currentTarget.src = FALLBACK)}
@@ -157,10 +147,9 @@ export default function AboutPage() {
                 />
               </div>
 
-              {/* Badge */}
-              <div className="absolute -bottom-5 left-6 bg-black/2  0 backdrop-blur rounded-xl border border-white/10 px-4 py-3 flex items-center gap-3 shadow-lg">
-                <span className="inline-block w-2.5 h-2.5 bg-amber-500 rounded-full" />
-                <span className="text-sm text-gray-200">HSSE‑trained chauffeurs • Digital MIS</span>
+              <div className="absolute -bottom-4 left-6 bg-white rounded-xl border border-gray-100 px-4 py-3 flex items-center gap-3 shadow">
+                <span className="inline-block w-2.5 h-2.5 bg-amber-600 rounded-full" />
+                <span className="text-sm text-gray-700">HSSE-trained chauffeurs • Digital MIS</span>
               </div>
             </div>
           </div>
@@ -168,97 +157,90 @@ export default function AboutPage() {
       </section>
 
       {/* Growth Vision */}
-      <section className="relative">
-        <div className="relative max-w-7xl mx-auto px-6 py-16">
-          {/* Title + description stacked tightly */}
-          <div className="text-left max-w-4xl mx-0">
-            <h2 className="text-5xl font-extrabold tracking-tight mb-3">
-              <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Growth Vision</span>
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              "At Taxi Tribe, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in Safety, Transparency, and Customer experience."
-            </p>
-          </div>
-
-          {/* Cards grid comes immediately under the text. No giant gap. */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
-            {[
-              {
-                n: '01',
-                text: 'Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.'
-              },
-              {
-                n: '02',
-                text: 'Lead the shift to sustainable mobility by steadily increasing the share of electric and hybrid vehicles in our fleet.'
-              },
-              {
-                n: '03',
-                text: 'Leverage advanced technology — from AI-powered route optimization to real-time analytics — to give corporates complete visibility and control over their travel spend.'
-              },
-              {
-                n: '04',
-                text: 'Build long-term partnerships with companies by offering customized solutions, dedicated account managers, and measurable service level commitments.'
-              },
-              {
-                n: '05',
-                text: 'Invest in people and training, ensuring our drivers, staff, and support teams embody professionalism, safety, and care.'
-              },
-            ].map((item, i) => (
-              <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7 hover:bg-white/10 transition h-full">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-amber-400 font-bold">{item.n}</span>
-                  <span className="text-xs text-gray-400">Strategic pillar</span>
-                </div>
-                <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Closing line kept exactly, tight spacing */}
-          <p className="text-gray-400 mt-8 text-base max-w-5xl">
-            Our growth journey is guided by a simple principle: corporate mobility should be as reliable and nurturing as a trusted partner — organized, efficient, and safe. As we scale, we will continue to uphold the values that inspired our beginning, while embracing innovation and sustainability to shape the future of business travel.
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-900">
+            <span className="text-amber-600">Our Growth Vision</span>
+          </h2>
+          <p className="text-gray-700 mb-8">
+            "At Taxi Tribe, our vision is to become India’s most trusted and technology-driven corporate mobility partner, setting new benchmarks in Safety, Transparency, and Customer experience."
           </p>
         </div>
-      </section>
 
-      {/* Core Values */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <h2 className="text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Our Core Values</span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">"Where Integrity Meets Execution"</p>
-        </div>
-
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {coreValues.map((v, i) => (
-            <div key={i} className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-8 rounded-2xl border border-gray-700/50 hover:border-amber-500/50 transition-all duration-500 hover:scale-[1.02] backdrop-blur-sm">
-              <div className="bg-gradient-to-br from-amber-500/20 to-amber-600/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <v.icon className="h-8 w-8 text-amber-500" />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2 mt-4">
+          {[
+            {
+              n: '01',
+              text: 'Expand our footprint across every major corporate hub and emerging city in India, creating a seamless nationwide network for business travellers.'
+            },
+            {
+              n: '02',
+              text: 'Lead the shift to sustainable mobility by steadily increasing the share of electric and hybrid vehicles in our fleet.'
+            },
+            {
+              n: '03',
+              text: 'Leverage advanced technology — from AI-powered route optimization to real-time analytics — to give corporates complete visibility and control over their travel spend.'
+            },
+            {
+              n: '04',
+              text: 'Build long-term partnerships with companies by offering customized solutions, dedicated account managers, and measurable service level commitments.'
+            },
+            {
+              n: '05',
+              text: 'Invest in people and training, ensuring our drivers, staff, and support teams embody professionalism, safety, and care.'
+            },
+          ].map((item, i) => (
+            <div key={i} className="rounded-2xl border border-gray-100 bg-white p-6 hover:shadow-md transition h-full">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-amber-600 font-bold">{item.n}</span>
+                <span className="text-xs text-gray-500">Strategic pillar</span>
               </div>
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-400 transition-colors">{v.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-base">{v.meaning}</p>
+              <p className="text-gray-700 text-base leading-relaxed">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Table view for quick scanning */}
-        <div className="overflow-hidden rounded-2xl border border-white/10">
-          <table className="min-w-full divide-y divide-white/10">
-            <thead className="bg-white/5">
+        <p className="text-gray-600 mt-8 text-base max-w-5xl">
+          Our growth journey is guided by a simple principle: corporate mobility should be as reliable and nurturing as a trusted partner — organized, efficient, and safe. As we scale, we will continue to uphold the values that inspired our beginning, while embracing innovation and sustainability to shape the future of business travel.
+        </p>
+      </section>
+
+      {/* Core Values */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+            <span className="text-amber-600">Our Core Values</span>
+          </h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">"Where Integrity Meets Execution"</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {coreValues.map((v, i) => (
+            <div key={i} className="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+              <div className="p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-4 bg-amber-50">
+                <v.icon className="h-6 w-6 text-amber-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">{v.title}</h3>
+              <p className="text-gray-700 text-sm">{v.meaning}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-gray-100">
+          <table className="min-w-full">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">Value</th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-200">What It Means for You</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Value</th>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">What It Means for You</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/10">
+            <tbody>
               {coreValues.map((v, i) => (
-                <tr key={`row-${i}`} className="hover:bg-white/5">
-                  <td className="px-6 py-4 text-gray-100">{v.title}</td>
-                  <td className="px-6 py-4 text-gray-300">{v.meaning}</td>
+                <tr key={`row-${i}`} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 text-gray-800">{v.title}</td>
+                  <td className="px-6 py-4 text-gray-600">{v.meaning}</td>
                 </tr>
               ))}
             </tbody>
@@ -267,42 +249,25 @@ export default function AboutPage() {
       </section>
 
       {/* SOPs (kept as-is) */}
-      <SOPsSection />
+      <SOPsSection theme="light" />
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 border-t border-amber-500/20">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Partner With <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Us</span>
-          </h2>
-          <p className="text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
-            “Safe, transparent, and seamless travel solutions designed to simplify your operations.”
-          </p>
+      <section className="border-t border-amber-100/40">
+        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">Partner With <span className="text-amber-600">Us</span></h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">“Safe, transparent, and seamless travel solutions designed to simplify your operations.”</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setDialogOpen(true)}
-              className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-[1.02] shadow-2xl"
+              className="inline-flex items-center gap-3 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition"
             >
-              <span className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Get Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
+              <Phone className="w-4 h-4" />
+              Get Quote
+              <ArrowRight className="w-4 h-4" />
             </button>
-            {/* <a
-              href="/our-fleet"
-              className="text-center border-2 border-amber-500/50 hover:border-amber-500 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-amber-500/10"
-            >
-              View Fleet
-            </a> */}
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
-      `}</style>
 
       <BookingDialog
         open={dialogOpen}

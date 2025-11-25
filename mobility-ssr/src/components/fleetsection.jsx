@@ -37,50 +37,56 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16">
+    <section className="py-16" style={{ backgroundColor: "#FFFAFA" }}>
       <div className="container mx-auto px-6">
+        
+        {/* Heading */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl md:text-5xl font-bold text-white">
-            Our <span className="text-amber-400">Services</span>
+          <h2 className="mb-4 text-4xl md:text-5xl font-bold text-gray-900">
+            Our <span className="text-amber-600">Services</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             "Premium, Reliable and Comfortable Car services tailored to your needs."
           </p>
         </div>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {services.map((service) => (
             <div
               key={service.title}
-              className="flex flex-col md:flex-row items-center bg-white/5 backdrop-blur-sm rounded-3xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-[1.01] border border-white/10"
+              className="flex flex-col md:flex-row items-center bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] border border-gray-100"
             >
               {/* Image */}
               <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-6">
-                <div className="relative h-40 md:h-48 w-full overflow-hidden rounded-2xl">
+                <div className="relative h-40 md:h-48 w-full overflow-hidden rounded-2xl shadow-md">
                   <img
                     src={service.img}
                     alt={service.alt}
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               </div>
 
               {/* Text */}
               <div className="w-full md:w-2/3">
-                <h3 className="text-2xl font-bold text-amber-400 mb-1">
+                <h3 className="text-2xl font-bold text-amber-600 mb-1">
                   {service.title}
                 </h3>
+
                 {service.subtitle ? (
-                  <p className="text-sm text-yellow-300 mb-2 font-semibold">
+                  <p className="text-sm text-amber-500 mb-2 font-semibold">
                     {service.subtitle}
                   </p>
                 ) : null}
-                <p className="text-gray-300 text-sm leading-relaxed">
+
+                <p className="text-gray-700 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
+
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ const Home = () => {
   const [dialogOpen, setDialogOpen] = useState(false); // state to control BookingDialog visibility
   return (
 
-    <div className='bg-black text-white'>
+    <div className='bg-[#FFFAFA] text-black'>
       <Helmet>
         <title>Book 24x7 Car Rental & Taxi Services | Corporate Cabs Services</title>
         <meta name="description" content="Book your ride online with TaxiTribe. 24x7 taxi booking, airport transfers & corporate travel—safe, quick, and affordable. Book now!" />
@@ -28,7 +28,7 @@ const Home = () => {
       {/* <FaqSection/> */}
       {/* <MapAndFormSection /> */}
       {/* CTA Section */}
-      <div className="max-w-6xl mx-auto bg-gradient-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
+      <div className="max-w-6xl mx-auto bg-linear-to-r from-amber-500 to-amber-600 shadow-xl overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="p-12">
             <h2 className="text-2xl font-bold mb-4">Ready to elevate your corporate travel</h2>
