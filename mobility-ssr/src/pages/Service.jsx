@@ -137,18 +137,15 @@ export default function TaxiServicesWithImages() {
           alt="Premium car on highway at dusk"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/60 to-white/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/80" />
         <div className="relative z-20 text-center px-6 max-w-3xl">
-          <div className="absolute top-6 left-6">
-            {/* uploaded logo path (tool will convert to URL) */}
-            <img src="/mnt/data/logo.png" alt="Taxi Tribe" className="h-12" />
-          </div>
+
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
             <span className="text-amber-600">Taxi Tribe</span>
-            <span className="block text-xl md:text-2xl font-medium text-gray-700 mt-2">Services</span>
+            <span className="block text-xl md:text-2xl font-medium text-gray-100 mt-2">Services</span>
           </h1>
-          <p className="text-gray-700 mt-4 text-base md:text-lg">
+          <p className="text-white mt-4 text-base md:text-lg">
             "Local Business Travel, Out Station Trips, Long Term Rentals, Expat Services, Airport Transfers, Weddings, Events and Conferences — Delivered with Reliability and Precision."
           </p>
         </div>
@@ -254,7 +251,7 @@ export default function TaxiServicesWithImages() {
           <div className="grid md:grid-cols-2">
             <div className="p-10">
               <h2 className="text-2xl font-bold mb-3 text-gray-900">Ready to elevate your corporate travel?</h2>
-              <p className="text-gray-700 mb-6">Guaranteed 10% savings on your current annual spends. Tailored SLA and dedicated account managers.</p>
+              <p className="text-gray-700 mb-6">"Guaranteed 10% savings on your current annual spends."</p>
               <button
                 onClick={() => setDialogOpen(true)}
                 className="bg-amber-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-700 transition"

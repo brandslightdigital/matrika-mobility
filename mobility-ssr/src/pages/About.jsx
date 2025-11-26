@@ -115,7 +115,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="container mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Copy */}
           <div className="lg:col-span-7">
@@ -157,7 +157,7 @@ export default function AboutPage() {
       </section>
 
       {/* Growth Vision */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
+      <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-gray-900">
             <span className="text-amber-600">Our Growth Vision</span>
@@ -208,7 +208,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section className="container mx-auto px-6 py-16">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
             <span className="text-amber-600">Our Core Values</span>
@@ -253,7 +253,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="border-t border-amber-100/40">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
+        <div className="container mx-auto px-6 py-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">Partner With <span className="text-amber-600">Us</span></h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">“Safe, transparent, and seamless travel solutions designed to simplify your operations.”</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

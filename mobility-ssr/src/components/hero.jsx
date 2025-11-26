@@ -167,11 +167,23 @@ export default function Hero() {
               <span>Corporate and Expat Solutions</span>
             </div>
             <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+              <span>Whatsapp sos button for real human response</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+              <span>Pro women safety complaint travel</span>
+            </div>
+            <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
               <span>24x7 Customer Support</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+              <span>ESG complaint</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
               <span>Instant Booking</span>
             </div>
           </div>

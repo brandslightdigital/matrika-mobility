@@ -100,7 +100,7 @@ export default function FleetPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#FFFAFA" }} className="min-h-screen text-gray-900">
+    <div style={{ backgroundColor: "#FFFAFA" }} className="min-h-screen text-gray-900 pt-20">
       <Helmet>
         <title>Luxury & Budget Car Rental Fleet | Sedans, SUVs & More</title>
         <meta
@@ -125,7 +125,7 @@ export default function FleetPage() {
 
           {/* small logo on hero right */}
           <div className="hidden sm:block">
-            <img src="/mnt/data/logo.png" alt="Taxi Tribe" className="h-10 object-contain" />
+            <img src="/logo.png" alt="Taxi Tribe" className="h-10 object-contain" />
           </div>
         </div>
       </section>
@@ -227,7 +227,7 @@ export default function FleetPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-7xl mx-auto px-4 mt-10 mb-16">
+      <div className="max-w-7xl mx-auto px-4 mt-10 pb-10">
         <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
           <div className="grid md:grid-cols-2">
             <div className="p-10">

@@ -99,14 +99,6 @@ export default function SOPsSection({
             )}
           </div>
 
-          {/* Uploaded logo (local path will be transformed to URL by tooling) */}
-          <div className="hidden sm:block">
-            <img
-              src="/mnt/data/logo.png"
-              alt="Taxi Tribe"
-              className="h-12 object-contain"
-            />
-          </div>
         </motion.div>
 
         {/* Grid */}

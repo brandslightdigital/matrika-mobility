@@ -90,7 +90,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
     <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
       <div className="bg-white text-gray-800 rounded-3xl shadow-2xl w-full max-w-lg relative max-h-[90vh] overflow-y-auto">
         {/* Decorative Header Background */}
-        <div className="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 h-2 sticky top-0"></div>
+        <div className="bg-linear-to-r from-yellow-400 via-amber-500 to-yellow-500 h-2 sticky top-0"></div>
 
         {/* Close Button */}
         <button
@@ -106,12 +106,12 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
             <>
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full mb-4 shadow-lg">
+                <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-linear-to-br from-yellow-400 to-amber-500 rounded-full mb-4 shadow-lg">
                   <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h2 className="text-xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
+                <h2 className="text-xl md:text-2xl font-bold mb-2 bg-linear-to-rrom-yellow-600 to-amber-600 bg-clip-text text-transparent">
                   Get a Proposal for Reliable, Safe, and Efficient Rides.
                 </h2>
                 <p className="text-gray-600 text-sm">
@@ -216,7 +216,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 md:py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full bg-linear-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 md:py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -259,7 +259,7 @@ export default function BookingDialog({ open, model, onOpenChange, onSubmit }) {
           ) : (
             // Success State
             <div className="text-center py-6 md:py-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-full mb-4 md:mb-6 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-linear-to-br from-green-400 to-green-500 rounded-full mb-4 md:mb-6 shadow-lg">
                 <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
