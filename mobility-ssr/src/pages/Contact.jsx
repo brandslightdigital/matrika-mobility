@@ -306,6 +306,40 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
+                  {/* Banglore */}
+                  <div className="flex items-start">
+                    <div className="bg-amber-500 p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg text-amber-600 font-medium mb-1">
+                        Mumbai
+                      </h4>
+                      <p className="text-sm sm:text-base text-gray-600 mb-1">
+                        F-18 A Wing Express Zone Mall
+                       
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-600">
+                       Opp Western Highway Malad East ,  MUMBAI - 400097 INDIA
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="bg-amber-500 p-2 sm:p-3 rounded-lg mr-3 sm:mr-4 shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg text-amber-600 font-medium mb-1">
+                        Banglore Hub
+                      </h4>
+                      <p className="text-sm sm:text-base text-gray-600 mb-1">
+                        10 kashinagara Amruthahalli, 
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        1st main Near Prakruthi Meadows Apartment, Byatarayanapura Bangalore
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

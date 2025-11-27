@@ -38,11 +38,10 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full z-50 top-0 transition-all duration-300 ${
-          scrolled
+        className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled
             ? "bg-[#FFFAFA]/90 backdrop-blur-md shadow-md"
             : "bg-[#FFFAFA]"
-        }`}
+          }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 py-4 flex justify-between items-center">
 
@@ -60,11 +59,11 @@ const Navbar = () => {
 
             {[
               ["Home", "/"],
-              ["Corporate Protocol", "/corporate-protocol"],
+              ["Corporate", "/corporate-protocol"],
               ["Our Fleet", "/our-fleet"],
-              ["Enterprise Services", "/services"],
+              ["Services", "/services"],
               ["About", "/about-us"],
-              ["Our Blogs", "/blogs"],
+              ["Blogs", "/blogs"],
               ["Contact", "/contact-us"],
             ].map(([label, link]) => (
               <Link
@@ -89,7 +88,7 @@ const Navbar = () => {
               className="bg-amber-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-600 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
             >
               Corporate login
-</Link>
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -104,14 +103,12 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-300 lg:hidden ${
-          open ? "bg-black/20 backdrop-blur-sm opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 transition-all duration-300 lg:hidden ${open ? "bg-black/20 backdrop-blur-sm opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full">
 
@@ -133,11 +130,11 @@ const Navbar = () => {
 
               {[
                 ["Home", "/"],
-                ["Corporate Protocol", "/corporate-protocol"],
+                ["Corporate", "/corporate-protocol"],
                 ["Our Fleet", "/our-fleet"],
-                ["Enterprise Services", "/services"],
+                ["Services", "/services"],
                 ["About", "/about-us"],
-                ["Our Blogs", "/blogs"],
+                ["Blogs", "/blogs"],
                 ["Contact", "/contact-us"],
               ].map(([label, link]) => (
                 <Link
@@ -161,7 +158,7 @@ const Navbar = () => {
               {/* CTA */}
               <Link
                 onClick={handleBookNowClick}
-                  to="https://app.indecab.com/login"
+                to="https://app.indecab.com/login"
                 className="block w-full bg-amber-500 text-white px-6 py-4 rounded-lg font-bold text-center hover:bg-amber-600 transition-all duration-300 mt-8 shadow-sm hover:shadow-md"
               >
                 Corporate Login

@@ -122,9 +122,9 @@ const Footer = () => {
               <h4 className="text-xl font-bold text-white">Banglore Hub</h4>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              10,kashinagara,Amruthahalli <br />
-              ,1st main, Near Prakruthi Meadows Apartment,<br />
-              Byatarayanapura, Bangalore
+              10 kashinagara Amruthahalli <br />
+              1st main Near Prakruthi Meadows Apartment<br />
+              Byatarayanapura Bangalore
             </p>
           </div>
           {/* Mumbai */}
@@ -133,12 +133,12 @@ const Footer = () => {
               <div className="bg-amber-400 p-2 rounded-full">
                 <FaMapMarkerAlt className="text-black text-lg" />
               </div>
-              <h4 className="text-xl font-bold text-white">Banglore Hub</h4>
+              <h4 className="text-xl font-bold text-white">Mumbai Hub</h4>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              F-18 | A Wing | Express Zone Mall
-              <br/> |Opp Western Highway | Malad East |
-              <br/> MUMBAI - 400097 | INDIA
+              F-18 A Wing Express Zone Mall
+              <br/>Opp Western Highway Malad East
+              <br/>  MUMBAI - 400097 INDIA
             </p>
           </div>
         </div>

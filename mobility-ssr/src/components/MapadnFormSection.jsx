@@ -30,7 +30,7 @@ export default function MapAndFormSection() {
         {/* Heading */}
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-black">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-600">
               Book Your Ride
             </span>{' '}
             <span>With Ease</span>
@@ -44,7 +44,7 @@ export default function MapAndFormSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Map */}
           <div className=" overflow-hidden bg-white/5">
-            <div className="aspect-[4/3]">
+            <div className="aspect-4/3">
               {/* Swap src with your preferred coordinates/place */}
               <iframe
                 title="Taxi Tribe Map"
@@ -158,7 +158,7 @@ export default function MapAndFormSection() {
 
             <button
               type="submit"
-              className="w-full md:w-auto px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-amber-400 to-amber-600 text-black hover:opacity-90 transition"
+              className="w-full md:w-auto px-6 py-3 rounded-xl font-semibold bg-linear-to-r from-amber-400 to-amber-600 text-black hover:opacity-90 transition"
             >
               Submit Request
             </button>
